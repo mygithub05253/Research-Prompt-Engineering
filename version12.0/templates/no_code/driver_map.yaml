@@ -1,0 +1,101 @@
+financial_driver:
+  - driver_id: "DEFENSE_BACKLOG_TO_REVENUE"
+    sector_id: "DEFENSE"
+    name: "수주잔고의 매출 인식 전환"
+    description: ""
+    input_fact_ids: []
+    input_kpi_ids: ["KPI_DEF_001"]
+    transmission:
+      revenue: ""
+      margin: ""
+      cash_flow: ""
+      balance_sheet: ""
+      valuation: ""
+    lag_or_timing: ""
+    falsifiers:
+      - "납기 지연"
+      - "생산능력 병목"
+      - "계약 취소 또는 인도 지연"
+  - driver_id: "DEFENSE_EXPORT_PIPELINE_TO_GROWTH"
+    sector_id: "DEFENSE"
+    name: "신규 수출계약 및 파이프라인의 성장 기여"
+    description: ""
+    input_fact_ids: []
+    input_kpi_ids: ["KPI_DEF_002"]
+    transmission:
+      revenue: ""
+      margin: ""
+      cash_flow: ""
+      balance_sheet: ""
+      valuation: ""
+    lag_or_timing: ""
+    falsifiers:
+      - "수출 승인 지연"
+      - "정책 또는 지정학 변수 변화"
+  - driver_id: "DEFENSE_EXPORT_MIX_TO_MARGIN"
+    sector_id: "DEFENSE"
+    name: "수출 비중과 제품 믹스의 마진 영향"
+    description: ""
+    input_fact_ids: []
+    input_kpi_ids: ["KPI_DEF_003"]
+    transmission:
+      revenue: ""
+      margin: ""
+      cash_flow: ""
+      balance_sheet: ""
+      valuation: ""
+    lag_or_timing: ""
+    falsifiers:
+      - "원가 상승"
+      - "저마진 물량 증가"
+  - driver_id: "DEFENSE_CAPACITY_DELIVERY_TO_RECOGNITION"
+    sector_id: "DEFENSE"
+    name: "생산능력과 납기의 매출 인식 제약"
+    description: ""
+    input_fact_ids: []
+    input_kpi_ids: ["KPI_DEF_004"]
+    transmission:
+      revenue: ""
+      margin: ""
+      cash_flow: ""
+      balance_sheet: ""
+      valuation: ""
+    lag_or_timing: ""
+    falsifiers:
+      - "생산 병목"
+      - "부품 조달 지연"
+  - driver_id: "DEFENSE_CASH_CONVERSION_TO_FCF"
+    sector_id: "DEFENSE"
+    name: "영업이익률과 현금전환의 FCF 영향"
+    description: ""
+    input_fact_ids: []
+    input_kpi_ids: ["KPI_DEF_005"]
+    transmission:
+      revenue: ""
+      margin: ""
+      cash_flow: ""
+      balance_sheet: ""
+      valuation: ""
+    lag_or_timing: ""
+    falsifiers:
+      - "운전자본 악화"
+      - "선수금 조건 악화"
+      - "CAPEX 증가"
+  - driver_id: "DEFENSE_FX_APPROVAL_LOCALIZATION_RISK"
+    sector_id: "DEFENSE"
+    name: "환율, 승인, 현지화 조건의 리스크"
+    description: ""
+    input_fact_ids: []
+    input_kpi_ids: ["KPI_DEF_006"]
+    transmission:
+      revenue: ""
+      margin: ""
+      cash_flow: ""
+      balance_sheet: ""
+      valuation: ""
+    lag_or_timing: ""
+    falsifiers:
+      - "환율 급변"
+      - "수출 승인 지연"
+      - "현지화 비용 증가"
+

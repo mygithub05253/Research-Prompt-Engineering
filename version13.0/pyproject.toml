@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gic-v13-local-automation"
+version = "13.0.0"
+description = "Local OpenDART based financial research automation for GIC v13"
+requires-python = ">=3.11"
+dependencies = [
+  "requests",
+  "PyYAML",
+  "jinja2"
+]
+
+[project.scripts]
+gic-v13 = "gic_v13.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

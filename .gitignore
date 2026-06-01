@@ -1,0 +1,30 @@
+# === 보안: API Key / 비밀값 절대 업로드 금지 ===
+.env
+.env.*
+*.key
+*.pem
+**/secrets.*
+**/api_key*.txt
+
+# === Python 캐시/빌드 산출물 (재생성 가능) ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+
+# === OS / 에디터 ===
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# === 임시 실행 산출물 (verify 스크래치만 제외, 정식 outputs 예시는 유지) ===
+**/outputs_verify*/
+**/outputs_final_verify*/

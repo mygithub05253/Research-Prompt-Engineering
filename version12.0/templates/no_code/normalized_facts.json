@@ -1,0 +1,57 @@
+{
+  "financial_fact": [
+    {
+      "fact_id": "F_001",
+      "entity": "",
+      "metric_group": "income_statement",
+      "metric_name": "매출액",
+      "period": "FY2025",
+      "period_type": "FY",
+      "value": null,
+      "value_text": null,
+      "unit": "KRW million",
+      "currency": "KRW",
+      "fs_div": "CFS",
+      "actual_or_estimate": "actual",
+      "source_id": "S_FIN_001",
+      "source_locator": "",
+      "validation_status": "pending",
+      "notes": ""
+    },
+    {
+      "fact_id": "F_002",
+      "entity": "",
+      "metric_group": "sector_kpi",
+      "metric_name": "수주잔고",
+      "period": "FY2025",
+      "period_type": "spot",
+      "value": null,
+      "value_text": null,
+      "unit": "",
+      "currency": null,
+      "fs_div": "NA",
+      "actual_or_estimate": "actual",
+      "source_id": "S_COMPANY_001",
+      "source_locator": "",
+      "validation_status": "pending",
+      "notes": ""
+    }
+  ],
+  "derived_metric": [
+    {
+      "metric_id": "D_001",
+      "metric_name": "영업이익률",
+      "formula": "operating_income / revenue",
+      "derived_from_fact_ids": [],
+      "value": null,
+      "unit": "%",
+      "period": "FY2025",
+      "validation_status": "pending",
+      "notes": ""
+    }
+  ],
+  "normalization_warnings": [
+    "실제값, 회사 가이던스, 애널리스트 추정, 작성자 가정을 혼합하지 말 것."
+  ]
+}
+

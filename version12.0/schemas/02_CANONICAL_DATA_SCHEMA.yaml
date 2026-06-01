@@ -1,0 +1,183 @@
+project:
+  name: GIC_v12_financial_research_system
+  version: "12.0-draft-1"
+  required_report_modes:
+    - COMPANY_REPORT
+    - INDUSTRY_REPORT
+    - INDUSTRY_TOP_PICK
+
+request:
+  request_id: string
+  report_mode: enum[COMPANY_REPORT, INDUSTRY_REPORT, INDUSTRY_TOP_PICK]
+  as_of_date: date
+  sector_id: string
+  primary_entity: string|null
+  candidate_entities: [string]
+  output_formats: [html, pdf, pptx]
+  page_orientation: enum[portrait, landscape]
+  language: ko-KR
+
+source_register:
+  - source_id: string
+    source_type: enum[METHOD, DESIGN, PRIMARY_FINANCIAL, PRIMARY_COMPANY, PRIMARY_INDUSTRY, SECONDARY_RESEARCH, NEWS]
+    title: string
+    publisher: string
+    published_date: date|null
+    as_of_date: date|null
+    retrieved_at: datetime
+    local_path_or_uri: string
+    coverage: [string]
+    reliability_note: string
+
+financial_fact:
+  - fact_id: string
+    entity: string
+    metric_group: enum[income_statement, balance_sheet, cash_flow, valuation, share_data, sector_kpi, market_data]
+    metric_name: string
+    period: string
+    period_type: enum[FY, Q, YTD, LTM, spot, range]
+    value: number|null
+    value_text: string|null
+    unit: string
+    currency: string|null
+    fs_div: enum[CFS, OFS, NA]
+    actual_or_estimate: enum[actual, company_guidance, analyst_estimate, derived]
+    source_id: string
+    source_locator: string
+    validation_status: enum[verified, pending, conflicted, unavailable]
+    notes: string|null
+
+normalized_financials:
+  entity: string
+  historical_periods: [string]
+  forecast_periods: [string]
+  metrics:
+    revenue: {unit: KRW_million, facts: [string]}
+    operating_income: {unit: KRW_million, facts: [string]}
+    net_income_attributable: {unit: KRW_million, facts: [string]}
+    depreciation_amortization: {unit: KRW_million, facts: [string]}
+    operating_cash_flow: {unit: KRW_million, facts: [string]}
+    capex: {unit: KRW_million, facts: [string]}
+    free_cash_flow: {formula: "operating_cash_flow - capex", derived_from: [string]}
+    cash: {unit: KRW_million, facts: [string]}
+    total_debt: {unit: KRW_million, facts: [string]}
+    net_debt: {formula: "total_debt - cash", derived_from: [string]}
+    equity: {unit: KRW_million, facts: [string]}
+    op_margin: {formula: "operating_income / revenue", derived_from: [string]}
+    roe: {formula_or_source: string, derived_from: [string]}
+
+sector_kpi:
+  - kpi_id: string
+    sector_id: string
+    entity: string|null
+    kpi_name: string
+    definition: string
+    value: number|null
+    unit: string
+    period: string
+    source_id: string
+    financial_link: [revenue, margin, cash_flow, balance_sheet, valuation]
+    missing_data_policy: enum[required, acceptable_na, proxy_allowed]
+
+assumption:
+  - assumption_id: string
+    scope: enum[company, industry, top_pick]
+    driver_id: string
+    description: string
+    scenario: enum[base, bull, bear]
+    value_or_direction: string
+    basis_fact_ids: [string]
+    sensitivity: enum[high, medium, low]
+    rationale: string
+    falsifier_ids: [string]
+
+financial_driver:
+  - driver_id: string
+    sector_id: string
+    name: string
+    description: string
+    input_fact_ids: [string]
+    input_kpi_ids: [string]
+    transmission:
+      revenue: string|null
+      margin: string|null
+      cash_flow: string|null
+      balance_sheet: string|null
+      valuation: string|null
+    lag_or_timing: string|null
+    falsifiers: [string]
+
+forecast:
+  entity: string
+  scenario: enum[base, bull, bear]
+  periods: [string]
+  metrics:
+    - metric_name: string
+      values: [number|null]
+      unit: string
+      formula_or_method: string
+      assumption_ids: [string]
+      confidence: enum[high, medium, low]
+
+valuation:
+  entity: string
+  selected_methods: [string]
+  method_selection_rationale: string
+  inputs:
+    - input_name: string
+      value: number|null
+      unit: string
+      source_or_assumption_id: string
+  outputs:
+    - method: string
+      implied_value: number|null
+      implied_price: number|null
+      scenario: enum[base, bull, bear]
+  sensitivity_tables: [string]
+  caveats: [string]
+
+claim_evidence_matrix:
+  - claim_id: string
+    report_section: string
+    claim_text: string
+    claim_type: enum[fact, mechanism, financial_impact, judgment, risk]
+    fact_ids: [string]
+    assumption_ids: [string]
+    driver_ids: [string]
+    falsifier_ids: [string]
+    confidence: enum[high, medium, low]
+    citation_text: string
+
+report_plan:
+  mode: enum[COMPANY_REPORT, INDUSTRY_REPORT, INDUSTRY_TOP_PICK]
+  design_system: GIC_NAVY_ORANGE
+  orientation: enum[portrait, landscape]
+  pages_or_slides:
+    - index: integer
+      section: string
+      objective: string
+      title: string
+      key_claim_ids: [string]
+      charts:
+        - chart_id: string
+          chart_type: string
+          fact_or_forecast_ids: [string]
+          unit: string
+          source_label: string
+      tables: [string]
+      narrative_blocks: [string]
+      visual_qa_notes: [string]
+
+qa_report:
+  run_id: string
+  gates:
+    factual_traceability: enum[PASS, FAIL, WARNING]
+    calculation_integrity: enum[PASS, FAIL, WARNING]
+    scenario_transparency: enum[PASS, FAIL, WARNING]
+    narrative_quality: enum[PASS, FAIL, WARNING]
+    design_compliance: enum[PASS, FAIL, WARNING]
+    render_integrity: enum[PASS, FAIL, WARNING]
+  fatal_errors: [string]
+  warnings: [string]
+  recommended_fixes: [string]
+  release_approved: boolean

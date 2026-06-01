@@ -1,0 +1,19 @@
+request_id: "DEFENSE_COMPANY_YYYYMMDD_001"
+report_mode: "COMPANY_REPORT"
+sector_id: "DEFENSE"
+primary_entity: ""
+candidate_entities: []
+as_of_date: "YYYY-MM-DD"
+output_formats:
+  - "report_plan"
+  - "research_thesis"
+  - "qa_report"
+page_orientation: "portrait"
+language: "ko-KR"
+available_sources:
+  - source_hint: ""
+    file_or_url: ""
+    expected_use: ""
+required_source_gaps:
+  - ""
+

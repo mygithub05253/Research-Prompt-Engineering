@@ -1,0 +1,20 @@
+run_id: "fixture_cli_run"
+report_mode: "COMPANY_REPORT"
+sector_id: "DEFENSE"
+primary_entity:
+  corp_name: "DEFENSE_FIXTURE_CO"
+  stock_code: "000001"
+  corp_code: null
+candidate_entities: []
+bsns_years:
+  - "2024"
+reprt_codes:
+  - "11011"
+fs_div: "CFS"
+as_of_date: "2026-05-31"
+language: "ko-KR"
+output_formats:
+  - "html"
+optional_inputs:
+  evidence_inbox_dir: null
+  manual_notes_file: null

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>GIC Weekly | [기업명]</title>
+<!--
+  GIC 위클리 4페이지 베이스 HTML (v10.0 트랙 3)
+  design-guide_v10 §3 토큰 적용 + §11 PPTX 호환성 룰
+  slides-grab의 4단계 파이프라인에서 디자인 기반으로 사용
+  부원이 yaml 데이터를 직접 채우거나 /gic-weekly Skill로 자동 채움
+-->
+<style>
+  :root {
+    --bg-light: #FFFFFF;
+    --bg-dark: #072A51;
+    --card-light: #FFFFFF;
+    --card-dark: #0D4889;
+    --section-header: #072A51;
+    --hairline: #E2E2E2;
+    --text-primary-light: #1F1F1F;
+    --text-secondary-light: #5A5A5A;
+    --text-primary-dark: #FFFFFF;
+    --text-heading-light: #072A51;
+    --text-muted: #8A8A8A;
+    --orange-primary: #E57728;
+    --orange-accent: #E97132;
+    --border-light: #E2E2E2;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Pretendard Black', 'Pretendard ExtraBold', 'Pretendard',
+                 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-primary-light);
+  }
+
+  .slide {
+    width: 1280px;
+    height: 720px;
+    padding: 60px 80px;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide.dark {
+    background: var(--bg-dark);
+    color: var(--text-primary-dark);
+  }
+
+  /* 공통 헤더 — 우상단 기업명 */
+  .top-right-label {
+    position: absolute;
+    top: 30px;
+    right: 80px;
+    font-size: 11pt;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .section-header {
+    background: var(--section-header);
+    color: var(--text-primary-dark);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 18pt;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  /* 슬라이드 1 표지 */
+  .cover-title {
+    font-family: 'Pretendard Black', 'Pretendard ExtraBold', 'Pretendard',
+                 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    font-size: 42pt;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-top: 100px;
+    margin-bottom: 20px;
+  }
+  .cover-subtitle {
+    font-size: 16pt;
+    color: var(--text-muted);
+    line-height: 1.3;
+    margin-bottom: 60px;
+  }
+
+  .opinion-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--card-dark);
+    padding: 24px 32px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  .opinion-cell { display: flex; flex-direction: column; }
+  .opinion-label { font-size: 11pt; color: var(--text-muted); }
+  .opinion-value { font-size: 18pt; font-weight: 700; }
+  .arrow { font-size: 24pt; color: var(--orange-primary); }
+
+  .change-reason {
+    border-left: 3px solid var(--orange-primary);
+    padding-left: 18px;
+    font-size: 14pt;
+    line-height: 1.5;
+  }
+
+  /* 표 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 11pt;
+  }
+  thead { background: var(--section-header); color: var(--text-primary-dark); }
+  th { padding: 8px 12px; font-weight: 700; white-space: nowrap; line-height: 1.2; }
+  td { padding: 8px 12px; line-height: 1.5; border-bottom: 1px solid var(--hairline); }
+  tbody tr:last-child td { border-bottom: none; }
+  .col-emphasis { color: var(--orange-primary); font-weight: 700; }
+
+  /* 카드 */
+  .card {
+    background: var(--card-light);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 12px;
+  }
+  .card.dark {
+    background: var(--card-dark);
+    border: none;
+    color: var(--text-primary-dark);
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 24px;
+    left: 80px;
+    right: 80px;
+    font-size: 9pt;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+
+  /* nowrap 강제 */
+  .nowrap { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- 슬라이드 1 — 표지 (다크) -->
+<section class="slide dark">
+  <div class="top-right-label nowrap">GIC Weekly · [학회기수]</div>
+  <p class="cover-title">[기업명] - [이번주 핵심 메시지]</p>
+  <p class="cover-subtitle">GIC Weekly | [YYYY-WW]주차 | [YYYY.MM.DD]</p>
+
+  <div class="opinion-box">
+    <div class="opinion-cell">
+      <span class="opinion-label nowrap">직전</span>
+      <span class="opinion-value nowrap">[BUY/HOLD/SELL]</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="opinion-cell">
+      <span class="opinion-label nowrap">이번주</span>
+      <span class="opinion-value nowrap">[BUY/HOLD/SELL]</span>
+    </div>
+    <div class="opinion-cell" style="margin-left: auto;">
+      <span class="opinion-label nowrap">목표주가</span>
+      <span class="opinion-value nowrap">[###,###원]</span>
+    </div>
+    <div class="opinion-cell">
+      <span class="opinion-label nowrap">상승여력</span>
+      <span class="opinion-value nowrap" style="color: var(--orange-primary);">[+##.#%]</span>
+    </div>
+    <div class="opinion-cell">
+      <span class="opinion-label nowrap">W/W</span>
+      <span class="opinion-value nowrap">[+##.#%]</span>
+    </div>
+  </div>
+
+  <p class="change-reason">[변경 사유 ≤60자, 예: "1Q OPM 14.2% 서프라이즈로 EPS +8% 상향"]</p>
+
+  <div class="footer">GIC 4기 · 학회 내부 학습 목적 · 투자 권유 아님</div>
+</section>
+
+<!-- 슬라이드 2 — 이번 주 새 정보 -->
+<section class="slide">
+  <div class="top-right-label nowrap">[기업명]([종목코드])</div>
+  <div class="section-header">이번 주 새 정보</div>
+
+  <h3 style="font-size: 14pt; margin-top: 12px; margin-bottom: 8px; color: var(--text-heading-light);">A. 실적·공시</h3>
+  <table>
+    <thead>
+      <tr><th>항목</th><th>발표치</th><th class="col-emphasis">컨센서스</th><th>서프라이즈</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>[항목 1]</td><td>[수치]</td><td>[수치]</td><td>[+#.#%]</td></tr>
+      <tr><td>[항목 2]</td><td>[수치]</td><td>[수치]</td><td>[+#.#%]</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size: 14pt; margin-top: 16px; margin-bottom: 8px; color: var(--text-heading-light);">B. 컨센서스 변화</h3>
+  <table>
+    <thead>
+      <tr><th>항목</th><th>직전 평균</th><th>이번주 평균</th><th class="col-emphasis">변동</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>FY1 EPS</td><td>[#,###원]</td><td>[#,###원]</td><td>[+#.#%]</td></tr>
+      <tr><td>목표주가</td><td>[###,###원]</td><td>[###,###원]</td><td>[+#.#%]</td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 11pt; color: var(--text-muted); margin-top: 20px;">자료: 한경 컨센서스 / FnGuide / 자체 추정</p>
+</section>
+
+<!-- 슬라이드 3 — 멀티플 / 목표주가 -->
+<section class="slide">
+  <div class="top-right-label nowrap">[기업명]([종목코드])</div>
+  <div class="section-header">업데이트된 멀티플 / 목표주가</div>
+
+  <table>
+    <thead>
+      <tr><th>방법론</th><th>직전</th><th>이번 주</th><th class="col-emphasis">변경 사유</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>적용 PER (배)</td><td>[##.#]</td><td>[##.#]</td><td>[≤30자]</td></tr>
+      <tr><td>적용 EV/EBITDA (배)</td><td>[##.#]</td><td>[##.#]</td><td>[≤30자]</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="margin-top: 24px;">
+    <p style="font-family: 'Courier New', monospace; font-size: 13pt; line-height: 1.6;">
+      이번 주 목표주가 = FY1 EPS × 적용 PER<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [#,###원] × [##.#]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <strong style="color: var(--orange-primary);">[###,###원]</strong>
+    </p>
+  </div>
+
+  <table style="margin-top: 24px;">
+    <thead>
+      <tr><th>시나리오</th><th>EPS</th><th>PER</th><th>목표가</th><th class="col-emphasis">상승여력</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Bear</td><td>[#,###원]</td><td>[##.#]</td><td>[###,###원]</td><td>[+##.#%]</td></tr>
+      <tr><td>Base</td><td>[#,###원]</td><td>[##.#]</td><td>[###,###원]</td><td>[+##.#%]</td></tr>
+      <tr><td>Bull</td><td>[#,###원]</td><td>[##.#]</td><td>[###,###원]</td><td>[+##.#%]</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 슬라이드 4 — 모니터링 + Disclaimer -->
+<section class="slide">
+  <div class="top-right-label nowrap">[기업명]([종목코드])</div>
+  <div class="section-header">다음 주 모니터링</div>
+
+  <table>
+    <thead>
+      <tr><th>지표</th><th>발표 예정일</th><th>기준치</th><th class="col-emphasis">트리거 액션</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>[지표 1]</td><td>[YYYY.MM.DD]</td><td>[기준]</td><td>[액션]</td></tr>
+      <tr><td>[지표 2]</td><td>[YYYY.MM.DD]</td><td>[기준]</td><td>[액션]</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="margin-top: 24px; border-left: 3px solid var(--orange-primary);">
+    <p style="font-size: 13pt;"><strong>다음 정식 분석 권장 시점:</strong> [YYYY.MM.DD] — 분기 실적 발표 후 / 신규 사업 발표 후 / 가정 변화 누적 ≥3건 시</p>
+  </div>
+
+  <div class="footer" style="border-top: 1px solid var(--hairline); padding-top: 12px;">
+    <strong>Disclaimer</strong> — 본 보고서는 GIC 학회 내부 학습 목적이며, 투자 권유가 아닙니다.
+    매주 정기 업데이트본이며 정식 9단계 분석을 대체하지 않습니다.
+  </div>
+</section>
+
+</body>
+</html>

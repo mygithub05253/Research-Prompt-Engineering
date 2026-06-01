@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>GIC Industry Top Pick | [산업명]</title>
+<!--
+  GIC 산업 TopPick 8슬라이드 베이스 HTML (v10.0 트랙 3)
+  design-guide_v10 §3 토큰 + §11 PPTX 호환성 룰
+  slides-grab + anthropic-skills:pptx 활용
+-->
+<style>
+  :root {
+    --bg-light: #FFFFFF;
+    --bg-dark: #072A51;
+    --card-light: #FFFFFF;
+    --card-dark: #0D4889;
+    --section-header: #072A51;
+    --hairline: #E2E2E2;
+    --text-primary-light: #1F1F1F;
+    --text-secondary-light: #5A5A5A;
+    --text-primary-dark: #FFFFFF;
+    --text-heading-light: #072A51;
+    --text-muted: #8A8A8A;
+    --orange-primary: #E57728;
+    --orange-accent: #E97132;
+    --border-light: #E2E2E2;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Pretendard Black', 'Pretendard ExtraBold', 'Pretendard',
+                 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-primary-light);
+  }
+
+  .slide {
+    width: 1280px;
+    height: 720px;
+    padding: 60px 80px;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide.dark {
+    background: var(--bg-dark);
+    color: var(--text-primary-dark);
+  }
+
+  .top-right-label {
+    position: absolute;
+    top: 30px;
+    right: 80px;
+    font-size: 11pt;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .section-header {
+    background: var(--section-header);
+    color: var(--text-primary-dark);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 18pt;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  .cover-title {
+    font-family: 'Pretendard Black', 'Pretendard ExtraBold', 'Pretendard', sans-serif;
+    font-size: 48pt;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-top: 80px;
+  }
+  .cover-subtitle {
+    font-size: 18pt;
+    color: var(--orange-primary);
+    line-height: 1.3;
+    margin-top: 16px;
+    margin-bottom: 50px;
+  }
+  .top-pick-card {
+    background: var(--card-dark);
+    border-left: 3px solid var(--orange-primary);
+    padding: 18px 24px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+  }
+  .top-pick-card .name { font-size: 16pt; font-weight: 700; }
+  .top-pick-card .score { font-size: 14pt; color: var(--orange-primary); margin-left: 12px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 11pt;
+  }
+  thead { background: var(--section-header); color: var(--text-primary-dark); }
+  th { padding: 8px 12px; font-weight: 700; white-space: nowrap; line-height: 1.2; }
+  td { padding: 8px 12px; line-height: 1.5; border-bottom: 1px solid var(--hairline); }
+  tbody tr:last-child td { border-bottom: none; }
+  .col-emphasis { color: var(--orange-primary); font-weight: 700; }
+
+  .card {
+    background: var(--card-light);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 12px;
+  }
+
+  .number-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: var(--orange-primary);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    margin-right: 12px;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 24px;
+    left: 80px;
+    right: 80px;
+    font-size: 9pt;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+
+  .nowrap { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- 슬라이드 1 — 표지 (다크) -->
+<section class="slide dark">
+  <div class="top-right-label nowrap">GIC Industry TopPick · [학회기수]</div>
+  <p class="cover-title">[산업명] Top Pick</p>
+  <p class="cover-subtitle">[≤30자 산업 진단 한 줄]</p>
+  <div class="top-pick-card">
+    <span class="name">Top Pick #1: [기업명] ([종목코드])</span>
+    <span class="score">[BUY/HOLD] · 6-Lens [#.#점]</span>
+  </div>
+  <div class="top-pick-card">
+    <span class="name">Top Pick #2: [기업명] ([종목코드])</span>
+    <span class="score">[BUY/HOLD] · 6-Lens [#.#점]</span>
+  </div>
+  <div class="footer">분석 기준일 [YYYY.MM.DD] · GIC 학회 내부 학습 목적</div>
+</section>
+
+<!-- 슬라이드 2 — 산업 진단 -->
+<section class="slide">
+  <div class="top-right-label nowrap">[산업명] TopPick</div>
+  <div class="section-header">산업 진단</div>
+  <div class="card" style="border-left: 3px solid var(--orange-primary);">
+    <p style="font-size: 14pt; line-height: 1.5;"><strong>핵심 비유:</strong> [≤30자 한 줄 비유]</p>
+  </div>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>글로벌</th><th>국내</th><th class="col-emphasis">5Y CAGR</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>FY24 시장규모</td><td>[$###B]</td><td>[##조원]</td><td>[+##.#%]</td></tr>
+      <tr><td>FY28E</td><td>[$###B]</td><td>[##조원]</td><td>-</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 11pt; color: var(--text-muted);">자료: TrendForce 2025.Q1 / KIET 2025.03</p>
+
+  <h3 style="font-size: 14pt; margin-top: 24px; color: var(--text-heading-light);">이번 주·이번 달 모멘텀</h3>
+  <ul style="margin-left: 24px; line-height: 1.6;">
+    <li>[모멘텀 1 ≤80자]</li>
+    <li>[모멘텀 2 ≤80자]</li>
+  </ul>
+</section>
+
+<!-- 슬라이드 3 — 스크리닝 -->
+<section class="slide">
+  <div class="top-right-label nowrap">[산업명] TopPick</div>
+  <div class="section-header">후보 종목 스크리닝</div>
+  <table>
+    <thead>
+      <tr>
+        <th>기업</th><th>시총</th><th>매출</th><th>OPM</th><th>ROE</th><th>PER(NTM)</th><th>사이클 노출도</th><th class="col-emphasis">점수</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>[기업1]</td><td>[##조]</td><td>[##조]</td><td>[##.#%]</td><td>[##.#%]</td><td>[##.#x]</td><td>[고/중/저]</td><td>[##점]</td></tr>
+      <tr><td>[기업2]</td><td>[##조]</td><td>[##조]</td><td>[##.#%]</td><td>[##.#%]</td><td>[##.#x]</td><td>[고/중/저]</td><td>[##점]</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 10pt; color: var(--text-muted); margin-top: 16px;">
+    점수 산식: 30% × Forward EPS 성장률 + 25% × ROE + 20% × (피어 평균 PER ÷ 자사 PER) + 15% × 사이클 노출도 + 10% × Red Team 통과 가능성
+  </p>
+</section>
+
+<!-- 슬라이드 4 — Top Pick #1 -->
+<section class="slide">
+  <div class="top-right-label nowrap">[산업명] TopPick</div>
+  <div class="section-header">Top Pick #1: [기업명]</div>
+  <p style="font-size: 14pt;"><strong>사업 구조:</strong> [≤80자]</p>
+  <p style="font-size: 13pt; margin-top: 8px;"><strong>Moat:</strong> [Moat 1] · [Moat 2]</p>
+
+  <table style="margin-top: 16px;">
+    <thead>
+      <tr><th>항목</th><th>FY1</th><th>FY2</th><th class="col-emphasis">FY3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>매출(억원)</td><td>[###,###]</td><td>[###,###]</td><td>[###,###]</td></tr>
+      <tr><td>OPM(%)</td><td>[##.#]</td><td>[##.#]</td><td>[##.#]</td></tr>
+      <tr><td>ROE(%)</td><td>[##.#]</td><td>[##.#]</td><td>[##.#]</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 16px;">
+    <div><span class="number-circle">1</span><strong>[Point 1 ≤25자]</strong> — [근거 ≤80자]</div>
+    <div style="margin-top: 8px;"><span class="number-circle">2</span><strong>[Point 2 ≤25자]</strong> — [근거 ≤80자]</div>
+    <div style="margin-top: 8px;"><span class="number-circle">3</span><strong>[Point 3 ≤25자]</strong> — [근거 ≤80자]</div>
+  </div>
+</section>
+
+<!-- 슬라이드 5 — Top Pick #2 (선택) -->
+<section class="slide">
+  <div class="top-right-label nowrap">[산업명] TopPick</div>
+  <div class="section-header">Top Pick #2: [기업명]</div>
+  <p style="font-size: 14pt;"><strong>사업 구조:</strong> [≤80자]</p>
+  <p style="font-size: 13pt; margin-top: 8px;"><strong>Moat:</strong> [Moat 1] · [Moat 2]</p>
+
+  <table style="margin-top: 16px;">
+    <thead>
+      <tr><th>항목</th><th>FY1</th><th>FY2</th><th class="col-emphasis">FY3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>매출</td><td></td><td></td><td></td></tr>
+      <tr><td>OPM(%)</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 슬라이드 6 — Risk-Reward -->
+<section class="slide">
+  <div class="top-right-label nowrap">[산업명] TopPick</div>
+  <div class="section-header">Risk-Reward 매트릭스</div>
+  <table>
+    <thead>
+      <tr><th>종목</th><th>상승여력</th><th>하방 리스크</th><th>R:R 비율</th><th class="col-emphasis">추천 비중</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>[Top Pick 1]</td><td>[+##.#%]</td><td>[-##.#%]</td><td>[#.#:1]</td><td>[##%]</td></tr>
+      <tr><td>[Top Pick 2]</td><td>[+##.#%]</td><td>[-##.#%]</td><td>[#.#:1]</td><td>[##%]</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 12pt; margin-top: 24px;">비중 합계: <strong>[##%]</strong> · 현금 비중: <strong>[##%]</strong></p>
+</section>
+
+<!-- 슬라이드 7 — 모니터링 -->
+<section class="slide">
+  <div class="top-right-label nowrap">[산업명] TopPick</div>
+  <div class="section-header">다음 모니터링</div>
+  <table>
+    <thead>
+      <tr><th>지표</th><th>발표 예정</th><th>기준치</th><th class="col-emphasis">트리거</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>[지표]</td><td>[YYYY.MM]</td><td>[기준]</td><td>[BUY 진입 / HOLD 유지]</td></tr>
+    </tbody>
+  </table>
+  <div class="card" style="margin-top: 24px; border-left: 3px solid var(--orange-primary);">
+    <p>다음 정식 분석: Top Pick 종목별 <code>GIC_기업리서치_v10.md</code> 풀 분석 권장</p>
+  </div>
+</section>
+
+<!-- 슬라이드 8 — Disclaimer -->
+<section class="slide dark">
+  <div class="top-right-label nowrap">GIC Industry TopPick</div>
+  <h2 style="font-size: 24pt; margin-top: 60px;">Compliance Notice</h2>
+  <ul style="margin-top: 32px; line-height: 1.8; font-size: 12pt;">
+    <li>본 보고서는 GIC 학회 내부 학습 목적이며, 투자 권유가 아닙니다.</li>
+    <li>Top Pick은 산업 1차 진단 + 추천 후보 발견 도구이며, 정식 발표용 분석은 GIC_기업리서치_v10.md로 풀 분석을 거쳐야 합니다.</li>
+    <li>모든 투자 결정은 본인 책임이며, 본 시스템은 어떠한 손익에 대해서도 책임지지 않습니다.</li>
+  </ul>
+  <div class="footer">분석 기준일 [YYYY.MM.DD] · GIC [학회기수]</div>
+</section>
+
+</body>
+</html>

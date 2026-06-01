@@ -1,0 +1,28 @@
+{
+  "mode": "COMPANY_REPORT",
+  "design_system": "GIC_NAVY_ORANGE",
+  "orientation": "portrait",
+  "pages_or_slides": [
+    {
+      "index": 1,
+      "section": "Investment Summary",
+      "objective": "왜 지금 이 회사를 봐야 하는지 근거와 반증 조건을 함께 제시한다.",
+      "title": "",
+      "key_claim_ids": [],
+      "charts": [
+        {
+          "chart_id": "CH_001",
+          "chart_type": "table_or_chart",
+          "fact_or_forecast_ids": [],
+          "unit": "",
+          "source_label": ""
+        }
+      ],
+      "tables": [],
+      "narrative_blocks": [],
+      "visual_qa_notes": []
+    }
+  ],
+  "draft_status": "DRAFT - QA NOT APPROVED"
+}
+

@@ -1,0 +1,111 @@
+project:
+  name: GIC_v13_local_automation_system
+  version: "13.0-design"
+  required_external_key:
+    - OPENDART_API_KEY
+  paid_llm_required: false
+
+run_request:
+  run_id: string
+  report_mode: enum[COMPANY_REPORT, INDUSTRY_REPORT, INDUSTRY_TOP_PICK]
+  sector_id: string
+  primary_entity:
+    corp_name: string|null
+    stock_code: string|null
+    corp_code: string|null
+  candidate_entities:
+    - corp_name: string|null
+      stock_code: string|null
+      corp_code: string|null
+  bsns_years: [string]
+  reprt_codes: [enum[11011, 11012, 11013, 11014]]
+  fs_div: enum[CFS, OFS]
+  as_of_date: date
+  language: ko-KR
+  output_formats: [html]
+  optional_inputs:
+    evidence_inbox_dir: string|null
+    manual_notes_file: string|null
+
+opendart_source:
+  source_id: string
+  source_type: PRIMARY_FINANCIAL
+  api_endpoint: string
+  corp_code: string
+  stock_code: string|null
+  corp_name: string
+  bsns_year: string|null
+  reprt_code: string|null
+  fs_div: enum[CFS, OFS, NA]
+  rcept_no: string|null
+  retrieved_at: datetime
+  raw_payload_path: string
+  status: string
+  message: string
+
+financial_fact:
+  fact_id: string
+  entity: string
+  metric_group: enum[income_statement, balance_sheet, cash_flow, valuation, share_data, sector_kpi, market_data]
+  metric_name: string
+  period: string
+  period_type: enum[FY, Q, YTD, LTM, spot, range]
+  value: number|null
+  value_text: string|null
+  unit: string
+  currency: string|null
+  fs_div: enum[CFS, OFS, NA]
+  actual_or_estimate: enum[actual, company_guidance, analyst_estimate, derived]
+  source_id: string
+  source_locator: string
+  validation_status: enum[verified, pending, conflicted, unavailable]
+  notes: string|null
+
+derived_metric:
+  metric_id: string
+  metric_name: string
+  formula: string
+  derived_from_fact_ids: [string]
+  value: number|null
+  unit: string
+  period: string
+  validation_status: enum[verified, pending, conflicted, unavailable]
+  notes: string|null
+
+evidence_candidate:
+  candidate_id: string
+  source_id: string
+  extracted_text: string
+  keyword_hits: [string]
+  proposed_metric_name: string|null
+  proposed_value: number|null
+  proposed_unit: string|null
+  proposed_period: string|null
+  confidence: enum[high, medium, low]
+  human_review_status: enum[not_reviewed, accepted, rejected]
+
+sector_kpi_status:
+  kpi_id: string
+  sector_id: DEFENSE
+  kpi_name: string
+  fact_ids: [string]
+  evidence_candidate_ids: [string]
+  financial_link: [revenue, margin, cash_flow, balance_sheet, valuation, risk]
+  status: enum[verified, pending, conflicted, unavailable]
+  missing_data_policy: enum[required, acceptable_na, proxy_allowed]
+
+qa_report:
+  run_id: string
+  gates:
+    factual_traceability: enum[PASS, FAIL, WARNING]
+    calculation_integrity: enum[PASS, FAIL, WARNING]
+    scenario_transparency: enum[PASS, FAIL, WARNING]
+    narrative_quality: enum[PASS, FAIL, WARNING]
+    design_compliance: enum[PASS, FAIL, WARNING]
+    render_integrity: enum[PASS, FAIL, WARNING]
+  fatal_errors: [string]
+  warnings: [string]
+  recommended_fixes: [string]
+  human_reviewed: boolean
+  release_approved: boolean
+

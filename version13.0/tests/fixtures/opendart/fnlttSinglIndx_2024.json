@@ -1,0 +1,17 @@
+{
+  "status": "000",
+  "message": "정상",
+  "list": [
+    {
+      "bsns_year": "2024",
+      "corp_code": "00126380",
+      "stock_code": "000001",
+      "reprt_code": "11011",
+      "idx_cl_code": "M210000",
+      "idx_cl_nm": "수익성지표",
+      "idx_code": "M211000",
+      "idx_nm": "영업이익률",
+      "idx_val": "12.0"
+    }
+  ]
+}

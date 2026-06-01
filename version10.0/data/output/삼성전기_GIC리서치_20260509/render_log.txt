@@ -1,0 +1,29 @@
+=== GIC 리서치 PPT 렌더 로그 (2026-05-09T13:45:21.925233) ===
+입력 yaml: C:\Users\kik32\내 드라이브\Obsidian Vault\Obsidian_School\가천대학교\GIC\4기\GIC 리서치 프롬프트 모델 생성 프로젝트\version10.0\data\samples\삼성전기.yaml
+양식 템플릿: C:\Users\kik32\내 드라이브\Obsidian Vault\Obsidian_School\가천대학교\GIC\4기\GIC 리서치 프롬프트 모델 생성 프로젝트\version10.0\templates\기업리서치_9p.pptx
+슬라이드 수: 9
+
+[슬라이드 1 — 표지]
+  slide_1.작성자: GIC 4기 김기현
+  slide_1.종목명/종목코드: 삼성전기 (009150)
+  slide_1.check_point.슬로건: AI 서버 MLCC 1위, 멀티플 디스카운트 해소
+  slide_1.point_1: AI 서버 MLCC 점유율 확대…
+  slide_1.point_2: 카메라 모듈 디카메라화로 ASP 상승…
+  slide_1.point_3: 멀티플 디스카운트 해소…
+  slide_1.학회기수: GIC 4기 김기현
+  slide_1.투자의견: BUY(매수)
+  slide_1.작성일: 2026.05.09
+
+[슬라이드 2~9 — 공통 우상단 라벨]
+  슬라이드 2: OK
+  슬라이드 3: OK
+  슬라이드 4: OK
+  슬라이드 5: OK
+  슬라이드 6: OK
+  슬라이드 7: OK
+  슬라이드 8: OK
+  슬라이드 9: OK
+
+[후처리] word_wrap=False 적용: 24건
+
+저장 완료: C:\Users\kik32\내 드라이브\Obsidian Vault\Obsidian_School\가천대학교\GIC\4기\GIC 리서치 프롬프트 모델 생성 프로젝트\version10.0\data\output\삼성전기_GIC리서치_20260509\삼성전기_GIC리서치_20260509.pptx

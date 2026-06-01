@@ -1,0 +1,16 @@
+methodology_sources:
+  - file: reference/deep-research-report.md
+    role: "Always-on methodology reference for v12 prompt, rendering, and QA design"
+
+design_sources:
+  - file: reference/GIC 리서치 리포트 양식 ver2 (2).pdf
+    role: "Visual validation reference for portrait research report design"
+  - file: reference/GIC 리서치 리포트 양식 ver2 (2).pptx
+    role: "Editable design source used to extract design tokens and layout rules"
+    content_flexibility: "Keep visual identity; internal content sections may be redesigned"
+
+baseline_sources:
+  - file: baseline/한화에어로스페이스_GIC_3기_이동원.pptx
+    role: "v11-era regression baseline; do not treat as current factual source"
+  - file: baseline/한화에어로스페이스_GIC_Weekly_Report_v1 (1).html
+    role: "v11-era regression baseline for HTML/output comparison"

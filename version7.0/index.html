@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIC 리서치 프롬프트 v7.0</title>
+<script type="importmap">{"imports":{"@google/genai":"https://esm.run/@anthropic-ai/genai||https://cdn.jsdelivr.net/npm/@google/genai/+esm"}}</script>
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-light: #dbeafe;
+  --primary-dark: #1d4ed8;
+  --accent: #f59e0b;
+  --accent-light: #fef3c7;
+  --success: #16a34a;
+  --success-light: #dcfce7;
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text2: #64748b;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+
+/* Header */
+.header { background:linear-gradient(135deg,#1e40af,#3b82f6); color:#fff; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+.header h1 { font-size:18px; font-weight:700; }
+.header .badge { background:rgba(255,255,255,.2); padding:4px 12px; border-radius:20px; font-size:12px; backdrop-filter:blur(4px); }
+
+/* Stepper */
+.stepper { display:flex; gap:0; padding:16px 24px; background:#fff; border-bottom:1px solid var(--border); overflow-x:auto; }
+.step-item { flex:1; text-align:center; position:relative; min-width:110px; cursor:pointer; }
+.step-num { width:32px; height:32px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; border:2px solid var(--border); color:var(--text2); background:#fff; transition:.3s; }
+.step-item.active .step-num { background:var(--primary); color:#fff; border-color:var(--primary); }
+.step-item.done .step-num { background:var(--success); color:#fff; border-color:var(--success); }
+.step-label { display:block; font-size:11px; color:var(--text2); margin-top:4px; }
+.step-item.active .step-label { color:var(--primary); font-weight:600; }
+.step-item.done .step-label { color:var(--success); }
+.step-line { position:absolute; top:16px; left:calc(50% + 20px); right:calc(-50% + 20px); height:2px; background:var(--border); }
+.step-item:last-child .step-line { display:none; }
+.step-item.done .step-line { background:var(--success); }
+
+/* Main */
+.main { max-width:960px; margin:20px auto; padding:0 16px; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; margin-bottom:16px; box-shadow:var(--shadow); }
+.card h2 { font-size:16px; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.card h3 { font-size:14px; margin:16px 0 8px; color:var(--text); }
+
+/* Forms */
+label { display:block; font-size:13px; font-weight:600; margin-bottom:4px; color:var(--text); }
+input[type=text], input[type=password], select, textarea {
+  width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px;
+  font-size:14px; background:#fff; color:var(--text); outline:none; transition:.2s;
+}
+input:focus, select:focus, textarea:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(37,99,235,.1); }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.form-group { margin-bottom:12px; }
+.form-hint { font-size:11px; color:var(--text2); margin-top:2px; }
+
+/* Buttons */
+.btn { padding:10px 20px; border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; transition:.2s; display:inline-flex; align-items:center; gap:6px; }
+.btn-primary { background:var(--primary); color:#fff; }
+.btn-primary:hover { background:var(--primary-dark); }
+.btn-secondary { background:var(--border); color:var(--text); }
+.btn-secondary:hover { background:#cbd5e1; }
+.btn-success { background:var(--success); color:#fff; }
+.btn-accent { background:var(--accent); color:#fff; }
+.btn-sm { padding:6px 12px; font-size:12px; }
+.btn-group { display:flex; gap:8px; margin-top:16px; justify-content:flex-end; }
+.btn:disabled { opacity:.5; cursor:not-allowed; }
+
+/* Radio cards */
+.radio-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.radio-card { border:2px solid var(--border); border-radius:var(--radius); padding:14px; cursor:pointer; text-align:center; transition:.2s; }
+.radio-card:hover { border-color:var(--primary); }
+.radio-card.selected { border-color:var(--primary); background:var(--primary-light); }
+.radio-card .rc-icon { font-size:24px; margin-bottom:4px; }
+.radio-card .rc-title { font-size:13px; font-weight:700; }
+.radio-card .rc-desc { font-size:11px; color:var(--text2); margin-top:2px; }
+
+/* Progress */
+.progress-bar { width:100%; height:8px; background:var(--border); border-radius:4px; overflow:hidden; margin:8px 0; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--primary),#60a5fa); border-radius:4px; transition:width .5s; }
+
+/* Tables */
+.data-table { width:100%; border-collapse:collapse; font-size:12px; margin:12px 0; }
+.data-table th { background:var(--primary); color:#fff; padding:8px; text-align:center; font-size:11px; }
+.data-table td { border:1px solid var(--border); padding:6px 8px; text-align:center; }
+.data-table tr:nth-child(even) { background:#f8fafc; }
+
+/* Prompt Step Card — NEW UX */
+.prompt-step-card {
+  border:1px solid var(--border); border-radius:var(--radius); margin:12px 0;
+  overflow:hidden; transition:.3s;
+}
+.prompt-step-card.active { border-color:var(--primary); box-shadow:0 0 0 2px rgba(37,99,235,.15); }
+.prompt-step-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px; background:#f8fafc; cursor:pointer; user-select:none;
+}
+.prompt-step-header:hover { background:#f1f5f9; }
+.prompt-step-num {
+  width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; background:var(--border); color:var(--text2); margin-right:10px; flex-shrink:0;
+}
+.prompt-step-card.active .prompt-step-num { background:var(--primary); color:#fff; }
+.prompt-step-card.done .prompt-step-num { background:var(--success); color:#fff; }
+.prompt-step-title { font-size:13px; font-weight:600; flex:1; }
+.prompt-step-actions { display:flex; gap:6px; }
+.prompt-step-body { display:none; padding:16px; border-top:1px solid var(--border); }
+.prompt-step-card.open .prompt-step-body { display:block; }
+
+.prompt-area {
+  background:#1e293b; color:#e2e8f0; border-radius:8px; padding:16px; font-family:'Consolas','Monaco','D2Coding',monospace;
+  font-size:12px; white-space:pre-wrap; max-height:350px; overflow-y:auto; position:relative; line-height:1.5;
+}
+.copy-btn { position:absolute; top:8px; right:8px; background:rgba(255,255,255,.15); border:none; color:#fff; padding:4px 10px; border-radius:6px; font-size:11px; cursor:pointer; }
+.copy-btn:hover { background:rgba(255,255,255,.3); }
+
+/* AI Open buttons */
+.ai-btn-row { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.ai-btn { display:inline-flex; align-items:center; gap:4px; padding:6px 14px; border:1px solid var(--border); border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; background:#fff; transition:.2s; text-decoration:none; color:var(--text); }
+.ai-btn:hover { background:var(--primary-light); border-color:var(--primary); }
+.ai-btn img { width:16px; height:16px; border-radius:4px; }
+
+/* Status */
+.status-item { display:flex; align-items:center; gap:8px; padding:6px 0; font-size:13px; }
+.status-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.status-dot.done { background:var(--success); }
+.status-dot.loading { background:var(--accent); animation:pulse 1s infinite; }
+.status-dot.error { background:var(--danger); }
+.status-dot.pending { background:var(--border); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+/* Log area */
+.log-area { background:#0f172a; color:#94a3b8; border-radius:8px; padding:12px; font-family:'Consolas','Monaco',monospace; font-size:11px; max-height:250px; overflow-y:auto; margin-top:8px; }
+.log-area .log-success { color:#4ade80; }
+.log-area .log-error { color:#f87171; }
+.log-area .log-info { color:#60a5fa; }
+
+/* Tabs */
+.tabs { display:flex; gap:0; border-bottom:2px solid var(--border); margin-bottom:16px; }
+.tab-btn { padding:8px 16px; border:none; background:none; font-size:13px; color:var(--text2); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-2px; transition:.2s; }
+.tab-btn.active { color:var(--primary); border-bottom-color:var(--primary); font-weight:600; }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+/* Toggle */
+.toggle-row { display:flex; align-items:center; gap:10px; margin:12px 0; }
+.toggle { width:44px; height:24px; background:var(--border); border-radius:12px; position:relative; cursor:pointer; transition:.3s; }
+.toggle.on { background:var(--primary); }
+.toggle::after { content:''; width:20px; height:20px; background:#fff; border-radius:50%; position:absolute; top:2px; left:2px; transition:.3s; box-shadow:0 1px 3px rgba(0,0,0,.2); }
+.toggle.on::after { left:22px; }
+
+/* Evidence card */
+.evidence-card { border:1px solid var(--accent); border-radius:8px; padding:12px; margin:8px 0; background:var(--accent-light); }
+.evidence-card .ev-title { font-size:12px; font-weight:700; color:#92400e; }
+.evidence-card .ev-body { font-size:11px; color:#78350f; margin-top:4px; white-space:pre-wrap; }
+.evidence-card .ev-tag { display:inline-block; background:var(--accent); color:#fff; padding:2px 8px; border-radius:10px; font-size:10px; font-weight:600; margin-top:4px; margin-right:4px; }
+
+/* Modal */
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:1000; display:none; align-items:center; justify-content:center; }
+.modal-overlay.show { display:flex; }
+.modal { background:#fff; border-radius:var(--radius); width:90%; max-width:700px; max-height:85vh; overflow-y:auto; padding:24px; }
+.modal h2 { margin-bottom:16px; }
+
+/* Hide/Show */
+.hidden { display:none !important; }
+/* Footer */
+.footer { text-align:center; padding:24px; font-size:11px; color:var(--text2); }
+
+/* Responsive */
+@media(max-width:640px){
+  .radio-cards { grid-template-columns:1fr; }
+  .form-row { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>GIC 리서치 프롬프트 모델 v7.0</h1>
+  <span class="badge">가천대 GIC 4기</span>
+</div>
+
+<!-- STEPPER -->
+<div class="stepper" id="stepper">
+  <div class="step-item active" data-step="1" onclick="goStep(1)">
+    <span class="step-num">1</span>
+    <span class="step-label">초기 설정</span>
+    <div class="step-line"></div>
+  </div>
+  <div class="step-item" data-step="2" onclick="goStep(2)">
+    <span class="step-num">2</span>
+    <span class="step-label">데이터 수집</span>
+    <div class="step-line"></div>
+  </div>
+  <div class="step-item" data-step="3" onclick="goStep(3)">
+    <span class="step-num">3</span>
+    <span class="step-label">AI 분석</span>
+    <div class="step-line"></div>
+  </div>
+  <div class="step-item" data-step="4" onclick="goStep(4)">
+    <span class="step-num">4</span>
+    <span class="step-label">5개년 밸류에이션</span>
+    <div class="step-line"></div>
+  </div>
+  <div class="step-item" data-step="5" onclick="goStep(5)">
+    <span class="step-num">5</span>
+    <span class="step-label">리포트 출력</span>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ===== STEP 1: 초기 설정 ===== -->
+<div id="screen-1" class="screen">
+  <div class="card">
+    <h2>분석 대상 설정</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>기업명</label>
+        <input type="text" id="companyName" placeholder="예: 삼성전자">
+      </div>
+      <div class="form-group">
+        <label>종목코드</label>
+        <input type="text" id="stockCode" placeholder="예: 005930">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>산업/섹터</label>
+        <input type="text" id="sectorName" placeholder="예: 반도체(메모리·시스템LSI)">
+      </div>
+      <div class="form-group">
+        <label>분석 기준일</label>
+        <input type="text" id="baseDate" value="2026.05.08">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>독자 수준</label>
+      <select id="readerLevel">
+        <option value="초급">초급 (투자 입문)</option>
+        <option value="중급" selected>중급 (기본 재무 이해)</option>
+        <option value="전문가">전문가 (애널리스트급)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>리포트 유형</h2>
+    <div class="radio-cards" id="reportType">
+      <div class="radio-card selected" data-value="기업리서치보고서" onclick="selectCard(this)">
+        <div class="rc-icon">📊</div>
+        <div class="rc-title">기업리서치보고서</div>
+        <div class="rc-desc">3-Statement 모델링<br>5개년 밸류에이션</div>
+      </div>
+      <div class="radio-card" data-value="위클리투자리포트" onclick="selectCard(this)">
+        <div class="rc-icon">📰</div>
+        <div class="rc-title">위클리 투자리포트</div>
+        <div class="rc-desc">이번 주 핵심 변화<br>PPTX 3장 완결</div>
+      </div>
+      <div class="radio-card" data-value="산업TopPick" onclick="selectCard(this)">
+        <div class="rc-icon">🏆</div>
+        <div class="rc-title">산업 Top Pick</div>
+        <div class="rc-desc">후보 비교 스코어링<br>최선호종목 선정</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>API 설정 (선택)</h2>
+    <div class="toggle-row">
+      <div class="toggle" id="apiToggle" onclick="toggleAPI()"></div>
+      <span style="font-size:13px;" id="apiToggleLabel">API 직접 호출 모드 (Gemini 무료 500회/일)</span>
+    </div>
+
+    <div id="apiFields" class="hidden">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Gemini API Key</label>
+          <input type="password" id="geminiKey" placeholder="AI Studio에서 발급 (무료)">
+          <div class="form-hint"><a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--primary);">무료 발급 바로가기</a> — gemini-2.0-flash 사용</div>
+        </div>
+        <div class="form-group">
+          <label>DART API Key (선택)</label>
+          <input type="password" id="dartKey" placeholder="DART OpenAPI 인증키">
+          <div class="form-hint"><a href="https://opendart.fss.or.kr/" target="_blank" style="color:var(--primary);">무료 발급 바로가기</a> — 없으면 Gemini가 웹검색으로 대체</div>
+        </div>
+      </div>
+      <button class="btn btn-sm btn-primary" onclick="testGeminiKey()" id="testKeyBtn">API Key 테스트</button>
+      <span id="keyTestResult" style="font-size:12px; margin-left:8px;"></span>
+    </div>
+
+    <div id="promptModeInfo">
+      <div style="background:var(--primary-light); border-radius:8px; padding:12px; font-size:13px; margin-top:8px;">
+        <strong>프롬프트 복사 모드</strong>: API Key 없이 사용합니다. 각 단계에서 프롬프트를 복사하여 ChatGPT/Gemini/Claude에 붙여넣기하세요.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="topPickExtra" style="display:none;">
+    <h2>산업 Top Pick 추가 설정</h2>
+    <div class="form-group">
+      <label>분석 대상 산업/섹터</label>
+      <input type="text" id="industryName" placeholder="예: 2차전지(양극재·음극재·전해질)">
+    </div>
+    <div class="form-group">
+      <label>후보 기업 (쉼표 구분, 비워두면 AI 스크리닝)</label>
+      <input type="text" id="candidates" placeholder="예: 에코프로비엠, 포스코퓨처엠, 엘앤에프">
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goStep(2)">분석 시작 →</button>
+  </div>
+</div>
+
+<!-- ===== STEP 2: 데이터 수집 ===== -->
+<div id="screen-2" class="screen hidden">
+  <div class="card" id="apiCollectCard">
+    <h2>데이터 수집</h2>
+    <div id="collectStatus"></div>
+    <div class="progress-bar"><div class="progress-fill" id="collectProgress" style="width:0%"></div></div>
+    <div style="font-size:12px; color:var(--text2); margin-top:4px;" id="collectPercent">대기 중</div>
+    <div class="log-area hidden" id="collectLog"></div>
+  </div>
+
+  <div class="card hidden" id="collectResultCard">
+    <h2>수집 완료 요약</h2>
+    <div id="collectSummary"></div>
+  </div>
+
+  <!-- Prompt Copy Mode — Step Cards -->
+  <div id="promptCopyStep2" class="hidden">
+    <div class="card">
+      <h2>Step 2 — 데이터 수집 프롬프트</h2>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:12px;">아래 프롬프트를 순서대로 AI에 입력하세요. 변수는 자동으로 채워져 있습니다.</p>
+      <div id="step2PromptCards"></div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" onclick="goStep(1)">← 이전</button>
+    <button class="btn btn-primary" id="btnStep2Next" onclick="goStep(3)">AI 분석 →</button>
+  </div>
+</div>
+
+<!-- ===== STEP 3: AI 분석 ===== -->
+<div id="screen-3" class="screen hidden">
+  <div id="apiAnalysisCard" class="card hidden">
+    <h2>AI 분석 진행 중</h2>
+    <div id="analysisStatus"></div>
+    <div class="progress-bar"><div class="progress-fill" id="analysisProgress" style="width:0%"></div></div>
+    <div class="log-area hidden" id="analysisLog"></div>
+  </div>
+
+  <div id="analysisResultCard" class="card hidden">
+    <h2>AI 분석 결과</h2>
+    <div id="analysisResultContent" style="font-size:13px; white-space:pre-wrap; max-height:500px; overflow-y:auto;"></div>
+  </div>
+
+  <div id="promptCopyStep3">
+    <div class="card">
+      <h2>Step 3 — AI 분석 프롬프트</h2>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:12px;">수집한 데이터를 바탕으로 분석 프롬프트를 AI에 입력하세요.</p>
+      <div id="step3PromptCards"></div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" onclick="goStep(2)">← 이전</button>
+    <button class="btn btn-primary" onclick="goStep(4)">5개년 밸류에이션 →</button>
+  </div>
+</div>
+
+<!-- ===== STEP 4: 5개년 밸류에이션 ===== -->
+<div id="screen-4" class="screen hidden">
+  <div id="promptCopyStep4">
+    <div class="card">
+      <h2>Step 4 — 5개년 밸류에이션 프롬프트</h2>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:12px;">분석 결과를 바탕으로 밸류에이션 프롬프트를 AI에 입력하세요.</p>
+      <div id="step4PromptCards"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>참고 — 밸류에이션 프레임워크</h2>
+    <div style="font-size:12px; color:var(--text2); display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="background:var(--primary-light); padding:12px; border-radius:8px;">
+        <strong style="color:var(--primary);">5개년 재무 추정</strong><br>
+        사업부별 매출 → IS/BS/CF 연결<br>
+        FCF, EBITDA, EPS 산출
+      </div>
+      <div style="background:var(--accent-light); padding:12px; border-radius:8px;">
+        <strong style="color:#92400e;">4가지 밸류에이션</strong><br>
+        PER / PBR / EV-EBITDA / DCF<br>
+        피어 멀티플 비교
+      </div>
+      <div style="background:var(--success-light); padding:12px; border-radius:8px;">
+        <strong style="color:var(--success);">시나리오 분석</strong><br>
+        Bear / Base / Bull × FY1~FY5<br>
+        Blended CAGR 산출
+      </div>
+      <div style="background:var(--danger-light); padding:12px; border-radius:8px;">
+        <strong style="color:var(--danger);">가정 근거 카드</strong><br>
+        각 가정 → 근거 3건 + 출처<br>
+        신뢰도: 상/중/하
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" onclick="goStep(3)">← 이전</button>
+    <button class="btn btn-primary" onclick="goStep(5)">리포트 출력 →</button>
+  </div>
+</div>
+
+<!-- ===== STEP 5: 리포트 출력 ===== -->
+<div id="screen-5" class="screen hidden">
+  <div class="card">
+    <h2>최종 프롬프트 출력</h2>
+    <p style="font-size:13px; color:var(--text2); margin-bottom:16px;">AI 모델별 최적화된 전체 프롬프트를 확인하고 복사하세요.</p>
+
+    <div class="tabs" id="finalTabs">
+      <button class="tab-btn active" onclick="showFinalTab('gemini')">Gemini</button>
+      <button class="tab-btn" onclick="showFinalTab('chatgpt')">ChatGPT</button>
+      <button class="tab-btn" onclick="showFinalTab('claude')">Claude</button>
+    </div>
+
+    <div id="final-gemini" class="tab-panel active">
+      <div style="margin-bottom:8px;">
+        <div class="ai-btn-row">
+          <a class="ai-btn" href="https://gemini.google.com/app" target="_blank">Gemini에서 열기</a>
+          <button class="ai-btn" onclick="copyFinalPrompt('gemini')">전체 복사</button>
+        </div>
+      </div>
+      <div class="prompt-area" id="finalPromptGemini" style="min-height:200px;"></div>
+    </div>
+    <div id="final-chatgpt" class="tab-panel">
+      <div style="margin-bottom:8px;">
+        <div class="ai-btn-row">
+          <a class="ai-btn" href="https://chatgpt.com/" target="_blank">ChatGPT에서 열기</a>
+          <button class="ai-btn" onclick="copyFinalPrompt('chatgpt')">전체 복사</button>
+        </div>
+      </div>
+      <div class="prompt-area" id="finalPromptChatgpt" style="min-height:200px;"></div>
+    </div>
+    <div id="final-claude" class="tab-panel">
+      <div style="margin-bottom:8px;">
+        <div class="ai-btn-row">
+          <a class="ai-btn" href="https://claude.ai/" target="_blank">Claude에서 열기</a>
+          <button class="ai-btn" onclick="copyFinalPrompt('claude')">전체 복사</button>
+        </div>
+      </div>
+      <div class="prompt-area" id="finalPromptClaude" style="min-height:200px;"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>단계별 프롬프트 개별 복사</h2>
+    <p style="font-size:13px; color:var(--text2); margin-bottom:12px;">각 단계를 분리해서 AI에 넣고 싶으면 아래에서 개별 복사하세요.</p>
+    <div id="step5IndividualCards"></div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" onclick="goStep(4)">← 이전</button>
+    <button class="btn btn-success" onclick="resetAll()">새 분석 시작</button>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<div class="footer">
+  GIC 4기 · 가천대학교 글로벌투자연구학회 · 본 보고서는 교육 목적으로 작성. 투자 권유 아님.<br>
+  v7.0 — Gemini API 실연동 + 5개년 밸류에이션 + Chain-of-Thought 프롬프트
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script type="module">
+// ===== Gemini SDK Dynamic Import =====
+let GoogleGenAI = null;
+
+async function loadGeminiSDK() {
+  try {
+    const mod = await import('https://cdn.jsdelivr.net/npm/@google/genai/+esm');
+    GoogleGenAI = mod.GoogleGenAI;
+    return true;
+  } catch(e) {
+    console.warn('Gemini SDK CDN load failed, trying alternate...', e);
+    try {
+      const mod2 = await import('https://esm.sh/@google/genai');
+      GoogleGenAI = mod2.GoogleGenAI;
+      return true;
+    } catch(e2) {
+      console.error('All Gemini SDK imports failed', e2);
+      return false;
+    }
+  }
+}
+
+// ===== STATE =====
+let currentStep = 1;
+let apiMode = false;
+let selectedReport = '기업리서치보고서';
+let state = {};
+let geminiClient = null;
+let collectedData = '';  // stores data from step 2 for use in step 3+
+
+// ===== Expose to global scope =====
+window.goStep = goStep;
+window.selectCard = selectCard;
+window.toggleAPI = toggleAPI;
+window.testGeminiKey = testGeminiKey;
+window.resetAll = resetAll;
+window.showFinalTab = showFinalTab;
+window.copyFinalPrompt = copyFinalPrompt;
+window.copyPromptCard = copyPromptCard;
+window.togglePromptCard = togglePromptCard;
+window.closeModal = closeModal;
+
+// ===== NAVIGATION =====
+function goStep(n) {
+  if (n === 2 && currentStep === 1) {
+    const name = document.getElementById('companyName').value.trim();
+    const code = document.getElementById('stockCode').value.trim();
+    if (selectedReport === '산업TopPick') {
+      const ind = document.getElementById('industryName').value.trim();
+      if (!ind) { alert('산업/섹터를 입력해주세요.'); return; }
+    } else {
+      if (!name || !code) { alert('기업명과 종목코드를 입력해주세요.'); return; }
+    }
+    state.company = name;
+    state.code = code;
+    state.sector = document.getElementById('sectorName').value.trim();
+    state.date = document.getElementById('baseDate').value;
+    state.level = document.getElementById('readerLevel').value;
+    if (selectedReport === '산업TopPick') {
+      state.industry = document.getElementById('industryName').value.trim();
+      state.candidates = document.getElementById('candidates').value.trim();
+    }
+  }
+
+  // Update stepper
+  document.querySelectorAll('.step-item').forEach(el => {
+    const s = parseInt(el.dataset.step);
+    el.classList.remove('active', 'done');
+    if (s < n) el.classList.add('done');
+    if (s === n) el.classList.add('active');
+  });
+
+  // Show screen
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+  document.getElementById('screen-' + n).classList.remove('hidden');
+  currentStep = n;
+
+  // Trigger
+  if (n === 2) initStep2();
+  if (n === 3) initStep3();
+  if (n === 4) initStep4();
+  if (n === 5) initStep5();
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== REPORT TYPE =====
+function selectCard(el) {
+  document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedReport = el.dataset.value;
+  document.getElementById('topPickExtra').style.display = selectedReport === '산업TopPick' ? 'block' : 'none';
+}
+
+// ===== API TOGGLE =====
+function toggleAPI() {
+  apiMode = !apiMode;
+  document.getElementById('apiToggle').classList.toggle('on', apiMode);
+  document.getElementById('apiFields').classList.toggle('hidden', !apiMode);
+  document.getElementById('promptModeInfo').classList.toggle('hidden', apiMode);
+}
+
+// ===== TEST GEMINI KEY =====
+async function testGeminiKey() {
+  const key = document.getElementById('geminiKey').value.trim();
+  const resultEl = document.getElementById('keyTestResult');
+  if (!key) { resultEl.textContent = 'API Key를 입력해주세요.'; resultEl.style.color = 'var(--danger)'; return; }
+
+  resultEl.textContent = '테스트 중...';
+  resultEl.style.color = 'var(--text2)';
+
+  const sdkLoaded = await loadGeminiSDK();
+  if (!sdkLoaded) {
+    resultEl.textContent = 'SDK 로딩 실패. 네트워크를 확인하세요.';
+    resultEl.style.color = 'var(--danger)';
+    return;
+  }
+
+  try {
+    const ai = new GoogleGenAI({ apiKey: key });
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.0-flash',
+      contents: '대한민국의 수도는? (한 단어로 답변)',
+    });
+    if (response && response.text) {
+      resultEl.innerHTML = '<span style="color:var(--success);">연결 성공! (' + response.text.trim().substring(0,20) + ')</span>';
+      geminiClient = ai;
+    } else {
+      resultEl.textContent = '응답 형식 오류';
+      resultEl.style.color = 'var(--danger)';
+    }
+  } catch(e) {
+    resultEl.textContent = '실패: ' + (e.message || '알 수 없는 오류');
+    resultEl.style.color = 'var(--danger)';
+  }
+}
+
+// ===== GEMINI CALL WITH GROUNDING =====
+async function callGemini(prompt, useGrounding = true) {
+  const key = document.getElementById('geminiKey').value.trim();
+  if (!GoogleGenAI) {
+    const loaded = await loadGeminiSDK();
+    if (!loaded) throw new Error('Gemini SDK 로딩 실패');
+  }
+  if (!geminiClient) {
+    geminiClient = new GoogleGenAI({ apiKey: key });
+  }
+
+  const config = {};
+  if (useGrounding) {
+    config.tools = [{ googleSearch: {} }];
+  }
+
+  const response = await geminiClient.models.generateContent({
+    model: 'gemini-2.0-flash',
+    contents: prompt,
+    config: config,
+  });
+
+  let result = { text: response.text || '' };
+
+  // Extract grounding sources if available
+  if (response.candidates && response.candidates[0]) {
+    const gc = response.candidates[0].groundingMetadata;
+    if (gc && gc.groundingChunks) {
+      result.sources = gc.groundingChunks.map(c => ({
+        title: c.web?.title || '',
+        url: c.web?.uri || ''
+      }));
+    }
+  }
+  return result;
+}
+
+// ===== PROMPT TEMPLATES =====
+function getVar(key) {
+  const map = {
+    company: state.company || '[기업명]',
+    code: state.code || '[종목코드]',
+    sector: state.sector || '[산업/섹터]',
+    date: state.date || '2026.05.08',
+    level: state.level || '중급',
+    industry: state.industry || '[산업명]',
+    candidates: state.candidates || 'AI 자동 스크리닝',
+  };
+  return map[key] || '';
+}
+
+function promptStep2_Collection() {
+  const c = getVar('company');
+  const code = getVar('code');
+  const sector = getVar('sector');
+  const d = getVar('date');
+
+  if (selectedReport === '산업TopPick') {
+    return `[Chain-of-Thought 분석 요청]
+
+당신은 증권사 리서치센터 애널리스트입니다.
+다음 산업에 대해 체계적으로 데이터를 수집해주세요.
+
+산업: ${getVar('industry')}
+후보 기업: ${getVar('candidates')}
+기준일: ${d}
+
+## 수집 항목 (반드시 출처 표기)
+1. 산업 시장 규모 및 CAGR 전망 (글로벌 + 국내)
+2. 후보 기업별 기본 재무 (시총/매출/영업이익/PER/PBR/ROE)
+3. 후보 기업별 사업 구조 및 경쟁 포지션
+4. 최근 3개월 핵심 뉴스/공시
+5. 증권사 컨센서스 (목표주가, 투자의견)
+
+## 출력 형식
+- 모든 숫자에 출처 필수: (출처: OOO, YYYY.MM)
+- 확인 안 된 수치는 "확인 필요" 표기
+- 표 형식으로 비교 정리`;
+  }
+
+  if (selectedReport === '위클리투자리포트') {
+    return `[Chain-of-Thought 분석 요청]
+
+당신은 증권사 리서치센터 애널리스트입니다.
+다음 기업의 이번 주 핵심 변화를 중심으로 데이터를 수집해주세요.
+
+기업명: ${c} (${code})
+산업: ${sector}
+기준일: ${d}
+
+## 수집 항목
+1. 이번 주 주가 변동 (시가/종가/고가/저가/등락률)
+2. 이번 주 핵심 뉴스/공시 3건 (날짜+제목+핵심내용+출처)
+3. 현재 밸류에이션 (PER/PBR) vs 피어 평균
+4. 증권사 최신 리포트 (목표주가 변경 있으면 포함)
+5. 거래량 변화 및 외국인/기관 수급 동향
+
+모든 숫자에 출처를 반드시 표기하세요.`;
+  }
+
+  // 기업리서치보고서
+  return `[Chain-of-Thought 분석 요청]
+
+당신은 증권사 리서치센터의 시니어 애널리스트입니다.
+다음 기업에 대해 증권사 수준의 데이터를 체계적으로 수집해주세요.
+
+먼저 수집 계획을 세우고 → 데이터를 수집하고 → 결과를 정리하세요.
+(Think step by step)
+
+기업명: ${c} (${code})
+산업: ${sector}
+기준일: ${d}
+
+## 수집 항목 (7가지 — 모든 숫자에 출처 필수)
+
+### 1. DART 재무제표 (최근 3개년)
+- 손익계산서: 매출, 매출원가, 매출총이익, 판관비, 영업이익, 순이익
+- 재무상태표: 총자산, 총부채, 자본총계, 현금성자산, 차입금
+- 현금흐름표: 영업CF, 투자CF, 재무CF, FCF
+- 사업부별 매출 비중 (세그먼트별)
+
+### 2. 시장 데이터
+- 현재 주가, 시가총액, 52주 최고/최저
+- PER, PBR, EV/EBITDA, 배당수익률
+- 발행주식수, 외국인 지분율
+
+### 3. 사업부 구조
+- 각 사업부별 매출 비중 및 3개년 추이
+- 각 사업부 성장 드라이버
+- 주요 고객사/제품
+
+### 4. 피어 그룹 (3~5개 기업)
+- 각 피어의 시총/매출/영업이익/PER/PBR/EV_EBITDA/ROE
+- 피어 선정 근거
+
+### 5. 산업 동향
+- 글로벌 시장 규모 및 CAGR
+- 산업 사이클 위치 (초기/성장/성숙/쇠퇴)
+- 핵심 트렌드 3가지
+
+### 6. 뉴스/공시 (최근 3개월)
+- 핵심 뉴스 5건 (날짜+제목+핵심내용)
+- 주요 공시 (수주, 투자, 규제 등)
+
+### 7. 증권사 컨센서스
+- 최근 3개 증권사 목표주가 및 투자의견
+- Forward EPS 컨센서스
+
+## 출력 형식
+- 모든 숫자에 출처 필수: (출처: OOO, YYYY.MM)
+- 확인 안 된 수치는 "확인 필요"라고 표기
+- 표 형식으로 정리하되, 핵심 인사이트는 서술로 추가`;
+}
+
+function promptStep3_Analysis() {
+  const c = getVar('company');
+
+  if (selectedReport === '산업TopPick') {
+    return `[Chain-of-Thought: 산업 Top Pick 분석]
+
+앞서 수집한 데이터를 바탕으로 산업 Top Pick 분석을 수행해주세요.
+단계별로 사고하며 (Think step by step) 분석해주세요.
+
+산업: ${getVar('industry')}
+독자 수준: ${getVar('level')}
+
+## 분석 순서
+
+### Step 1: 산업 개요
+- 시장 규모 및 CAGR (글로벌/국내)
+- 산업 사이클 위치
+- Porter's 5 Forces 핵심 요약
+- 향후 3년 핵심 트렌드 3가지
+
+### Step 2: 정량 비교 (표)
+후보 기업별:
+| 항목 | 기업A | 기업B | 기업C |
+- 시가총액, 매출, 매출성장률(YoY), OPM, ROE, PER, PBR, EV/EBITDA, 배당수익률
+
+### Step 3: 정성 비교 (표)
+| 항목 | 기업A | 기업B | 기업C |
+- 경쟁 우위, 성장성, 리스크, 모멘텀/촉매
+
+### Step 4: 100점 스코어링
+| 평가 항목 | 배점 | 기업A | 기업B | 기업C |
+- 밸류에이션 매력도 (25점)
+- 이익 성장성 (25점)
+- 수익성/효율성 (15점)
+- 경쟁 우위 (15점)
+- 모멘텀/촉매 (10점)
+- 재무 안정성 (10점)
+- **합계 (100점)**
+
+### Step 5: Top Pick 선정
+- 최선호종목 1개 선정 + 선정 근거 (3가지)
+- 핵심 투자포인트 요약
+- 주요 리스크 및 대응 전략
+
+각 판단에 근거와 출처를 반드시 명시하세요.`;
+  }
+
+  if (selectedReport === '위클리투자리포트') {
+    return `[Chain-of-Thought: 위클리 투자리포트 분석]
+
+앞서 수집한 데이터를 바탕으로 위클리 리포트를 작성해주세요.
+단계별로 사고하며 (Think step by step) 분석해주세요.
+
+기업명: ${c}
+기준일: ${getVar('date')}
+
+## 분석 순서
+
+### Step 1: 이번 주 핵심 변화 (Top 3)
+각 변화별:
+- 팩트 (What): 무슨 일이 있었는가
+- 영향 (So What): 기업 가치에 어떤 영향이 있는가
+- 확신도: 상/중/하
+- 출처 명시
+
+### Step 2: 투자포인트 업데이트
+- 기존 투자포인트 유지/변경 여부
+- 새로운 모멘텀이 있는가
+
+### Step 3: 간이 밸류에이션
+- 현재 PER vs 피어 평균 vs 과거 3년 평균
+- 현재 PBR vs 피어 평균
+- 단기(1개월) 목표주가 및 근거
+
+### Step 4: 리스크 체크
+- 이번 주 새로 부각된 리스크 (있다면)
+- 기존 리스크 현황
+
+### Step 5: 결론 (PPTX 3장 분량)
+- 한줄 요약
+- 투자의견 유지/변경
+- 다음 주 관전 포인트`;
+  }
+
+  // 기업리서치보고서
+  return `[Chain-of-Thought: 기업 심층 분석]
+
+앞서 수집한 데이터를 바탕으로 증권사 수준의 기업 분석을 수행해주세요.
+단계별로 사고하며 (Think step by step), 각 판단에 근거를 제시하세요.
+
+기업명: ${c}
+산업: ${getVar('sector')}
+독자 수준: ${getVar('level')}
+
+## 분석 순서
+
+### Step 1: 산업 개요
+- 글로벌 시장 규모 및 CAGR
+- 산업 사이클 위치 (초기/성장/성숙/쇠퇴)
+- Porter's 5 Forces 핵심 1~2개
+- 향후 3년 핵심 트렌드
+
+### Step 2: 기업 개요
+- 사업 구조 (사업부별 매출 비중 + 성장 추이)
+- 경쟁 포지션 (시장 점유율, 차별화 포인트)
+- 경영진 특이사항
+
+### Step 3: 핵심 투자포인트 (5가지)
+각 포인트별:
+- 가설 (Thesis)
+- 정량 근거 (숫자 + 출처)
+- 확신도: 상/중/하
+- [Assumption Evidence Card]
+  가정 → 근거 ① ② ③ → 출처 → 신뢰도
+
+### Step 4: 리스크 요인 (3가지)
+각 리스크별:
+- 발생 확률: 높음/중간/낮음
+- 영향도: 높음/중간/낮음
+- 대응 전략
+
+### Step 5: 수익성 분석
+- OPM, NPM, ROE 추이 (3개년)
+- 피어 대비 수익성 위치
+- 수익성 개선/악화 요인
+
+### Step 6: 결론 요약
+- 한줄 핵심 투자 아이디어
+- 핵심 수치 요약 테이블
+
+출력 형식: 표와 서술을 적절히 섞어 정리`;
+}
+
+function promptStep4_Valuation() {
+  const c = getVar('company');
+  return `[Chain-of-Thought: 5개년 Forward 밸류에이션]
+
+앞서 수집한 데이터와 분석 결과를 바탕으로 5개년 Forward 밸류에이션을 수행해주세요.
+단계별로 사고하며 (Think step by step), 각 가정에 근거를 제시하세요.
+
+기업명: ${c}
+산업: ${getVar('sector')}
+
+## Step 1: 사업부별 매출 추정 (FY1~FY5)
+
+각 사업부별로:
+- 성장률 가정 및 근거
+- [Assumption Evidence Card]
+  가정: "사업부A 매출 YoY +X%"
+  근거 ①: (내용) — 출처: OOO
+  근거 ②: (내용) — 출처: OOO
+  근거 ③: (내용) — 출처: OOO
+  신뢰도: 상/중/하
+
+## Step 2: 3-Statement 연결 모델
+
+| 항목 | FY-2(실적) | FY-1(실적) | FY0(실적) | FY1(E) | FY2(E) | FY3(E) | FY4(E) | FY5(E) |
+|------|-------|-------|------|--------|--------|--------|--------|--------|
+| 사업부A 매출 | | | | | | | | |
+| 사업부B 매출 | | | | | | | | |
+| 총매출 | | | | | | | | |
+| 매출원가(COGS) | | | | | | | | |
+| 매출총이익 | | | | | | | | |
+| 판관비(SG&A) | | | | | | | | |
+| 영업이익(EBIT) | | | | | | | | |
+| NOPAT | | | | | | | | |
+| D&A | | | | | | | | |
+| CapEx | | | | | | | | |
+| ΔNWC | | | | | | | | |
+| FCF | | | | | | | | |
+| EBITDA | | | | | | | | |
+| EPS | | | | | | | | |
+
+IS → BS → CF 연결 확인 (Balance Check 수행)
+
+## Step 3: Blended CAGR
+50% × 1Y Growth + 30% × 3Y CAGR + 20% × 5Y CAGR = ?
+
+## Step 4: 4가지 밸류에이션
+
+1. **PER**: NTM EPS × 적정 PER (피어 평균 기반)
+2. **PBR**: BPS × 적정 PBR
+3. **EV/EBITDA**: EBITDA × 적정 배수 - 순차입금
+4. **DCF**: FCF 현재가치 합산 + Terminal Value
+   - WACC 산출 (Rf, ERP, Beta, Debt ratio, Kd)
+   - TV: 영구성장률 가정 + 근거
+   - WACC ±0.5%p 민감도 분석
+
+## Step 5: Bear / Base / Bull 시나리오 (× FY1~FY5)
+
+| 시나리오 | 핵심 가정 (1줄) | FY1 목표가 | FY3 목표가 | FY5 목표가 | 5Y CAGR | 상승여력(FY1) |
+|---------|----------------|-----------|-----------|-----------|---------|-------------|
+| Bear | | | | | | |
+| Base | | | | | | |
+| Bull | | | | | | |
+
+## Step 6: 투자의견 판정
+상승여력 (Base FY1 기준):
+- ≥ +15% → BUY (매수)
+- -10% ~ +15% → HOLD (보유)
+- < -10% → SELL (매도)
+
+**최종 투자의견**: [   ]
+**Base 목표주가**: [   ]원
+**핵심 근거 3줄 요약**`;
+}
+
+// ===== PROMPT CARD BUILDER =====
+function buildPromptCard(id, stepNum, title, content, aiLinks) {
+  const escaped = escapeHtml(content);
+  const linksHtml = (aiLinks || []).map(l =>
+    `<a class="ai-btn" href="${l.url}" target="_blank">${l.name}에서 열기</a>`
+  ).join('');
+
+  return `
+  <div class="prompt-step-card open" id="card-${id}">
+    <div class="prompt-step-header" onclick="togglePromptCard('${id}')">
+      <span class="prompt-step-num">${stepNum}</span>
+      <span class="prompt-step-title">${title}</span>
+      <div class="prompt-step-actions">
+        <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();copyPromptCard('${id}')">복사</button>
+      </div>
+    </div>
+    <div class="prompt-step-body">
+      <div class="prompt-area" id="prompt-${id}">${escaped}</div>
+      <div class="ai-btn-row" style="margin-top:10px;">
+        ${linksHtml}
+        <button class="ai-btn" onclick="copyPromptCard('${id}')">클립보드에 복사</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function togglePromptCard(id) {
+  document.getElementById('card-' + id).classList.toggle('open');
+}
+
+function copyPromptCard(id) {
+  const el = document.getElementById('prompt-' + id);
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const card = document.getElementById('card-' + id);
+    const btn = card.querySelector('.prompt-step-actions .btn');
+    if (btn) { const orig = btn.textContent; btn.textContent = '복사됨!'; setTimeout(() => btn.textContent = orig, 1500); }
+  });
+}
+
+// ===== STEP 2 INIT =====
+function initStep2() {
+  if (apiMode) {
+    document.getElementById('promptCopyStep2').classList.add('hidden');
+    document.getElementById('apiCollectCard').classList.remove('hidden');
+    runApiCollection();
+  } else {
+    document.getElementById('apiCollectCard').classList.add('hidden');
+    document.getElementById('promptCopyStep2').classList.remove('hidden');
+    document.getElementById('collectResultCard').classList.add('hidden');
+
+    const prompt = promptStep2_Collection();
+    const aiLinks = [
+      { name: 'Gemini', url: 'https://gemini.google.com/app' },
+      { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+      { name: 'Claude', url: 'https://claude.ai/' },
+    ];
+
+    document.getElementById('step2PromptCards').innerHTML =
+      buildPromptCard('s2-collect', '2-1', '데이터 수집 프롬프트', prompt, aiLinks);
+  }
+}
+
+// ===== API MODE: ACTUAL GEMINI CALLS =====
+async function runApiCollection() {
+  const statusEl = document.getElementById('collectStatus');
+  const progressEl = document.getElementById('collectProgress');
+  const percentEl = document.getElementById('collectPercent');
+  const logEl = document.getElementById('collectLog');
+
+  logEl.classList.remove('hidden');
+  logEl.innerHTML = '';
+  collectedData = '';
+
+  const steps = [
+    { label: 'Gemini 웹검색 — 재무제표 수집', query: `${getVar('company')} (${getVar('code')}) DART 재무제표 최근 3개년 매출 영업이익 순이익 자산 부채 현금흐름 사업부별 매출. 표 형식으로 정리하고 출처를 명시해줘.` },
+    { label: 'Gemini 웹검색 — 시장 데이터', query: `${getVar('company')} 현재 주가, 시가총액, PER, PBR, EV/EBITDA, 52주 최고/최저, 외국인 지분율. 네이버 금융 기준. 표로 정리.` },
+    { label: 'Gemini 웹검색 — 산업 동향 · 컨센서스', query: `${getVar('sector')} 산업 글로벌 시장 규모, CAGR 전망, 핵심 트렌드 3가지, ${getVar('company')} 증권사 목표주가 컨센서스. 출처 포함.` },
+    { label: 'Gemini 웹검색 — 피어 그룹', query: `${getVar('company')} 동종업종 경쟁사 3~5개 기업의 시가총액, PER, PBR, ROE, EV/EBITDA 비교. 표로 정리하고 출처 명시.` },
+    { label: 'Gemini 웹검색 — 최신 뉴스/공시', query: `${getVar('company')} 최근 3개월 핵심 뉴스 5건, 주요 공시 (수주/투자/규제). 날짜와 출처 포함.` },
+  ];
+
+  statusEl.innerHTML = steps.map((s, i) =>
+    `<div class="status-item" id="cs-${i}"><span class="status-dot ${i===0?'loading':'pending'}"></span> ${s.label}</div>`
+  ).join('');
+
+  for (let i = 0; i < steps.length; i++) {
+    const dotEl = document.querySelector(`#cs-${i} .status-dot`);
+    dotEl.className = 'status-dot loading';
+    percentEl.textContent = `${Math.round(i/steps.length*100)}% — ${steps[i].label}`;
+    addLog(logEl, `[${i+1}/${steps.length}] ${steps[i].label}...`, 'info');
+
+    try {
+      const result = await callGemini(steps[i].query, true);
+      collectedData += `\n\n### ${steps[i].label}\n${result.text}`;
+      dotEl.className = 'status-dot done';
+      addLog(logEl, `  완료 (${result.text.length}자, 출처 ${result.sources?.length || 0}건)`, 'success');
+
+      if (result.sources && result.sources.length > 0) {
+        addLog(logEl, `  출처: ${result.sources.slice(0,3).map(s => s.title || s.url).join(', ')}`, 'info');
+      }
+    } catch(e) {
+      dotEl.className = 'status-dot error';
+      addLog(logEl, `  오류: ${e.message}`, 'error');
+      collectedData += `\n\n### ${steps[i].label}\n[수집 실패: ${e.message}]`;
+    }
+
+    progressEl.style.width = `${Math.round((i+1)/steps.length*100)}%`;
+  }
+
+  percentEl.textContent = '수집 완료!';
+
+  // Show summary
+  document.getElementById('collectResultCard').classList.remove('hidden');
+  document.getElementById('collectSummary').innerHTML = `
+    <div style="font-size:13px; white-space:pre-wrap; max-height:400px; overflow-y:auto; background:#f8fafc; padding:12px; border-radius:8px;">
+${escapeHtml(collectedData.substring(0, 3000))}${collectedData.length > 3000 ? '\n\n... (이하 생략, 전체 데이터는 다음 단계에서 자동 활용됩니다)' : ''}
+    </div>`;
+}
+
+function addLog(el, text, type) {
+  el.innerHTML += `<div class="log-${type || ''}">${new Date().toLocaleTimeString('ko-KR')} ${escapeHtml(text)}</div>`;
+  el.scrollTop = el.scrollHeight;
+}
+
+// ===== STEP 3 INIT =====
+function initStep3() {
+  if (apiMode && collectedData) {
+    document.getElementById('apiAnalysisCard').classList.remove('hidden');
+    document.getElementById('promptCopyStep3').classList.add('hidden');
+    runApiAnalysis();
+  } else {
+    document.getElementById('apiAnalysisCard').classList.add('hidden');
+    document.getElementById('promptCopyStep3').classList.remove('hidden');
+
+    const prompt = promptStep3_Analysis();
+    const aiLinks = [
+      { name: 'Gemini', url: 'https://gemini.google.com/app' },
+      { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+      { name: 'Claude', url: 'https://claude.ai/' },
+    ];
+    document.getElementById('step3PromptCards').innerHTML =
+      buildPromptCard('s3-analysis', '3-1', 'AI 분석 프롬프트', prompt, aiLinks);
+  }
+}
+
+async function runApiAnalysis() {
+  const statusEl = document.getElementById('analysisStatus');
+  const progressEl = document.getElementById('analysisProgress');
+  const logEl = document.getElementById('analysisLog');
+  logEl.classList.remove('hidden');
+  logEl.innerHTML = '';
+
+  statusEl.innerHTML = '<div class="status-item"><span class="status-dot loading"></span> AI 분석 진행 중 (1~2분 소요)</div>';
+  progressEl.style.width = '30%';
+  addLog(logEl, 'Gemini에 분석 요청 전송 중...', 'info');
+
+  const fullPrompt = `다음 데이터를 바탕으로 분석해주세요:\n\n${collectedData}\n\n---\n\n${promptStep3_Analysis()}`;
+
+  try {
+    const result = await callGemini(fullPrompt, true);
+    progressEl.style.width = '100%';
+    statusEl.innerHTML = '<div class="status-item"><span class="status-dot done"></span> AI 분석 완료!</div>';
+    addLog(logEl, `분석 완료 (${result.text.length}자)`, 'success');
+
+    document.getElementById('analysisResultCard').classList.remove('hidden');
+    document.getElementById('analysisResultContent').textContent = result.text;
+
+    // Store for valuation step
+    collectedData += '\n\n### AI 분석 결과\n' + result.text;
+  } catch(e) {
+    statusEl.innerHTML = '<div class="status-item"><span class="status-dot error"></span> 분석 실패 — 프롬프트 복사 모드로 전환</div>';
+    addLog(logEl, `오류: ${e.message}`, 'error');
+
+    document.getElementById('promptCopyStep3').classList.remove('hidden');
+    const prompt = promptStep3_Analysis();
+    const aiLinks = [
+      { name: 'Gemini', url: 'https://gemini.google.com/app' },
+      { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+      { name: 'Claude', url: 'https://claude.ai/' },
+    ];
+    document.getElementById('step3PromptCards').innerHTML =
+      buildPromptCard('s3-analysis', '3-1', 'AI 분석 프롬프트 (복사 모드)', prompt, aiLinks);
+  }
+}
+
+// ===== STEP 4 INIT =====
+function initStep4() {
+  const prompt = promptStep4_Valuation();
+  const aiLinks = [
+    { name: 'Gemini', url: 'https://gemini.google.com/app' },
+    { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+    { name: 'Claude', url: 'https://claude.ai/' },
+  ];
+  document.getElementById('step4PromptCards').innerHTML =
+    buildPromptCard('s4-val', '4-1', '5개년 밸류에이션 프롬프트', prompt, aiLinks);
+}
+
+// ===== STEP 5 INIT =====
+function initStep5() {
+  generateFinalPrompts();
+  generateIndividualCards();
+}
+
+function generateFinalPrompts() {
+  const collectionP = promptStep2_Collection();
+  const analysisP = promptStep3_Analysis();
+  const valuationP = promptStep4_Valuation();
+
+  const geminiHeader = `# GIC 기업 리서치 프롬프트 v7.0 — Gemini 최적화
+
+## 모델 지침
+- Google 검색 Grounding을 적극 활용하여 최신 데이터 수집
+- 모든 숫자에 출처를 반드시 표기
+- 불확실한 추정에는 신뢰도(상/중/하) 표기
+- Chain-of-Thought: 단계별로 사고하며 분석
+
+---
+
+`;
+
+  const chatgptHeader = `# GIC 기업 리서치 프롬프트 v7.0 — ChatGPT 최적화
+
+## 모델 지침
+- Advanced Data Analysis로 Excel/차트 직접 생성
+- pandas + matplotlib 활용 (한글: NanumGothic)
+- 웹 브라우징으로 최신 데이터 수집
+- Chain-of-Thought: 단계별로 사고하며 분석
+
+---
+
+`;
+
+  const claudeHeader = `# GIC 기업 리서치 프롬프트 v7.0 — Claude 최적화
+
+## 모델 지침
+- 각 후보 장단점 균형 서술
+- Bear/Base/Bull 시나리오 상세 비교
+- 표와 서술을 적절히 혼합
+- Chain-of-Thought: 단계별로 사고하며 분석
+- Artifacts로 표/차트 생성 활용
+
+---
+
+`;
+
+  const body = `## Phase 1: 데이터 수집\n\n${collectionP}\n\n---\n\n## Phase 2: AI 분석\n\n${analysisP}\n\n---\n\n## Phase 3: 5개년 밸류에이션\n\n${valuationP}`;
+
+  document.getElementById('finalPromptGemini').textContent = geminiHeader + body;
+  document.getElementById('finalPromptChatgpt').textContent = chatgptHeader + body;
+  document.getElementById('finalPromptClaude').textContent = claudeHeader + body;
+}
+
+function generateIndividualCards() {
+  const aiLinks = [
+    { name: 'Gemini', url: 'https://gemini.google.com/app' },
+    { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+    { name: 'Claude', url: 'https://claude.ai/' },
+  ];
+
+  const cards = [
+    buildPromptCard('ind-collect', '1', '데이터 수집 프롬프트', promptStep2_Collection(), aiLinks),
+    buildPromptCard('ind-analysis', '2', 'AI 분석 프롬프트', promptStep3_Analysis(), aiLinks),
+    buildPromptCard('ind-valuation', '3', '5개년 밸류에이션 프롬프트', promptStep4_Valuation(), aiLinks),
+  ];
+
+  document.getElementById('step5IndividualCards').innerHTML = cards.join('');
+}
+
+// ===== FINAL TAB =====
+function showFinalTab(tabId) {
+  document.querySelectorAll('#finalTabs .tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#screen-5 .tab-panel').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('final-' + tabId).classList.add('active');
+}
+
+function copyFinalPrompt(tabId) {
+  const el = document.getElementById('finalPrompt' + tabId.charAt(0).toUpperCase() + tabId.slice(1));
+  navigator.clipboard.writeText(el.textContent).then(() => {
+    alert('전체 프롬프트가 클립보드에 복사되었습니다!');
+  });
+}
+
+// ===== UTILS =====
+function escapeHtml(text) {
+  return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+function resetAll() {
+  if (confirm('새 분석을 시작하시겠습니까?')) {
+    state = {};
+    collectedData = '';
+    document.getElementById('companyName').value = '';
+    document.getElementById('stockCode').value = '';
+    document.getElementById('sectorName').value = '';
+    goStep(1);
+  }
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  // Auto-detect date
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')}`;
+  document.getElementById('baseDate').value = dateStr;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>GIC 리서치 v11.0 — 프롬프트 엔지니어링 메타 리포트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', 'Inter', -apple-system, sans-serif; background: #E8EAED; color: #1A1A1A; line-height: 1.5; padding: 24px 12px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 1000px; max-width: 100%; margin: 0 auto 32px; background: #FAFAFA; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); position: relative; page-break-after: always; break-after: page; break-inside: avoid; }
+.page:last-child { page-break-after: auto; }
+.page-header { background: linear-gradient(135deg, #0A1F44 0%, #1E2761 60%, #2A3D7C 100%); color: #fff; padding: 26px 40px 32px; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 200%; background: rgba(255,255,255,0.03); transform: rotate(20deg); }
+.page-header::after { content: ''; position: absolute; left: -40px; bottom: -40px; width: 80px; height: 80px; background: #FAC775; border-radius: 50%; opacity: 0.15; }
+.author-line { font-size: 11px; color: rgba(255,255,255,0.55); margin-bottom: 4px; letter-spacing: 0.3px; }
+.author-line .sep { margin: 0 6px; opacity: 0.4; }
+.report-title { font-size: 32px; font-weight: 900; letter-spacing: -0.5px; margin: 6px 0; }
+.report-title .ticker { font-size: 22px; font-weight: 500; color: #FAC775; margin-left: 6px; }
+.report-subtitle { font-size: 17px; font-weight: 500; color: #FFD580; margin-bottom: 16px; letter-spacing: -0.3px; }
+.header-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,0.7); position: relative; z-index: 1; }
+.page-body { padding: 32px 40px 40px; }
+.section-title { display: flex; align-items: center; font-size: 16px; font-weight: 700; color: #1E2761; margin: 24px 0 14px; letter-spacing: -0.3px; }
+.section-title::before { content: ''; display: inline-block; width: 4px; height: 16px; background: #1E2761; margin-right: 8px; border-radius: 2px; }
+.section-title.orange::before { background: #E89522; }
+.section-title.green::before { background: #0F6E56; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; border: 1px solid #E5E7EB; border-radius: 4px; overflow: hidden; }
+.data-table th { background: #1E2761; color: #fff; font-weight: 500; padding: 8px 10px; text-align: left; font-size: 12px; }
+.data-table td { padding: 7px 10px; border-bottom: 1px solid #F3F4F6; }
+.data-table tr.highlight td { background: #FFF8E7; }
+.lens-total { background: #eef2ff; font-weight: 800; color: #4f46e5; }
+.intro-banner { background: linear-gradient(135deg, #1E2761 0%, #2A3D7C 100%); color: white; padding: 18px 22px; border-radius: 6px; margin: 4mm 0; }
+.intro-banner h3 { color: #FAC775; font-size: 14px; margin-bottom: 6px; }
+.intro-banner p { font-size: 13px; opacity: 0.95; line-height: 1.7; }
+.principle-box { border: 1px solid #E5E7EB; border-radius: 6px; padding: 14px 18px; margin: 8px 0; background: #fff; break-inside: avoid; }
+.principle-title { font-size: 13px; font-weight: 700; color: #E89522; margin-bottom: 4px; letter-spacing: 0.5px; }
+.principle-text { font-size: 11.5px; color: #4B5563; line-height: 1.65; }
+.principle-text strong { color: #1E2761; }
+.block-card { border-left: 4px solid #1E2761; padding: 10px 14px; margin: 8px 0; background: #fafafa; font-size: 12px; break-inside: avoid; }
+.block-card .b-name { font-weight: 700; color: #1E2761; font-size: 12.5px; }
+.block-card .b-role { color: #4B5563; margin-top: 2px; }
+.block-card .b-where { color: #6B7280; font-size: 11px; margin-top: 4px; font-style: italic; }
+.quote-box { background: #fff6ed; border-left: 4px solid #E89522; padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 12.5px; color: #6B4400; line-height: 1.7; font-style: italic; }
+.quote-box strong { color: #1E2761; font-style: normal; }
+.disclaimer { font-size: 10px; color: #9CA3AF; text-align: center; padding: 14px 40px; background: #F3F4F6; border-top: 1px solid #E5E7EB; line-height: 1.6; }
+
+@page { size: A4 portrait; margin: 0; }
+@media print { body { background: #fff; padding: 0; } .page { box-shadow: none; margin: 0 0 12px; border-radius: 0; } }
+</style>
+</head>
+<body>
+
+<!-- ========== PAGE 1: 시스템 개요 ========== -->
+<div class="page">
+  <div class="page-header">
+    <div class="author-line">GIC 4기 · 6조 <span class="sep">·</span> Prompt Engineering Meta · v11.0</div>
+    <h1 class="report-title">본 리포트를 만든 프롬프트 시스템</h1>
+    <div class="report-subtitle">한국항공우주 (047810) — 정식 기업리서치 v11.0 분석 메타데이터</div>
+    <div class="header-bottom">
+      <span>2026.05.13 작성 · Step 9 메타 리포트</span>
+      <span>Page 1 / 3</span>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="intro-banner">
+      <h3>GIC 리서치 프롬프트 시스템 v11.0</h3>
+      <p>가천대학교 GIC(Global Investment Club) 4기에서 개발한 챗봇용 기업 리서치 프롬프트 시스템.
+         외부 의존 0, 챗봇 복붙 100%, Claude·ChatGPT·Gemini·Perplexity 모든 환경 호환.
+         v11.0에서는 HTML 양식 자동 생성 + CSV/Excel 출력 + 웹검색 의무화 + 본 메타 리포트 신규 추가.</p>
+    </div>
+
+    <div class="section-title">본 리포트 제작 사양</div>
+    <table class="data-table">
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>시스템 버전</td><td>GIC 리서치 v11.0 (정식 기업리서치 모듈)</td></tr>
+        <tr><td>분석 대상</td><td>한국항공우주 (047810) · Aerospace &amp; Defense</td></tr>
+        <tr><td>분석 기준일</td><td>2026-05-13</td></tr>
+        <tr><td>사용 AI 모델</td><td>[실제 사용 모델 — Claude / ChatGPT / Gemini]</td></tr>
+        <tr><td>웹검색 활성</td><td>예 — 챗봇 내장 웹검색 + URL 첨부 20건</td></tr>
+        <tr><td>적용 단계</td><td>Step 0 → 1 → 2 → 3 → 4 → 5 → 5.5 → 6 → 7 → 8 (HTML) → 9 (본 메타)</td></tr>
+        <tr class="highlight"><td>산출물</td><td>HTML 리포트 (9p 세로) + CSV 7종 + Excel 1종 + 본 메타 HTML (3p)</td></tr>
+        <tr><td>분석 소요 시간</td><td>약 1시간 10분 (정식 코스)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-title orange">9+1단계 모듈형 구조</div>
+    <p style="font-size:12px;line-height:1.7;color:#374151;">
+      <strong style="color:#1E2761;">Step 0</strong> 초기 설정·웹검색 활성 →
+      <strong style="color:#1E2761;">Step 1</strong> 경쟁사 매핑·CSV →
+      <strong style="color:#1E2761;">Step 2</strong> 재무·CSV·Excel →
+      <strong style="color:#1E2761;">Step 3</strong> 산업·웹검색 →
+      <strong style="color:#1E2761;">Step 4</strong> 기업·뉴스 URL →
+      <strong style="color:#1E2761;">Step 5</strong> 투자포인트·Evidence Card →
+      <strong style="color:#A32D2D;">Step 5.5</strong> Red Team Short Seller →
+      <strong style="color:#1E2761;">Step 6</strong> 5개년 밸류·4종 멀티플·CSV·Excel →
+      <strong style="color:#1E2761;">Step 7</strong> 6-Lens 가중점수·교차검증 →
+      <strong style="color:#0F6E56;">Step 8</strong> HTML 9페이지 자동생성 →
+      <strong style="color:#E89522;">Step 9</strong> 본 메타 리포트
+    </p>
+
+    <div class="section-title green">v11.0 핵심 변경 사항 (v9.0 대비)</div>
+    <table class="data-table">
+      <thead><tr><th>항목</th><th>v9.0</th><th>v11.0</th></tr></thead>
+      <tbody>
+        <tr><td>산출물</td><td>텍스트 복붙 가이드</td><td>HTML(세로) + CSV + Excel + 메타 HTML</td></tr>
+        <tr><td>PDF 변환</td><td>PPT 수동 작업</td><td>HTML → 브라우저 인쇄 (페이지 잘림 방지 CSS)</td></tr>
+        <tr><td>재무 데이터</td><td>마크다운 표</td><td>csv 코드블록 + Excel 자동 (Code Interpreter)</td></tr>
+        <tr><td>웹검색</td><td>권장</td><td>의무 + URL 첨부</td></tr>
+        <tr><td>위클리</td><td>정식 분석 갱신</td><td>독립 압축 분석 (5p)</td></tr>
+        <tr><td>산업 Top Pick</td><td>AI 종목 발굴</td><td>조 사전 선정 종목 비교</td></tr>
+        <tr><td>프롬프트 메타</td><td>없음</td><td>Step 9 + 별도 HTML (본 문서)</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<!-- ========== PAGE 2: 10 블록 + 4 신규 원칙 ========== -->
+<div class="page">
+  <div class="page-header">
+    <div class="author-line">GIC 4기 · 6조 <span class="sep">·</span> Prompt Engineering Meta · v11.0</div>
+    <h1 class="report-title">사용된 프롬프트 기법</h1>
+    <div class="report-subtitle">10 횡단 블록 (A~J) + 4 신규 원칙 (W · X · P · M)</div>
+    <div class="header-bottom">
+      <span>블록 라이브러리 + v11.0 신규 원칙</span>
+      <span>Page 2 / 3</span>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+      <div>
+        <div class="section-title">📦 횡단 블록 (A~J)</div>
+        <div class="block-card">
+          <div class="b-name">A — 용어 번역기</div>
+          <div class="b-role">전문용어 첫 등장 시 (10자 이내 풀이) 자동 부착</div>
+          <div class="b-where">적용: Step 2 · 4 · 6</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">B — Sanity Check</div>
+          <div class="b-role">1차원 인과 비약 적발 (매출↑→주가↑ 등)</div>
+          <div class="b-where">적용: Step 3 · 5 · 6</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">C — 핵심 비유</div>
+          <div class="b-role">"이 회사는 [산업]의 [서비스]" 한 줄</div>
+          <div class="b-where">적용: Step 3 · 4 (KAI: "세계의 무기고 K")</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">D — Mermaid</div>
+          <div class="b-role">밸류체인 · 지배구조 다이어그램 코드</div>
+          <div class="b-where">적용: Step 3 · 4</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">E — 검증 태그</div>
+          <div class="b-role">의심 수치에 [검증 필요] 마킹 + 모음 표</div>
+          <div class="b-where">적용: Step 1 · 2 · 3</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">&nbsp;</div>
+        <div class="block-card" style="border-left-color:#A32D2D;">
+          <div class="b-name" style="color:#A32D2D;">F — Red Team</div>
+          <div class="b-role">Wall Street Short Seller 페르소나 공격</div>
+          <div class="b-where">적용: Step 5.5 (가정 취약성·논리 허점·데이터 맹점)</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">G — Evidence Card</div>
+          <div class="b-role">근거 3건 + 출처 URL + 신뢰도 [상/중/하]</div>
+          <div class="b-where">적용: Step 5 · 6 (전 투자포인트 의무)</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">H — AD-FCoT</div>
+          <div class="b-role">과거 유사 기업·사례 인용 + 차이점 명시</div>
+          <div class="b-where">적용: Step 3 · 5 (KAI: LM 1990s F-16 사이클)</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">I — 5Y Forward</div>
+          <div class="b-role">Blended CAGR (50%×1Y + 30%×3Y + 20%×5Y) + 3-Statement</div>
+          <div class="b-where">적용: Step 6 (Balance Check 의무)</div>
+        </div>
+        <div class="block-card">
+          <div class="b-name">J — Anti-Hallucination</div>
+          <div class="b-role">추측 금지 · 필수 인용 · 시점 표기 · Missing Data 페널티</div>
+          <div class="b-where">적용: 전 단계 (의무)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title orange" style="margin-top:24px;">🆕 v11.0 신규 원칙 (W · X · P · M)</div>
+    <div class="principle-box">
+      <div class="principle-title">W — Web Search (웹검색 의무화)</div>
+      <div class="principle-text">
+        챗봇 내장 웹검색 활성 + 모든 시장 가격·시총·뉴스에 URL 첨부 의무. v9.0의 "권장"에서 v11.0의 "의무"로 격상.<br>
+        <strong>본 리포트 적용:</strong> 현재 주가·피어 멀티플·최근 뉴스 20건 URL 첨부.
+      </div>
+    </div>
+    <div class="principle-box">
+      <div class="principle-title">X — eXport (CSV 동시 출력)</div>
+      <div class="principle-text">
+        재무·밸류·피어 표를 csv 코드블록으로 동시 출력. Code Interpreter 사용 시 .xlsx 자동 생성.<br>
+        <strong>본 리포트 적용:</strong> csv 7종 (재무 IS/BS/CF, 피어, 시나리오, 민감도, 6-Lens) + Excel 통합 1종.
+      </div>
+    </div>
+    <div class="principle-box">
+      <div class="principle-title">P — Page-safe HTML (페이지 잘림 방지)</div>
+      <div class="principle-text">
+        기업리서치·위클리는 A4 세로 (210×297mm), 산업 Top Pick은 A4 가로 (1280×720). 모두 CSS <code>page-break-after: always</code> + <code>break-inside: avoid</code> 적용.<br>
+        <strong>본 리포트 적용:</strong> 9페이지 모두 1슬라이드 = 1페이지 보장. 브라우저 인쇄 → PDF 변환 완벽.
+      </div>
+    </div>
+    <div class="principle-box">
+      <div class="principle-title">M — Meta Prompt (본 리포트)</div>
+      <div class="principle-text">
+        사용한 프롬프트 기법을 별도 HTML(2~3p)로 설명. 학회 발표 시 "이 리포트는 어떤 AI 프롬프트로 만들어졌는가" 백업 자료.<br>
+        <strong>본 리포트 적용:</strong> 본 문서가 그 메타 리포트.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== PAGE 3: 6-Lens + 결론 ========== -->
+<div class="page">
+  <div class="page-header">
+    <div class="author-line">GIC 4기 · 6조 <span class="sep">·</span> Prompt Engineering Meta · v11.0</div>
+    <h1 class="report-title">6-Lens Framework</h1>
+    <div class="report-subtitle">Hardik Framework 흡수 + 교차 검증 결과</div>
+    <div class="header-bottom">
+      <span>최종 투자의견 산출 로직</span>
+      <span>Page 3 / 3</span>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="section-title">6-Lens 가중치 프레임워크 (Hardik Framework)</div>
+    <p style="font-size:12px;color:#4B5563;margin-bottom:8px;">본 리포트의 최종 투자의견은 다음 두 룰의 교차 검증으로 산출됩니다:</p>
+    <p style="font-size:12px;line-height:1.8;">
+      <strong style="color:#1E2761;">① 상승여력 룰</strong> — Base 시나리오 목표주가 대비 현재가 상승여력 ≥ +15% BUY / -10%~+15% HOLD / &lt; -10% SELL<br>
+      <strong style="color:#1E2761;">② 6-Lens 룰 (Hardik Framework)</strong> — 6개 Lens의 가중 점수 ≥ 8.0 BUY / 6.0~7.9 HOLD / &lt; 6.0 AVOID
+    </p>
+
+    <div class="section-title orange">본 리포트 결과 — 한국항공우주</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Lens</th><th>가중치</th><th>점수 산출 기준</th><th>점수</th><th>가중 점수</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>① Business Clarity</td><td>15%</td><td>사업 모델 단순성</td><td>8.0</td><td>1.20</td></tr>
+        <tr><td>② Moat Strength</td><td>20%</td><td>경쟁우위 5요소 평가</td><td>7.0</td><td>1.40</td></tr>
+        <tr><td>③ Financials</td><td>30%</td><td>5개년 수익성·안정성·효율성</td><td>8.0</td><td>2.40</td></tr>
+        <tr><td>④ Growth Potential</td><td>15%</td><td>EPS 성장률·신사업</td><td>8.5</td><td>1.28</td></tr>
+        <tr><td>⑤ Valuation</td><td>10%</td><td>피어 대비 디스카운트/프리미엄</td><td>6.5</td><td>0.65</td></tr>
+        <tr><td>⑥ Promoter Behavior</td><td>10%</td><td>최대주주·자사주·내부자 거래</td><td>7.0</td><td>0.70</td></tr>
+        <tr class="lens-total"><td>가중 합계</td><td>100%</td><td>—</td><td>—</td><td><strong>7.63</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-title green">교차 검증 결과</div>
+    <table class="data-table">
+      <thead><tr><th>룰</th><th>판정</th><th>근거</th></tr></thead>
+      <tbody>
+        <tr><td>상승여력 룰</td><td><strong style="color:#1B5E20;">BUY</strong></td><td>현재가 78,400원 → 목표 94,000원 (+19.9%, 15% 초과)</td></tr>
+        <tr><td>6-Lens 룰</td><td><strong style="color:#B55E0A;">HOLD-Strong</strong></td><td>가중 점수 7.63 (8.0 미달, 6.0 초과)</td></tr>
+        <tr class="lens-total"><td><strong>최종 판정</strong></td><td><strong>BUY</strong></td><td>모멘텀·정성요인 강세 + 상승여력 룰 우선 (Step 7-3 사유 명시)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">Hardik Kawale 원문 (블록 J 흡수의 배경)</div>
+    <div class="quote-box">
+      "AI today is powerful, but it has two flaws when used for investing: 1) hallucinates missing data 2) most prompts too casual.
+      So I built a prompt that forces AI to behave like a world-class Equity Research Analyst operating in strict research-safe mode."<br>
+      <br>
+      <strong>v11.0은 이 철학을 흡수해 블록 J(Anti-Hallucination Protocol) + Step 7 가중치 점수로 정식 통합.</strong>
+    </div>
+
+  </div>
+  <div class="disclaimer">
+    본 메타 리포트는 GIC(Global Investment Club) 학회 내부 교육 목적이며, 투자 권유가 아닙니다. 본 리포트의 분석 결과는 분석자의 독립 계산이며, AI 프롬프트는 분석 도구에 불과합니다. 투자 결정은 본인 책임이며, 본 시스템은 어떠한 손익에 대해서도 책임지지 않습니다.<br>
+    v11.0 신규 4원칙 — W (Web Search) · X (eXport) · P (Page-safe HTML) · M (Meta Prompt) 적용.
+  </div>
+</div>
+
+</body>
+</html>

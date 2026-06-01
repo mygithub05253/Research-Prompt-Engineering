@@ -1,0 +1,1975 @@
+{
+  "source": "C:\\Users\\kik32\\내 드라이브\\Obsidian Vault\\Obsidian_School\\가천대학교\\GIC\\4기\\GIC 리서치 프롬프트 모델 생성 프로젝트\\version10.0\\design\\GIC_양식_ver2.pptx",
+  "slide_count": 9,
+  "slide_size": {
+    "w_in": 7.5,
+    "h_in": 10.833,
+    "w_cm": 19.05,
+    "h_cm": 27.52
+  },
+  "slides": [
+    {
+      "idx": 0,
+      "layout_name": "제목 슬라이드",
+      "shape_count": 18,
+      "shapes": [
+        {
+          "slide_idx": 0,
+          "shape_id": 8,
+          "shape_name": "TextBox 7",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 6.406,
+          "top_in": 2.093,
+          "width_in": 1.064,
+          "height_in": 0.269,
+          "left_cm": 16.27,
+          "top_cm": 5.32,
+          "width_cm": 2.7,
+          "height_cm": 0.68,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "GIC 1기 최진호",
+              "runs": [
+                {
+                  "text": "GIC 1",
+                  "font_name": "프리젠테이션 4 Regular",
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                },
+                {
+                  "text": "기 최진호",
+                  "font_name": "프리젠테이션 4 Regular",
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "GIC 1기 최진호",
+          "char_count": 10
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 28,
+          "shape_name": "TextBox 27",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 1.806,
+          "top_in": 0.336,
+          "width_in": 3.889,
+          "height_in": 0.572,
+          "left_cm": 4.59,
+          "top_cm": 0.85,
+          "width_cm": 9.88,
+          "height_cm": 1.45,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "지아이씨 (240905)",
+              "runs": [
+                {
+                  "text": "지아이씨 ",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": 28.0,
+                  "bold": true,
+                  "color": null
+                },
+                {
+                  "text": "(240905)",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": null,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": "CENTER (2)"
+            }
+          ],
+          "text_total": "지아이씨 (240905)",
+          "char_count": 13
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 36,
+          "shape_name": "TextBox 35",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 1.806,
+          "top_in": 0.927,
+          "width_in": 3.889,
+          "height_in": 0.37,
+          "left_cm": 4.59,
+          "top_cm": 2.35,
+          "width_cm": 9.88,
+          "height_cm": 0.94,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "GIC여 긱스럽게 도전하라",
+              "runs": [
+                {
+                  "text": "GIC",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": 16.0,
+                  "bold": true,
+                  "color": "#E57728"
+                },
+                {
+                  "text": "여",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": 16.0,
+                  "bold": true,
+                  "color": "#E57728"
+                },
+                {
+                  "text": " ",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": 16.0,
+                  "bold": true,
+                  "color": "#E57728"
+                },
+                {
+                  "text": "긱스럽게",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": 16.0,
+                  "bold": true,
+                  "color": "#E57728"
+                },
+                {
+                  "text": " 도전하라",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": 16.0,
+                  "bold": true,
+                  "color": "#E57728"
+                }
+              ],
+              "alignment": "CENTER (2)"
+            }
+          ],
+          "text_total": "GIC여 긱스럽게 도전하라",
+          "char_count": 14
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 5,
+          "shape_name": "표 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.532,
+          "top_in": 2.782,
+          "width_in": 1.54,
+          "height_in": 0.7,
+          "left_cm": 1.35,
+          "top_cm": 7.07,
+          "width_cm": 3.91,
+          "height_cm": 1.78,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 12,
+          "shape_name": "사각형: 둥근 모서리 11",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 2.858,
+          "top_in": 2.073,
+          "width_in": 1.337,
+          "height_in": 0.269,
+          "left_cm": 7.26,
+          "top_cm": 5.27,
+          "width_cm": 3.4,
+          "height_cm": 0.68,
+          "fill_color": "#E97132",
+          "paragraphs": [
+            {
+              "text": "Check Point",
+              "runs": [
+                {
+                  "text": "Check Point",
+                  "font_name": null,
+                  "font_size_pt": 14.0,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": "CENTER (2)"
+            }
+          ],
+          "text_total": "Check Point",
+          "char_count": 11
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 13,
+          "shape_name": "직선 연결선 12",
+          "shape_type": "LINE (9)",
+          "left_in": 4.163,
+          "top_in": 2.334,
+          "width_in": 2.935,
+          "height_in": 0.0,
+          "left_cm": 10.57,
+          "top_cm": 5.93,
+          "width_cm": 7.45,
+          "height_cm": 0.0,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 14,
+          "shape_name": "TextBox 13",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 4.194,
+          "top_in": 2.057,
+          "width_in": 3.0,
+          "height_in": 0.269,
+          "left_cm": 10.65,
+          "top_cm": 5.22,
+          "width_cm": 7.62,
+          "height_cm": 0.68,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "내가 그린 기린 그림은 잘 그린 기린 그림",
+              "runs": [
+                {
+                  "text": "내가 그린 기린 그림은 잘 그린 기린 그림",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "내가 그린 기린 그림은 잘 그린 기린 그림",
+          "char_count": 23
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 15,
+          "shape_name": "TextBox 14",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 2.816,
+          "top_in": 2.507,
+          "width_in": 4.337,
+          "height_in": 0.304,
+          "left_cm": 7.15,
+          "top_cm": 6.37,
+          "width_cm": 11.02,
+          "height_cm": 0.77,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "Point 1. ",
+              "runs": [
+                {
+                  "text": "Point 1",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ".",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": true,
+                  "color": "#E97132"
+                },
+                {
+                  "text": " ",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": "#E97132"
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "Point 1. ",
+          "char_count": 9
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 18,
+          "shape_name": "TextBox 17",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 2.816,
+          "top_in": 4.277,
+          "width_in": 4.337,
+          "height_in": 0.304,
+          "left_cm": 7.15,
+          "top_cm": 10.86,
+          "width_cm": 11.02,
+          "height_cm": 0.77,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "Point 2. ",
+              "runs": [
+                {
+                  "text": "Point 2.",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": " ",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "Point 2. ",
+          "char_count": 9
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 19,
+          "shape_name": "TextBox 18",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 2.816,
+          "top_in": 6.047,
+          "width_in": 4.337,
+          "height_in": 0.304,
+          "left_cm": 7.15,
+          "top_cm": 15.36,
+          "width_cm": 11.02,
+          "height_cm": 0.77,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "Point 3. ",
+              "runs": [
+                {
+                  "text": "Point 3.",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": " ",
+                  "font_name": null,
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": "#E97132"
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "Point 3. ",
+          "char_count": 9
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 20,
+          "shape_name": "표 19",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.206,
+          "top_in": 3.66,
+          "width_in": 2.193,
+          "height_in": 1.783,
+          "left_cm": 0.52,
+          "top_cm": 9.3,
+          "width_cm": 5.57,
+          "height_cm": 4.53,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 21,
+          "shape_name": "표 20",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.206,
+          "top_in": 6.495,
+          "width_in": 2.193,
+          "height_in": 1.797,
+          "left_cm": 0.52,
+          "top_cm": 16.5,
+          "width_cm": 5.57,
+          "height_cm": 4.56,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 22,
+          "shape_name": "TextBox 21",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.142,
+          "top_in": 1.348,
+          "width_in": 2.217,
+          "height_in": 0.269,
+          "left_cm": 13.06,
+          "top_cm": 3.42,
+          "width_cm": 5.63,
+          "height_cm": 0.68,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "GIC 3기 가나다",
+              "runs": [
+                {
+                  "text": "GIC 3",
+                  "font_name": "+mn-ea",
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                },
+                {
+                  "text": "기",
+                  "font_name": "+mn-ea",
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                },
+                {
+                  "text": " ",
+                  "font_name": "+mn-ea",
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                },
+                {
+                  "text": "가나다",
+                  "font_name": "+mn-ea",
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "GIC 3기 가나다",
+          "char_count": 10
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 25,
+          "shape_name": "표 24",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.206,
+          "top_in": 5.541,
+          "width_in": 2.193,
+          "height_in": 0.716,
+          "left_cm": 0.52,
+          "top_cm": 14.07,
+          "width_cm": 5.57,
+          "height_cm": 1.82,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 29,
+          "shape_name": "TextBox 28",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 0.029,
+          "top_in": 1.969,
+          "width_in": 2.582,
+          "height_in": 0.774,
+          "left_cm": 0.07,
+          "top_cm": 5.0,
+          "width_cm": 6.56,
+          "height_cm": 1.97,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": " BUY(매수)",
+              "runs": [
+                {
+                  "text": " ",
+                  "font_name": null,
+                  "font_size_pt": 18.0,
+                  "bold": true,
+                  "color": "#0D4889"
+                },
+                {
+                  "text": "BUY",
+                  "font_name": null,
+                  "font_size_pt": 40.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": null,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "매수",
+                  "font_name": null,
+                  "font_size_pt": null,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": null,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "CENTER (2)"
+            }
+          ],
+          "text_total": " BUY(매수)",
+          "char_count": 8
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 34,
+          "shape_name": "표 33",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.329,
+          "top_in": 8.521,
+          "width_in": 6.843,
+          "height_in": 1.93,
+          "left_cm": 0.83,
+          "top_cm": 21.64,
+          "width_cm": 17.38,
+          "height_cm": 4.9,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 35,
+          "shape_name": "TextBox 34",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 0.075,
+          "top_in": 1.383,
+          "width_in": 2.217,
+          "height_in": 0.269,
+          "left_cm": 0.19,
+          "top_cm": 3.51,
+          "width_cm": 5.63,
+          "height_cm": 0.68,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "2026.01.01",
+              "runs": [
+                {
+                  "text": "2026.01.01",
+                  "font_name": "+mn-ea",
+                  "font_size_pt": 10.0,
+                  "bold": null,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "2026.01.01",
+          "char_count": 10
+        },
+        {
+          "slide_idx": 0,
+          "shape_id": 43,
+          "shape_name": "차트 42",
+          "shape_type": "CHART (3)",
+          "left_in": 0.206,
+          "top_in": 6.812,
+          "width_in": 2.205,
+          "height_in": 1.506,
+          "left_cm": 0.52,
+          "top_cm": 17.3,
+          "width_cm": 5.6,
+          "height_cm": 3.82,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 1,
+      "layout_name": "제목 및 내용",
+      "shape_count": 4,
+      "shapes": [
+        {
+          "slide_idx": 1,
+          "shape_id": 6,
+          "shape_name": "TextBox 5",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 1,
+          "shape_id": 9,
+          "shape_name": "TextBox 8",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 3.471,
+          "top_in": 1.543,
+          "width_in": 2.957,
+          "height_in": 0.64,
+          "left_cm": 8.82,
+          "top_cm": 3.92,
+          "width_cm": 7.51,
+          "height_cm": 1.62,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "CONTENTS",
+              "runs": [
+                {
+                  "text": "CONTENTS",
+                  "font_name": "+mj-ea",
+                  "font_size_pt": 32.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "CONTENTS",
+          "char_count": 8
+        },
+        {
+          "slide_idx": 1,
+          "shape_id": 11,
+          "shape_name": "직선 연결선 10",
+          "shape_type": "LINE (9)",
+          "left_in": 0.729,
+          "top_in": 2.2,
+          "width_in": 5.629,
+          "height_in": 0.0,
+          "left_cm": 1.85,
+          "top_cm": 5.59,
+          "width_cm": 14.3,
+          "height_cm": 0.0,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 1,
+          "shape_id": 13,
+          "shape_name": "표 12",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.779,
+          "top_in": 2.402,
+          "width_in": 5.629,
+          "height_in": 5.279,
+          "left_cm": 1.98,
+          "top_cm": 6.1,
+          "width_cm": 14.3,
+          "height_cm": 13.41,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 2,
+      "layout_name": "제목 및 내용",
+      "shape_count": 7,
+      "shapes": [
+        {
+          "slide_idx": 2,
+          "shape_id": 21,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.567,
+          "top_in": 6.993,
+          "width_in": 6.292,
+          "height_in": 3.017,
+          "left_cm": 1.44,
+          "top_cm": 17.76,
+          "width_cm": 15.98,
+          "height_cm": 7.66,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 2,
+          "shape_id": 6,
+          "shape_name": "표 5",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 1.368,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 3.48,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 2,
+          "shape_id": 4,
+          "shape_name": "TextBox 3",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 2,
+          "shape_id": 5,
+          "shape_name": "사각형: 둥근 모서리 4",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 0.5,
+          "top_in": 0.84,
+          "width_in": 6.426,
+          "height_in": 0.32,
+          "left_cm": 1.27,
+          "top_cm": 2.13,
+          "width_cm": 16.32,
+          "height_cm": 0.81,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "산업분석",
+              "runs": [
+                {
+                  "text": "산업분석",
+                  "font_name": null,
+                  "font_size_pt": 10.5,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "산업분석",
+          "char_count": 4
+        },
+        {
+          "slide_idx": 2,
+          "shape_id": 10,
+          "shape_name": "표 9",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 3.864,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 9.81,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 2,
+          "shape_id": 2,
+          "shape_name": "그림 1",
+          "shape_type": "PICTURE (13)",
+          "left_in": 3.92,
+          "top_in": 7.595,
+          "width_in": 2.718,
+          "height_in": 1.812,
+          "left_cm": 9.96,
+          "top_cm": 19.29,
+          "width_cm": 6.9,
+          "height_cm": 4.6,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 2,
+          "shape_id": 15,
+          "shape_name": "차트 14",
+          "shape_type": "CHART (3)",
+          "left_in": 0.634,
+          "top_in": 7.595,
+          "width_in": 3.009,
+          "height_in": 1.812,
+          "left_cm": 1.61,
+          "top_cm": 19.29,
+          "width_cm": 7.64,
+          "height_cm": 4.6,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 3,
+      "layout_name": "제목 및 내용",
+      "shape_count": 8,
+      "shapes": [
+        {
+          "slide_idx": 3,
+          "shape_id": 6,
+          "shape_name": "표 5",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 1.368,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 3.48,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 3,
+          "shape_id": 4,
+          "shape_name": "TextBox 3",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 3,
+          "shape_id": 5,
+          "shape_name": "사각형: 둥근 모서리 4",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 0.5,
+          "top_in": 0.84,
+          "width_in": 6.426,
+          "height_in": 0.32,
+          "left_cm": 1.27,
+          "top_cm": 2.13,
+          "width_cm": 16.32,
+          "height_cm": 0.81,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업분석",
+              "runs": [
+                {
+                  "text": "기업분석",
+                  "font_name": null,
+                  "font_size_pt": 10.5,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "기업분석",
+          "char_count": 4
+        },
+        {
+          "slide_idx": 3,
+          "shape_id": 10,
+          "shape_name": "표 9",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 3.864,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 9.81,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 3,
+          "shape_id": 2,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.604,
+          "top_in": 5.478,
+          "width_in": 6.292,
+          "height_in": 4.542,
+          "left_cm": 1.53,
+          "top_cm": 13.91,
+          "width_cm": 15.98,
+          "height_cm": 11.54,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 3,
+          "shape_id": 9,
+          "shape_name": "다이어그램 8",
+          "shape_type": null,
+          "left_in": 0.497,
+          "top_in": 6.56,
+          "width_in": 3.143,
+          "height_in": 2.287,
+          "left_cm": 1.26,
+          "top_cm": 16.66,
+          "width_cm": 7.98,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 3,
+          "shape_id": 11,
+          "shape_name": "다이어그램 10",
+          "shape_type": null,
+          "left_in": 4.058,
+          "top_in": 5.911,
+          "width_in": 2.525,
+          "height_in": 1.761,
+          "left_cm": 10.31,
+          "top_cm": 15.01,
+          "width_cm": 6.41,
+          "height_cm": 4.47,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 3,
+          "shape_id": 7,
+          "shape_name": "그림 6",
+          "shape_type": "PICTURE (13)",
+          "left_in": 4.058,
+          "top_in": 7.782,
+          "width_in": 2.525,
+          "height_in": 1.683,
+          "left_cm": 10.31,
+          "top_cm": 19.77,
+          "width_cm": 6.41,
+          "height_cm": 4.28,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 4,
+      "layout_name": "제목 및 내용",
+      "shape_count": 5,
+      "shapes": [
+        {
+          "slide_idx": 4,
+          "shape_id": 6,
+          "shape_name": "표 5",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 1.368,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 3.48,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 4,
+          "shape_id": 4,
+          "shape_name": "TextBox 3",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 4,
+          "shape_id": 5,
+          "shape_name": "사각형: 둥근 모서리 4",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 0.5,
+          "top_in": 0.84,
+          "width_in": 6.426,
+          "height_in": 0.32,
+          "left_cm": 1.27,
+          "top_cm": 2.13,
+          "width_cm": 16.32,
+          "height_cm": 0.81,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "투자포인트",
+              "runs": [
+                {
+                  "text": "투자포인트",
+                  "font_name": null,
+                  "font_size_pt": 10.5,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "투자포인트",
+          "char_count": 5
+        },
+        {
+          "slide_idx": 4,
+          "shape_id": 10,
+          "shape_name": "표 9",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 3.864,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 9.81,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 4,
+          "shape_id": 2,
+          "shape_name": "표 1",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 6.359,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 16.15,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 5,
+      "layout_name": "제목 및 내용",
+      "shape_count": 5,
+      "shapes": [
+        {
+          "slide_idx": 5,
+          "shape_id": 6,
+          "shape_name": "표 5",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 1.368,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 3.48,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 5,
+          "shape_id": 4,
+          "shape_name": "TextBox 3",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 5,
+          "shape_id": 5,
+          "shape_name": "사각형: 둥근 모서리 4",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 0.5,
+          "top_in": 0.84,
+          "width_in": 6.426,
+          "height_in": 0.32,
+          "left_cm": 1.27,
+          "top_cm": 2.13,
+          "width_cm": 16.32,
+          "height_cm": 0.81,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "투자포인트",
+              "runs": [
+                {
+                  "text": "투자포인트",
+                  "font_name": null,
+                  "font_size_pt": 10.5,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "투자포인트",
+          "char_count": 5
+        },
+        {
+          "slide_idx": 5,
+          "shape_id": 10,
+          "shape_name": "표 9",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 3.864,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 9.81,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 5,
+          "shape_id": 2,
+          "shape_name": "표 1",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 6.359,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 16.15,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 6,
+      "layout_name": "제목 및 내용",
+      "shape_count": 5,
+      "shapes": [
+        {
+          "slide_idx": 6,
+          "shape_id": 6,
+          "shape_name": "표 5",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 1.368,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 3.48,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 6,
+          "shape_id": 4,
+          "shape_name": "TextBox 3",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 6,
+          "shape_id": 5,
+          "shape_name": "사각형: 둥근 모서리 4",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 0.5,
+          "top_in": 0.84,
+          "width_in": 6.426,
+          "height_in": 0.32,
+          "left_cm": 1.27,
+          "top_cm": 2.13,
+          "width_cm": 16.32,
+          "height_cm": 0.81,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "투자리스크",
+              "runs": [
+                {
+                  "text": "투자리스크",
+                  "font_name": null,
+                  "font_size_pt": 10.5,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "투자리스크",
+          "char_count": 5
+        },
+        {
+          "slide_idx": 6,
+          "shape_id": 10,
+          "shape_name": "표 9",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 6.364,
+          "width_in": 6.426,
+          "height_in": 2.287,
+          "left_cm": 1.27,
+          "top_cm": 16.16,
+          "width_cm": 16.32,
+          "height_cm": 5.81,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 6,
+          "shape_id": 3,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 3.374,
+          "width_in": 6.292,
+          "height_in": 2.563,
+          "left_cm": 1.27,
+          "top_cm": 8.57,
+          "width_cm": 15.98,
+          "height_cm": 6.51,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 7,
+      "layout_name": "제목 및 내용",
+      "shape_count": 11,
+      "shapes": [
+        {
+          "slide_idx": 7,
+          "shape_id": 39,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.519,
+          "top_in": 7.678,
+          "width_in": 6.671,
+          "height_in": 2.523,
+          "left_cm": 1.32,
+          "top_cm": 19.5,
+          "width_cm": 16.95,
+          "height_cm": 6.41,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 17,
+          "shape_name": "TextBox 16",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 18,
+          "shape_name": "사각형: 둥근 모서리 17",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 0.5,
+          "top_in": 0.84,
+          "width_in": 6.426,
+          "height_in": 0.32,
+          "left_cm": 1.27,
+          "top_cm": 2.13,
+          "width_cm": 16.32,
+          "height_cm": 0.81,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "밸류에이션",
+              "runs": [
+                {
+                  "text": "밸류에이션",
+                  "font_name": null,
+                  "font_size_pt": 10.5,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "밸류에이션",
+          "char_count": 5
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 21,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 1.443,
+          "width_in": 6.292,
+          "height_in": 3.28,
+          "left_cm": 1.27,
+          "top_cm": 3.67,
+          "width_cm": 15.98,
+          "height_cm": 8.33,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 22,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 5.033,
+          "width_in": 3.25,
+          "height_in": 2.644,
+          "left_cm": 1.27,
+          "top_cm": 12.78,
+          "width_cm": 8.26,
+          "height_cm": 6.72,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 24,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 3.94,
+          "top_in": 5.033,
+          "width_in": 3.25,
+          "height_in": 2.644,
+          "left_cm": 10.01,
+          "top_cm": 12.78,
+          "width_cm": 8.26,
+          "height_cm": 6.72,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 27,
+          "shape_name": "차트 26",
+          "shape_type": "CHART (3)",
+          "left_in": 0.5,
+          "top_in": 5.578,
+          "width_in": 3.1,
+          "height_in": 1.69,
+          "left_cm": 1.27,
+          "top_cm": 14.17,
+          "width_cm": 7.87,
+          "height_cm": 4.29,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 28,
+          "shape_name": "차트 27",
+          "shape_type": "CHART (3)",
+          "left_in": 4.015,
+          "top_in": 5.578,
+          "width_in": 3.1,
+          "height_in": 1.69,
+          "left_cm": 10.2,
+          "top_cm": 14.17,
+          "width_cm": 7.87,
+          "height_cm": 4.29,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 31,
+          "shape_name": "차트 30",
+          "shape_type": "CHART (3)",
+          "left_in": 0.519,
+          "top_in": 8.033,
+          "width_in": 3.25,
+          "height_in": 1.814,
+          "left_cm": 1.32,
+          "top_cm": 20.4,
+          "width_cm": 8.26,
+          "height_cm": 4.61,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 35,
+          "shape_name": "차트 34",
+          "shape_type": "CHART (3)",
+          "left_in": 3.865,
+          "top_in": 8.089,
+          "width_in": 3.25,
+          "height_in": 1.904,
+          "left_cm": 9.82,
+          "top_cm": 20.55,
+          "width_cm": 8.26,
+          "height_cm": 4.84,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 7,
+          "shape_id": 38,
+          "shape_name": "표 37",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.519,
+          "top_in": 1.977,
+          "width_in": 6.273,
+          "height_in": 2.223,
+          "left_cm": 1.32,
+          "top_cm": 5.02,
+          "width_cm": 15.93,
+          "height_cm": 5.65,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    },
+    {
+      "idx": 8,
+      "layout_name": "제목 및 내용",
+      "shape_count": 5,
+      "shapes": [
+        {
+          "slide_idx": 8,
+          "shape_id": 17,
+          "shape_name": "TextBox 16",
+          "shape_type": "TEXT_BOX (17)",
+          "left_in": 5.448,
+          "top_in": 0.396,
+          "width_in": 1.478,
+          "height_in": 0.236,
+          "left_cm": 13.84,
+          "top_cm": 1.01,
+          "width_cm": 3.75,
+          "height_cm": 0.6,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "기업명(번호)",
+              "runs": [
+                {
+                  "text": "기업명",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "(",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": "번호",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                },
+                {
+                  "text": ")",
+                  "font_name": null,
+                  "font_size_pt": 8.0,
+                  "bold": true,
+                  "color": "#072A51"
+                }
+              ],
+              "alignment": "RIGHT (3)"
+            }
+          ],
+          "text_total": "기업명(번호)",
+          "char_count": 7
+        },
+        {
+          "slide_idx": 8,
+          "shape_id": 18,
+          "shape_name": "사각형: 둥근 모서리 17",
+          "shape_type": "AUTO_SHAPE (1)",
+          "left_in": 0.5,
+          "top_in": 0.84,
+          "width_in": 6.426,
+          "height_in": 0.32,
+          "left_cm": 1.27,
+          "top_cm": 2.13,
+          "width_cm": 16.32,
+          "height_cm": 0.81,
+          "fill_color": null,
+          "paragraphs": [
+            {
+              "text": "밸류에이션",
+              "runs": [
+                {
+                  "text": "밸류에이션",
+                  "font_name": null,
+                  "font_size_pt": 10.5,
+                  "bold": true,
+                  "color": null
+                }
+              ],
+              "alignment": null
+            }
+          ],
+          "text_total": "밸류에이션",
+          "char_count": 5
+        },
+        {
+          "slide_idx": 8,
+          "shape_id": 21,
+          "shape_name": "내용 개체 틀 4",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.5,
+          "top_in": 1.443,
+          "width_in": 6.292,
+          "height_in": 3.28,
+          "left_cm": 1.27,
+          "top_cm": 3.67,
+          "width_cm": 15.98,
+          "height_cm": 8.33,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 8,
+          "shape_id": 38,
+          "shape_name": "표 37",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.519,
+          "top_in": 1.977,
+          "width_in": 6.273,
+          "height_in": 2.223,
+          "left_cm": 1.32,
+          "top_cm": 5.02,
+          "width_cm": 15.93,
+          "height_cm": 5.65,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        },
+        {
+          "slide_idx": 8,
+          "shape_id": 2,
+          "shape_name": "표 1",
+          "shape_type": "TABLE (19)",
+          "left_in": 0.519,
+          "top_in": 8.856,
+          "width_in": 6.407,
+          "height_in": 1.41,
+          "left_cm": 1.32,
+          "top_cm": 22.49,
+          "width_cm": 16.28,
+          "height_cm": 3.58,
+          "fill_color": null,
+          "paragraphs": [],
+          "text_total": "",
+          "char_count": 0
+        }
+      ]
+    }
+  ],
+  "color_palette": [
+    "#072A51",
+    "#0D4889",
+    "#E57728",
+    "#E97132"
+  ],
+  "font_palette": [
+    "+mj-ea",
+    "+mn-ea",
+    "프리젠테이션 4 Regular"
+  ]
+}

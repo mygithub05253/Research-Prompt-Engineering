@@ -1,0 +1,113 @@
+sectors:
+  INFRA_BATTERY:
+    label: "인프라 - 2차전지"
+    thesis_question: "출하 성장과 가동률 회복이 CAPEX 및 재무부담을 상쇄하며 현금흐름 개선으로 이어지는가?"
+    required_kpis:
+      - {name: "출하량/판매량", financial_link: revenue, status: required}
+      - {name: "ASP 및 제품 믹스", financial_link: [revenue, margin], status: required}
+      - {name: "가동률/수율", financial_link: margin, status: required}
+      - {name: "고객사 다변화", financial_link: [revenue, valuation], status: required}
+      - {name: "CAPEX 및 순차입금", financial_link: [cash_flow, balance_sheet], status: required}
+      - {name: "핵심 원재료 가격", financial_link: margin, status: required}
+    valuation_methods: ["EV/EBITDA", "Forward PER", "DCF"]
+    falsifiers: ["가동률 회복 지연", "고객사 발주 축소", "CAPEX 대비 현금창출 부진", "원재료·판매가 스프레드 악화"]
+
+  INFRA_POWER_ENERGY:
+    label: "인프라 - 전력/에너지"
+    thesis_question: "전력수요와 송배전·발전 투자 확대가 수주와 프로젝트 마진으로 전환되는가?"
+    required_kpis:
+      - {name: "수주잔고와 신규수주", financial_link: revenue, status: required}
+      - {name: "수주잔고/매출 배수", financial_link: valuation, status: required}
+      - {name: "프로젝트/제품 믹스", financial_link: margin, status: required}
+      - {name: "납기 및 생산능력", financial_link: [revenue, margin], status: required}
+      - {name: "운전자본과 현금전환", financial_link: cash_flow, status: required}
+    valuation_methods: ["EV/EBITDA", "PER", "DCF"]
+    falsifiers: ["송배전 투자 지연", "수주 후 원가 상승", "납기 병목", "현금전환 악화"]
+
+  FINANCIALS:
+    label: "금융"
+    thesis_question: "수익성과 자본여력이 대손 리스크를 흡수하고 주주환원으로 이어지는가?"
+    required_kpis:
+      - {name: "NIM", financial_link: revenue, status: required}
+      - {name: "대출성장률", financial_link: revenue, status: required}
+      - {name: "대손비용률/연체율", financial_link: margin, status: required}
+      - {name: "CET1 또는 자본적정성", financial_link: [balance_sheet, valuation], status: required}
+      - {name: "ROE", financial_link: valuation, status: required}
+      - {name: "배당/자사주/주주환원", financial_link: valuation, status: required}
+    valuation_methods: ["PBR-ROE", "PER", "Dividend/Capital Return Framework"]
+    avoid_methods: ["일반 기업형 EV/EBITDA 중심 평가"]
+    falsifiers: ["건전성 악화", "CET1 하락", "NIM 급락", "환원정책 후퇴"]
+
+  SEMICONDUCTOR:
+    label: "반도체"
+    thesis_question: "제품 믹스와 수요 사이클 개선이 ASP·가동률·마진을 동시에 개선하는가?"
+    required_kpis:
+      - {name: "HBM/고부가 제품 비중 또는 기술 인증", financial_link: [revenue, margin], status: required}
+      - {name: "출하량/bit growth", financial_link: revenue, status: required}
+      - {name: "ASP", financial_link: [revenue, margin], status: required}
+      - {name: "재고일수/재고 정상화", financial_link: [margin, cash_flow], status: required}
+      - {name: "가동률 및 CAPEX", financial_link: [margin, cash_flow], status: required}
+    valuation_methods: ["Cycle-normalized PER", "EV/EBITDA", "DCF"]
+    falsifiers: ["인증 지연", "ASP 하락", "재고 재확대", "CAPEX 과잉"]
+
+  ROBOTICS_PHYSICAL_AI:
+    label: "로봇/피지컬 AI"
+    thesis_question: "기술 시연이 반복 가능한 상용 매출과 단위경제성으로 변환되는가?"
+    required_kpis:
+      - {name: "유료 고객/도입 건수", financial_link: revenue, status: required}
+      - {name: "반복매출 또는 서비스 매출 비중", financial_link: valuation, status: required}
+      - {name: "제품/프로젝트 gross margin", financial_link: margin, status: required}
+      - {name: "R&D 및 현금소진", financial_link: cash_flow, status: required}
+      - {name: "양산·통합 파트너십", financial_link: revenue, status: acceptable_na}
+    valuation_methods: ["Scenario revenue multiple", "Unit economics", "Milestone-adjusted DCF"]
+    falsifiers: ["상용 고객 전환 실패", "현금 runway 단축", "양산 원가 악화", "기술 대체"]
+
+  SHIPBUILDING:
+    label: "조선"
+    thesis_question: "고선가·친환경 선종 수주가 인도 시점의 마진과 현금흐름으로 실현되는가?"
+    required_kpis:
+      - {name: "수주잔고/매출 배수", financial_link: revenue, status: required}
+      - {name: "신조선가/수주선가", financial_link: margin, status: required}
+      - {name: "LNG·친환경선 비중", financial_link: [revenue, margin], status: required}
+      - {name: "후판가 및 원가", financial_link: margin, status: required}
+      - {name: "인도 일정 및 현금흐름", financial_link: cash_flow, status: required}
+    valuation_methods: ["Forward PER", "PBR/ROE", "EV/EBITDA"]
+    falsifiers: ["후판가 상승", "인도 지연", "선가 하락", "발주 cycle 둔화"]
+
+  DEFENSE:
+    label: "방산"
+    thesis_question: "국방비와 수출 파이프라인이 계약·인도·고마진 매출로 이어지는가?"
+    required_kpis:
+      - {name: "수주잔고", financial_link: revenue, status: required}
+      - {name: "신규 수출계약 및 파이프라인", financial_link: revenue, status: required}
+      - {name: "수출 비중/제품 믹스", financial_link: margin, status: required}
+      - {name: "생산능력과 납기", financial_link: [revenue, margin], status: required}
+      - {name: "영업이익률 및 현금전환", financial_link: [margin, cash_flow], status: required}
+      - {name: "환율/승인/현지화 조건", financial_link: [margin, risk], status: required}
+    valuation_methods: ["Forward PER", "EV/EBITDA", "DCF"]
+    falsifiers: ["수출승인 지연", "납기·생산병목", "원가상승", "지정학 완화 또는 조달정책 변화"]
+
+  CONSUMER_GAME_ENTERTAINMENT:
+    label: "소비재/게임/엔터"
+    thesis_question: "브랜드·IP·사용자 기반이 글로벌 매출과 지속 가능한 마진으로 연결되는가?"
+    required_kpis:
+      - {name: "글로벌 매출 비중", financial_link: revenue, status: required}
+      - {name: "신제품/IP/콘텐츠 라인업", financial_link: revenue, status: required}
+      - {name: "MAU/ARPU/객단가/팬덤 지표", financial_link: revenue, status: proxy_allowed}
+      - {name: "마케팅비 및 영업이익률", financial_link: margin, status: required}
+      - {name: "현금창출 및 주주환원", financial_link: valuation, status: acceptable_na}
+    valuation_methods: ["PER", "EV/EBITDA", "DCF"]
+    falsifiers: ["흥행 실패", "사용자 이탈", "마케팅 효율 악화", "글로벌 확장 둔화"]
+
+  BIO:
+    label: "바이오"
+    thesis_question: "임상·허가·기술이전 이벤트의 확률가중 가치가 자금소진 리스크를 상회하는가?"
+    required_kpis:
+      - {name: "파이프라인 단계/임상 이벤트", financial_link: valuation, status: required}
+      - {name: "허가·데이터 공개 일정", financial_link: valuation, status: required}
+      - {name: "기술이전 계약 및 마일스톤", financial_link: [revenue, cash_flow], status: acceptable_na}
+      - {name: "현금 및 cash runway", financial_link: cash_flow, status: required}
+      - {name: "R&D 지출", financial_link: cash_flow, status: required}
+    valuation_methods: ["rNPV", "Milestone scenario valuation", "Cash runway analysis"]
+    avoid_methods: ["이익이 없는 초기 바이오에 단순 PER 적용"]
+    falsifiers: ["임상 실패", "허가 지연", "기술이전 무산", "증자/희석 리스크"]
