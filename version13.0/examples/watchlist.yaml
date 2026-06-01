@@ -1,0 +1,47 @@
+# GIC v13 에이전트 관심종목 목록
+#
+# 여기에 여러 기업을 넣으면 에이전트가 한 번에 전부 실행하고
+# (선택) 결과 초안을 메일로 보냅니다.
+#
+# 실행:
+#   $env:OPENDART_API_KEY="본인_키"
+#   python -m gic_v13.cli agent run examples/watchlist.yaml --output-dir outputs --email
+#
+# 각 항목은 examples/defense_company_request.yaml 과 동일한 형식입니다.
+
+requests:
+  - run_id: "hanwha_aerospace_weekly"
+    report_mode: "COMPANY_REPORT"
+    sector_id: "DEFENSE"
+    primary_entity:
+      corp_name: "한화에어로스페이스"
+      stock_code: "012450"
+      corp_code: null
+    candidate_entities: []
+    bsns_years: ["2023", "2024", "2025"]
+    reprt_codes: ["11011"]
+    fs_div: "CFS"
+    as_of_date: "2026-05-31"
+    language: "ko-KR"
+    output_formats: ["html"]
+    optional_inputs:
+      evidence_inbox_dir: "sources/evidence_inbox"
+      manual_notes_file: null
+
+  - run_id: "korea_aerospace_weekly"
+    report_mode: "COMPANY_REPORT"
+    sector_id: "DEFENSE"
+    primary_entity:
+      corp_name: "한국항공우주"
+      stock_code: "047810"
+      corp_code: null
+    candidate_entities: []
+    bsns_years: ["2023", "2024", "2025"]
+    reprt_codes: ["11011"]
+    fs_div: "CFS"
+    as_of_date: "2026-05-31"
+    language: "ko-KR"
+    output_formats: ["html"]
+    optional_inputs:
+      evidence_inbox_dir: "sources/evidence_inbox"
+      manual_notes_file: null

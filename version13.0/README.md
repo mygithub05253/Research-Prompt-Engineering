@@ -69,6 +69,20 @@ outputs/<run_id>/
    └─ preview.html
 ```
 
+## 에이전트 모드 (스케줄 자동실행 + 메일발송)
+
+v13은 단일 실행(`run`) 외에, 여러 기업을 한 번에 돌리고 결과를 메일로 보내는 **에이전트 모드**를 제공한다.
+
+```powershell
+# 관심종목(watchlist) 일괄 실행 + 메일 발송
+python -m gic_v13.cli agent run examples/watchlist.yaml --output-dir outputs --email
+```
+
+- 관심종목은 `examples/watchlist.yaml`에서 추가/삭제한다.
+- 메일은 무료 SMTP(Gmail 앱 비밀번호) 사용, 유료 메일 API 없음.
+- GitHub Actions(`.github/workflows/gic-agent.yml`) 또는 Windows 작업 스케줄러로 주기 실행.
+- 자세한 설정은 [docs/AGENT_AUTOMATION_GUIDE.md](docs/AGENT_AUTOMATION_GUIDE.md) 참고.
+
 ## 권장 사용 흐름
 
 1. 부원이 OpenDART API Key를 준비한다.
