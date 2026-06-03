@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>GIC 리서치 자동화 에이전트 — 과제 진행기록</title>
+<style>
+  body{margin:0;background:#eceef2;font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif;color:#1c2430;line-height:1.6;}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px;}
+  h1{color:#fff;background:linear-gradient(120deg,#143E68,#205A93);padding:20px 24px;border-radius:6px;border-bottom:5px solid #E97132;font-size:23px;}
+  h2{color:#205A93;border-left:5px solid #205A93;padding-left:10px;margin-top:32px;font-size:18px;}
+  h3{color:#17446F;margin-bottom:4px;font-size:14.5px;}
+  .meta{color:#5b6577;font-size:12px;}
+  .card{background:#fff;border:1px solid #d7dde7;border-radius:6px;padding:14px 16px;margin:10px 0;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0;}
+  th,td{border:1px solid #d7dde7;padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:#e3edf8;color:#205A93;}
+  .pill{display:inline-block;background:#205A93;color:#fff;border-radius:10px;padding:1px 10px;font-size:11px;margin:1px;}
+  .pill.o{background:#E97132;}
+  code{background:#f2f5f9;padding:1px 5px;border-radius:3px;font-size:12px;}
+  ul{margin:6px 0;padding-left:18px;} li{font-size:12.5px;}
+  .flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;margin:8px 0;}
+  .flow .n{background:#205A93;color:#fff;padding:5px 10px;border-radius:4px;}
+  .flow .a{color:#E97132;font-weight:800;}
+  .foot{margin-top:30px;color:#9aa3b2;font-size:11px;text-align:center;}
+</style>
+</head>
+<body><div class="wrap">
+<h1>🤖 GIC 리서치 자동화 에이전트 — 과제 진행기록</h1>
+<p class="meta">가천대학교 금융투자동아리 GIC 4기 · "컴퓨터 반복업무 에이전트화" 실전 프로젝트 · 갱신 2026-06-02</p>
+
+<h2>1. 과제 정의와 우리의 답</h2>
+<div class="card">
+<b>과제:</b> 컴퓨터 상의 단순 반복 업무(메일링·엑셀·PPT 등)를 찾아 <b>에이전트로 자동화</b>한다. 상상이 아니라 <b>실사용자</b>가 있어야 한다.
+<br><br>
+<b>우리가 고른 반복업무:</b> GIC 동아리의 <b>기업 리서치 보고서 작성</b>. 부원들은 매번
+① 전자공시(DART)에서 재무를 찾아 엑셀에 옮기고 ② 주가·시총·PER 등을 포털에서 베끼고 ③ 비율을 계산하고
+④ 정해진 PPT 양식에 채워 ⑤ 리포트를 만든다. — 반복적·수작업·실수 잦음.
+<br><br>
+<b>실사용자:</b> <span class="pill">GIC 부원 전체</span> (특히 ChatGPT·Claude 유료 구독이 없는 부원).
+</div>
+
+<h2>2. 가장 큰 제약 → 설계를 결정한 한 문장</h2>
+<div class="card">
+<b>"부원 누구나, 추가 결제 0원, OpenDART 무료 키 하나로 실행할 수 있어야 한다."</b>
+<br>이 제약이 모든 기술 선택을 결정했다:
+<ul>
+<li>유료 LLM/유료 데이터 API <b>금지</b> → 두뇌는 <b>규칙(rule)+템플릿</b>, 정성 해석은 <b>프롬프트</b>로 사람이 무료 AI에 붙여 완성.</li>
+<li>시장데이터는 <b>pykrx</b>(KRX, 키·결제 불필요), 재무·공시는 <b>OpenDART</b>(무료 키).</li>
+<li>못 구한 값은 <b>추정 금지</b> → <code>—</code> 표기 + QA 경고.</li>
+</ul>
+</div>
+
+<h2>3. 진화 과정 (v1 → v14)</h2>
+<table>
+<tr><th>단계</th><th>핵심</th></tr>
+<tr><td>v1~v9</td><td>복붙형 <b>단계별 프롬프트</b> 엔지니어링(9단계 모듈 + 10블록: Red Team·Evidence Card·5개년 모델링·Anti-Hallucination 등). 어떤 챗봇에서도 동작, 코드·키 불필요.</td></tr>
+<tr><td>v10~v12</td><td>산출물 <b>구조화</b>(facts/derived metrics/drivers/claims 스키마, QA 게이트, 양식·디자인 계약).</td></tr>
+<tr><td>v13</td><td><b>코드 자동화</b> 시작 — OpenDART 무료 파이프라인 + <b>에이전트 레이어</b>(watchlist 일괄 실행 · Gmail 메일 발송 · GitHub Actions 주간 스케줄).</td></tr>
+<tr><td><b>v14</b></td><td><b>하이브리드 완성</b> — OpenDART+pykrx로 <b>GIC 양식 HTML 자동 생성</b> + <b>데이터 주입 프롬프트 팩</b> + <b>문헌근거 지표</b> + <b>피어 벤치마킹</b>.</td></tr>
+</table>
+
+<h2>4. v14 동작 (파이프라인)</h2>
+<div class="flow">
+<span class="n">input/요청.yaml</span><span class="a">→</span>
+<span class="n">OpenDART 재무</span><span class="a">+</span><span class="n">pykrx 시장</span><span class="a">→</span>
+<span class="n">재무비율 계산</span><span class="a">→</span>
+<span class="n">피어 벤치마킹</span><span class="a">→</span>
+<span class="n">산출물 3종</span>
+</div>
+<table>
+<tr><th>산출물</th><th>내용</th><th>누가 채우나</th></tr>
+<tr><td><code>report.html</code></td><td>GIC 양식 7p(표지·산업·기업·투자포인트·리스크·밸류에이션). 주가차트·재무표·피어비교 자동.</td><td>🤖 기계</td></tr>
+<tr><td><code>prompt_pack.md</code></td><td>Step 0~8 + 20개 하위단계. 수집 수치·지표 근거가 박힌 프롬프트.</td><td>✍️ 사람(무료 AI에 복붙)</td></tr>
+<tr><td><code>qa_report.md</code></td><td>자동/수동 구분, 미수집 항목, release 전 점검.</td><td>🤖 기계</td></tr>
+</table>
+
+<h2>5. "근거 있는 분석"을 위한 문헌 연구 (실무 차별점)</h2>
+<div class="card">
+어떤 지표를 봐야 하는지를 감이 아니라 <b>학술·실무 문헌</b>으로 정했다.
+<ul>
+<li>국내 KCI/DBpia: <b>AHP·로짓 18변수 모형</b>(정확도 91.98%), <b>Ohlson 모형</b>, <b>저PER·저PBR 효과</b>, <b>PBR 결정요인</b>.</li>
+<li>국제: <b>Damodaran 멀티플</b>, <b>ROIC·EVA·WACC</b>, <b>DuPont 분해</b>.</li>
+<li>이를 <code>research/indicators.py</code>에 <b>출처와 함께</b> 코드화 → 프롬프트 팩에 자동 주입.</li>
+<li><b>OpenAlex 무료 크롤러</b>로 문헌 개념 빈도를 집계해 <code>research/</code>에 HTML로 시각화(지속 갱신).</li>
+</ul>
+관련 파일: <span class="pill o">research/&lt;날짜&gt;_지표연구.html</span>
+</div>
+
+<h2>6. 어떻게 만들었나 (개발 일지 요약)</h2>
+<table>
+<tr><th>세션 작업</th><th>방법</th></tr>
+<tr><td>양식 픽셀 재현</td><td>GIC 양식 PPTX를 압축 해제해 <b>실제 로고·배경·브랜드색(#205A93/#E97132)</b> 추출 → Jinja2 템플릿화. 사용자 피드백으로 색·레이아웃 반복 보정.</td></tr>
+<tr><td>시장데이터</td><td>pykrx로 주가·시총·거래량·PER/PBR/배당·외국인지분 수집. 엔드포인트 실패 시 graceful <code>—</code>.</td></tr>
+<tr><td>피어 재무비율(v14.1)</td><td>정규화 확장(순이익·자산·자본·매출원가) → OPM·NPM·ROE·ROA·부채비율·FCF·CAGR 실제 계산, 피어까지.</td></tr>
+<tr><td>프롬프트 세분화</td><td>Step을 20개 하위단계로(밸류에이션 5.1 상대가치/5.2 DCF·RIM/5.3 교차검증), 지표 공식 직접 연결.</td></tr>
+<tr><td>협업·도구</td><td>Claude 페어작업, OpenDART·pykrx·OpenAlex·웹검색으로 데이터·근거 확보. GitHub로 버전관리.</td></tr>
+</table>
+
+<h2>7. 결과 · 한계 · 다음</h2>
+<div class="card">
+<b>결과:</b> 종목코드 하나로 무료·재현가능하게 양식 리포트 초안 + 근거 프롬프트 생성. 부원이 구독 없이 사용 가능.
+<br><b>한계:</b> EV/EBITDA(감가상각 분해)·주요주주·사업부문 매출은 후속 자동화 예정. 정성 서술은 사람+AI 협업(의도된 설계).
+<br><b>다음:</b> 주요주주·사업부문 OpenDART API, 산업 리서치 가로 PPT, 산업 Top Pick 자유양식, 실외부 사용자 확보.
+</div>
+
+<div class="foot">GIC v14 · 무료 공개데이터 기반 · 학습·연구용 · 레포 github.com/mygithub05253/Research-Prompt-Engineering</div>
+</div></body></html>
