@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>GIC 기업리서치 - {{ meta.entity }} ({{ meta.code }})</title>
+<style>
+  :root{
+    --navy:#205A93; --navy2:#3A78B5; --navy-dark:#17446F; --navy-deep:#143E68;
+    --orange:#E97132; --ink:#1c2430; --muted:#5b6577;
+    --line:#d7dde7; --hi:#e3edf8; --bg:#eceef2; --softblue:#dbe6f5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif;color:var(--ink);}
+  .page{width:794px;min-height:1123px;margin:16px auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.18);position:relative;overflow:hidden;}
+  .hdr{background:var(--navy-dark) url("cover_bg.png") center/cover no-repeat;color:#fff;padding:26px 34px 34px;position:relative;}
+  .hdr::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(23,68,111,.55),rgba(58,120,181,.28));}
+  .hdr>*{position:relative;z-index:1;}
+  .hdr .logo{position:absolute;top:14px;left:22px;width:46px;height:46px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+  .hdr .logo img{width:40px;height:40px;object-fit:contain;}
+  .hdr .title{text-align:center;font-size:34px;font-weight:800;letter-spacing:1px;margin-top:4px;}
+  .hdr .title .code{font-size:20px;font-weight:600;opacity:.92;}
+  .hdr .slogan{text-align:center;color:#FFB877;font-weight:800;font-size:17px;margin-top:8px;}
+  .hdr .row{display:flex;justify-content:space-between;font-size:12px;margin-top:16px;opacity:.92;}
+  .body{display:flex;gap:18px;padding:22px 26px 14px;}
+  .col-left{width:38%;} .col-right{width:62%;padding-top:6px;}
+  .rating{font-size:46px;font-weight:800;color:var(--navy);line-height:1;margin:2px 0 14px;}
+  .rating small{font-size:18px;font-weight:700;}
+  .pricebox .pr{display:flex;justify-content:space-between;padding:5px 6px;border-bottom:1px solid var(--navy);font-size:13px;}
+  .pricebox .pr .k{font-weight:700;color:var(--navy);} .pricebox .pr .v{font-weight:600;}
+  .sec-label{background:var(--navy);color:#fff;font-size:12.5px;font-weight:700;padding:5px 10px;margin:14px 0 6px;}
+  .kv{width:100%;border-collapse:collapse;font-size:12px;}
+  .kv td{padding:4px;border-bottom:1px dotted var(--line);}
+  .kv td.k{font-weight:600;} .kv td.v{text-align:right;}
+  .chart-wrap{border:1px solid var(--line);padding:6px;}
+  .chart-wrap svg{display:block;width:100%;}
+  .yaxis{font-size:9px;fill:#9aa3b2;}
+  .cp-head{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--orange);padding-bottom:6px;margin-bottom:14px;}
+  .cp-tag{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:5px 14px;border-radius:3px;}
+  .cp-sub{font-size:13px;color:#333;}
+  .point{margin:0 0 26px;} .point .p-h{color:var(--navy);font-weight:800;font-size:14px;margin-bottom:6px;}
+  .point .p-b{font-size:12.5px;color:#333;line-height:1.7;}
+  .todo{color:#b06a00;background:#FFF4E0;border:1px dashed var(--orange);padding:2px 6px;border-radius:3px;font-size:11px;}
+  .fin{padding:6px 26px 30px;}
+  table.fin-t{width:100%;border-collapse:collapse;font-size:11.5px;text-align:center;}
+  table.fin-t th{border-top:2px solid var(--navy);border-bottom:1px solid var(--navy);padding:9px 4px;color:var(--navy);font-weight:800;line-height:1.3;}
+  table.fin-t td{border-bottom:1px solid var(--line);padding:9px 4px;}
+  table.fin-t th.hi,table.fin-t td.hi{background:var(--hi);}
+  table.fin-t td.yr{font-weight:700;color:var(--navy);}
+  table.fin-t tr:last-child td{border-bottom:2px solid var(--navy);}
+  .src{font-size:10.5px;color:var(--muted);padding:0 26px 18px;}
+  .ipage{padding:0 0 44px;}
+  .ip-head{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 30px 10px;}
+  .ip-logo{display:flex;align-items:center;gap:8px;}
+  .ip-logo img{width:30px;height:30px;object-fit:contain;}
+  .ip-logo .wm{font-size:9px;font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:.5px;}
+  .ip-co{font-size:12px;color:#444;font-weight:600;padding-top:4px;}
+  .sec-bar{margin:6px 30px 22px;color:#fff;font-weight:800;font-size:16px;padding:9px 16px;background:linear-gradient(90deg,var(--navy-deep) 0%,var(--navy2) 50%,#eaf1f8 100%);border-radius:2px;}
+  .blk{display:flex;gap:18px;padding:0 34px;margin-bottom:30px;}
+  .blk .lab{width:90px;flex:0 0 90px;color:var(--orange);font-weight:700;font-size:12.5px;padding-top:3px;}
+  .blk .bd{flex:1;} .blk .bd h4{margin:0 0 8px;color:var(--navy);font-size:14.5px;}
+  .blk .bd p{margin:0;font-size:12.5px;line-height:1.75;color:#333;}
+  .cap{font-weight:700;font-size:12.5px;color:#222;padding:0 34px;margin:6px 0 8px;}
+  .figs{display:flex;gap:20px;padding:0 34px;align-items:flex-end;} .figs .fig{flex:1;}
+  .figs svg{width:100%;border:1px solid var(--line);background:#fff;}
+  .figsrc{display:flex;gap:20px;padding:4px 34px 0;} .figsrc div{flex:1;font-size:10px;color:var(--muted);border-top:1px solid var(--line);padding-top:4px;}
+  .footer-band{position:absolute;left:0;right:0;bottom:0;height:26px;background:var(--navy-deep);color:#cfe0f2;font-size:10.5px;font-weight:700;display:flex;align-items:center;padding-left:30px;letter-spacing:1px;}
+  .compliance{padding:18px 34px;margin-top:10px;} .compliance h5{color:var(--navy);font-size:12px;margin:0 0 8px;}
+  .compliance ul{margin:0;padding-left:16px;} .compliance li{font-size:10px;color:#555;line-height:1.7;}
+  .draft-flag{max-width:794px;margin:14px auto 0;padding:7px 14px;background:#FFF4E0;border:1px solid var(--orange);border-radius:4px;font-size:12px;color:#8a5a12;text-align:center;}
+  @media print{body{background:#fff;}.draft-flag{display:none;}.page{box-shadow:none;margin:0;page-break-after:always;}}
+</style>
+</head>
+<body>
+
+<div class="draft-flag">⚠ {{ draft_status }} — QA 통과 및 사람 검토 전 초안입니다. 정성 서술([작성 필요])은 prompt_pack.md로 작성하세요.</div>
+
+{# ===== 1. 표지 ===== #}
+<div class="page">
+  <div class="hdr">
+    <div class="logo"><img src="gic_logo.png" alt="GIC"></div>
+    <div class="title">{{ meta.entity }} <span class="code">({{ meta.code }})</span></div>
+    <div class="slogan">{{ meta.slogan }}</div>
+    <div class="row"><span>{{ meta.as_of }}</span><span>{{ meta.author }}</span></div>
+  </div>
+  <div class="body">
+    <div class="col-left">
+      <div class="rating">{{ rating.label }}<small>({{ rating.label_ko }})</small></div>
+      <div class="pricebox">
+        <div class="pr"><span class="k">목표주가</span><span class="v">{% if rating.target_price %}{{ rating.target_price|won }}{% else %}<span class="todo">사람 입력</span>{% endif %}</span></div>
+        <div class="pr"><span class="k">상승여력</span><span class="v">{{ rating.upside or "—" }}</span></div>
+        <div class="pr"><span class="k">현재주가</span><span class="v">{{ revision.current_price|won }}</span></div>
+      </div>
+      <div class="sec-label">Revision</div>
+      <table class="kv">
+        <tr><td class="k">시가총액(억원)</td><td class="v">{{ revision.market_cap_eok|won }}</td></tr>
+        <tr><td class="k">발행주식수(백만주)</td><td class="v">{{ revision.shares_mn|won }}</td></tr>
+        <tr><td class="k">유동주식비율(%)</td><td class="v">{{ revision.float_pct|pct }}</td></tr>
+        <tr><td class="k">52주 최고가(원)</td><td class="v">{{ revision.high_52w|won }}</td></tr>
+        <tr><td class="k">52주 최저가(원)</td><td class="v">{{ revision.low_52w|won }}</td></tr>
+        <tr><td class="k">일평균 거래액(60일)</td><td class="v">{{ revision.avg_trade_eok|won }} 억원</td></tr>
+        <tr><td class="k">외국인 지분율(%)</td><td class="v">{{ revision.foreign_pct|pct }}</td></tr>
+      </table>
+      <div class="sec-label">주요주주(%)</div>
+      <table class="kv">
+        {% for h in holders %}
+        <tr><td class="k">{{ h.name }}</td><td class="v">{{ h.pct|pct }}</td></tr>
+        {% endfor %}
+      </table>
+      <div class="sec-label">주가</div>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 320 120" preserveAspectRatio="none" height="120">
+          <line x1="34" y1="10" x2="34" y2="104" stroke="#e3e7ee"/>
+          <line x1="34" y1="104" x2="316" y2="104" stroke="#e3e7ee"/>
+          <text class="yaxis" x="2" y="16">{{ spark.hi }}</text>
+          <text class="yaxis" x="2" y="60">{{ spark.mid }}</text>
+          <text class="yaxis" x="2" y="104">{{ spark.lo }}</text>
+          <polyline fill="none" stroke="#205A93" stroke-width="2" points="{{ spark.points }}"/>
+        </svg>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="cp-head"><span class="cp-tag">Check Point</span><span class="cp-sub">3줄 투자 요약 — 프롬프트 팩으로 작성</span></div>
+      {% for cp in check_points %}
+      <div class="point"><div class="p-h">Point {{ loop.index }}.</div>
+        <div class="p-b"><span class="todo">[작성 필요]</span> {{ cp.hint }}</div></div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="fin">
+    <table class="fin-t">
+      <thead><tr><th>12월 결산</th><th>매출액<br>(십억원)</th><th class="hi">영업이익<br>(십억원)</th><th>지배순이익<br>(십억원)</th><th>PER<br>(배)</th><th>ROE<br>(%)</th><th>PBR<br>(배)</th><th>EV/EBITDA<br>(배)</th><th>DY<br>(%)</th></tr></thead>
+      <tbody>
+        {% for r in fin_rows %}
+        <tr><td class="yr">{{ r.year }}</td><td>{{ r.revenue|won }}</td><td class="hi">{{ r.op|won }}</td><td>{{ r.np|won }}</td><td>{{ r.per|ratio }}</td><td>{{ r.roe|ratio }}</td><td>{{ r.pbr|ratio }}</td><td>{{ r.ev_ebitda|ratio }}</td><td>{{ r.dy|ratio }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="src">자료: OpenDART(재무) · KRX/pykrx(주가·멀티플). E=추정(사람 입력/프롬프트). 미수집 항목은 — 표기.</div>
+</div>
+
+{% macro iphead() %}
+  <div class="ip-head"><div class="ip-logo"><img src="gic_logo.png" alt=""><div class="wm">GIC<br>RESEARCH<br>REPORT</div></div><div class="ip-co">{{ meta.entity }} ({{ meta.code }})</div></div>
+{% endmacro %}
+
+{# ===== 2. 목차 ===== #}
+<div class="page"><div class="ipage">
+  {{ iphead() }}
+  <div style="text-align:center;font-size:40px;font-weight:800;color:var(--navy);margin:50px 0 10px;">CONTENTS</div>
+  <div style="padding:30px 60px;">
+    {% for c in contents %}
+    <div style="display:flex;justify-content:space-between;border-left:5px solid var(--navy);padding:6px 0 6px 14px;margin-bottom:6px;"><b style="font-size:17px;color:var(--navy);">{{ c.title }}</b><b style="color:var(--navy);">{{ loop.index }}</b></div>
+    <div style="padding-left:30px;color:#666;font-size:12.5px;margin-bottom:22px;">{{ c.sub }}</div>
+    {% endfor %}
+  </div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+{# ===== 3. 산업분석 ===== #}
+<div class="page"><div class="ipage">
+  {{ iphead() }}
+  <div class="sec-bar">산업분석</div>
+  {% for b in sections.industry %}
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>{{ b.h4 }}</h4><p><span class="todo">[작성 필요]</span> {{ b.hint }}</p></div></div>
+  {% endfor %}
+  <div class="cap">표 또는 이미지는 이 표 안에 넣으세요. 기업 지배 구조 또는 BM 등</div>
+  <div class="figs">
+    <div class="fig"><svg viewBox="0 0 300 150" height="150">
+      <g stroke="#eee"><line x1="30" y1="20" x2="290" y2="20"/><line x1="30" y1="60" x2="290" y2="60"/><line x1="30" y1="100" x2="290" y2="100"/><line x1="30" y1="130" x2="290" y2="130"/></g>
+      <rect x="50" y="60" width="22" height="70" fill="#205A93"/><rect x="74" y="95" width="22" height="35" fill="#dbe6f5"/>
+      <rect x="130" y="40" width="22" height="90" fill="#205A93"/><rect x="154" y="100" width="22" height="30" fill="#dbe6f5"/>
+      <rect x="210" y="30" width="22" height="100" fill="#205A93"/><rect x="234" y="80" width="22" height="50" fill="#dbe6f5"/>
+    </svg></div>
+    <div class="fig"><svg viewBox="0 0 300 150" height="150">
+      <polyline fill="none" stroke="#205A93" stroke-width="2.5" points="20,120 80,90 140,100 200,55 280,30"/>
+      <polyline fill="none" stroke="#E97132" stroke-width="2.5" points="20,110 80,115 140,70 200,80 280,50"/>
+    </svg></div>
+  </div>
+  <div class="figsrc"><div>자료 : 출처를 꼭 밝혀주세요</div><div>자료 : 출처를 꼭 밝혀주세요</div></div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+{# ===== 4. 기업분석 ===== #}
+<div class="page"><div class="ipage">
+  {{ iphead() }}
+  <div class="sec-bar">기업분석</div>
+  {% for b in sections.company %}
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>{{ b.h4 }}</h4><p><span class="todo">[작성 필요]</span> {{ b.hint }}</p></div></div>
+  {% endfor %}
+  <div class="cap">표 또는 이미지는 이 표 안에 넣으세요. 기업 지배 구조 또는 BM 등</div>
+  <div class="figs">
+    <div class="fig"><svg viewBox="0 0 300 160" height="160"><circle cx="150" cy="80" r="60" fill="#205A93"/><circle cx="150" cy="80" r="42" fill="#3A78B5"/><circle cx="150" cy="80" r="24" fill="#dbe6f5"/></svg></div>
+    <div class="fig"><svg viewBox="0 0 300 160" height="160">
+      <rect x="120" y="14" width="60" height="26" fill="#205A93"/>
+      <line x1="150" y1="40" x2="150" y2="62" stroke="#999"/><line x1="60" y1="62" x2="240" y2="62" stroke="#999"/>
+      <line x1="60" y1="62" x2="60" y2="78" stroke="#999"/><line x1="150" y1="62" x2="150" y2="78" stroke="#999"/><line x1="240" y1="62" x2="240" y2="78" stroke="#999"/>
+      <rect x="30" y="78" width="60" height="24" fill="#3A78B5"/><rect x="120" y="78" width="60" height="24" fill="#3A78B5"/><rect x="210" y="78" width="60" height="24" fill="#3A78B5"/>
+    </svg></div>
+  </div>
+  <div class="figsrc"><div>자료 : 출처를 꼭 밝혀주세요</div><div>자료 : 출처를 꼭 밝혀주세요</div></div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+{# ===== 5. 투자포인트 ===== #}
+<div class="page"><div class="ipage">
+  {{ iphead() }}
+  <div class="sec-bar">투자포인트</div>
+  {% for b in sections.points %}
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>Point {{ loop.index }}. {{ b.h4 }}</h4><p><span class="todo">[작성 필요]</span> {{ b.hint }}</p></div></div>
+  {% endfor %}
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+{# ===== 6. 투자리스크 ===== #}
+<div class="page"><div class="ipage">
+  {{ iphead() }}
+  <div class="sec-bar">투자리스크</div>
+  {% for b in sections.risks %}
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>Risk {{ loop.index }}. {{ b.h4 }}</h4><p><span class="todo">[작성 필요]</span> {{ b.hint }}</p></div></div>
+  {% endfor %}
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+{# ===== 7. 밸류에이션 ===== #}
+<div class="page"><div class="ipage">
+  {{ iphead() }}
+  <div class="sec-bar">밸류에이션</div>
+  <div class="cap">피어 비교 (벤치마킹) — 자동 수집</div>
+  <div style="padding:0 34px;">
+    <table class="fin-t">
+      <thead><tr><th>기업</th><th>매출(십억)</th><th class="hi">영업이익률(%)</th><th>PER(배)</th><th>ROE(%)</th><th>PBR(배)</th><th>EV/EBITDA(배)</th></tr></thead>
+      <tbody>
+        {% for p in peers %}
+        <tr><td class="yr">{{ p.name }}</td><td>{{ p.revenue|won }}</td><td class="hi">{{ p.opm|ratio }}</td><td>{{ p.per|ratio }}</td><td>{{ p.roe|ratio }}</td><td>{{ p.pbr|ratio }}</td><td>{{ p.ev_ebitda|ratio }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="figs" style="margin-top:22px;">
+    <div class="fig"><svg viewBox="0 0 300 160" height="160">
+      <g stroke="#eee"><line x1="20" y1="140" x2="290" y2="140"/></g>
+      {% for bar in peer_bars %}
+      <rect x="{{ 40 + loop.index0 * 80 }}" y="{{ 140 - (bar.h * 110)|round(0,'floor')|int }}" width="46" height="{{ (bar.h * 110)|round(0,'floor')|int }}" fill="{{ '#205A93' if loop.first else '#dbe6f5' }}"/>
+      <text x="{{ 42 + loop.index0 * 80 }}" y="153" font-size="9" fill="#888">{{ bar.name[:6] }}</text>
+      <text x="{{ 48 + loop.index0 * 80 }}" y="{{ 134 - (bar.h * 110)|round(0,'floor')|int }}" font-size="9" fill="#444">{{ bar.value|ratio }}</text>
+      {% endfor %}
+      <text x="20" y="14" font-size="9" fill="#888">PER 비교(배)</text>
+    </svg></div>
+    <div class="fig"><svg viewBox="0 0 300 160" height="160">
+      <circle cx="150" cy="80" r="60" fill="#dbe6f5"/>
+      <path d="M150 80 L150 20 A60 60 0 0 1 202 110 Z" fill="#205A93"/>
+      <path d="M150 80 L202 110 A60 60 0 0 1 110 135 Z" fill="#E97132"/>
+      <text x="105" y="152" font-size="9" fill="#888">사업부 매출 비중(예시)</text>
+    </svg></div>
+  </div>
+  <div class="figsrc"><div>자료: OpenDART · pykrx 자동 수집</div><div>자료: OpenDART 사업보고서</div></div>
+  <div class="compliance">
+    <h5>Compliance Notice</h5>
+    <ul>
+      {% for line in compliance %}
+      <li>{{ line }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+</body>
+</html>

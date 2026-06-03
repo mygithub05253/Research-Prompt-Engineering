@@ -1,0 +1,32 @@
+{
+  "stock_code": "005930",
+  "as_of_date": "2026-06-01",
+  "current_price": 74200,
+  "market_cap_eok": 4430000,
+  "shares_outstanding_mn": 5969,
+  "high_52w": 88800,
+  "low_52w": 49900,
+  "avg_trade_value_60d_eok": 9820,
+  "foreign_ratio_pct": 53.2,
+  "per": 13.1,
+  "pbr": 1.4,
+  "eps": 5664,
+  "bps": 53000,
+  "div_yield_pct": 1.9,
+  "price_series": [
+    {"date": "2025-07", "close": 61000},
+    {"date": "2025-08", "close": 64500},
+    {"date": "2025-09", "close": 62800},
+    {"date": "2025-10", "close": 69000},
+    {"date": "2025-11", "close": 67500},
+    {"date": "2025-12", "close": 71200},
+    {"date": "2026-01", "close": 70100},
+    {"date": "2026-02", "close": 73400},
+    {"date": "2026-03", "close": 75800},
+    {"date": "2026-04", "close": 79000},
+    {"date": "2026-05", "close": 82500},
+    {"date": "2026-06", "close": 74200}
+  ],
+  "unavailable": [],
+  "source": "fixture(sample)"
+}

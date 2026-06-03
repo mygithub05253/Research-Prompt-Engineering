@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gic-v14"
+version = "14.0.0"
+description = "GIC 기업/산업 리서치 자동화 — OpenDART + KRX 무료 데이터 + 양식 HTML + 프롬프트 팩"
+requires-python = ">=3.11"
+dependencies = [
+  "requests",
+  "PyYAML",
+  "jinja2",
+  "pykrx",
+]
+
+[project.optional-dependencies]
+extra = ["finance-datareader"]
+dev = ["pytest"]
+
+[project.scripts]
+gic-v14 = "gic_v14.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,30 @@
+# GIC v14 리서치 요청 — 부원이 만지는 거의 유일한 파일
+# 종목코드/연도/피어만 바꾸면 됩니다.
+
+run_id: "samsung_electronics_2025"
+report_mode: "COMPANY_REPORT"
+sector_id: "SEMICONDUCTOR"          # 섹터(렌즈)
+primary_entity:
+  corp_name: "삼성전자"
+  stock_code: "005930"
+  corp_code: null                    # 비워두면 자동 조회
+bsns_years: ["2023", "2024", "2025"]
+reprt_codes: ["11011"]               # 사업보고서
+fs_div: "CFS"                        # 연결재무제표
+as_of_date: "2026-06-01"
+language: "ko-KR"
+
+# 표지 메타 (양식 머리말)
+report_meta:
+  slogan: "GIC여 긱스럽게 도전하라"
+  author: "GIC 4기 OOO"
+  rating: "BUY"                      # BUY / HOLD / SELL — 사람이 판단
+  target_price: null                 # 목표주가(원) — 사람이 밸류에이션 후 입력
+
+# 피어(경쟁사) 벤치마킹
+peers:
+  auto_suggest: true                 # 업종코드로 자동 후보 추천
+  manual:                            # 수동 지정/수정 (자동후보에 추가/덮어쓰기)
+    - { corp_name: "SK하이닉스", stock_code: "000660" }
+
+output_formats: ["html", "prompt_pack"]

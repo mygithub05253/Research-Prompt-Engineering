@@ -1,0 +1,6 @@
+# 실행 산출물(run 디렉터리)은 재생성 가능 → 제외. 단 output 루트의 승인 샘플(html/png)은 유지.
+output/*/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.egg-info/

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>GIC v14 기업리서치 양식 - 삼성전자 (샘플)</title>
+<style>
+  :root{
+    /* PPTX 기반 + 사용자 피드백(더 밝은 로열블루) */
+    --navy:#205A93; --navy2:#3A78B5; --navy-dark:#17446F; --navy-deep:#143E68;
+    --orange:#E97132; --ink:#1c2430; --muted:#5b6577;
+    --line:#d7dde7; --hi:#e3edf8; --bg:#eceef2; --softblue:#dbe6f5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);
+       font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif;color:var(--ink);}
+  .sample-banner{max-width:794px;margin:14px auto 0;padding:8px 14px;background:#FFF4E0;
+       border:1px solid var(--orange);border-radius:4px;font-size:12px;color:#8a5a12;text-align:center;}
+  .page{width:794px;min-height:1123px;margin:16px auto;background:#fff;
+        box-shadow:0 2px 12px rgba(0,0,0,.18);position:relative;overflow:hidden;}
+
+  /* ============ 표지 ============ */
+  .hdr{background:var(--navy-dark) url("cover_bg.png") center/cover no-repeat;color:#fff;
+       padding:26px 34px 34px;position:relative;}
+  .hdr::before{content:"";position:absolute;inset:0;
+       background:linear-gradient(120deg,rgba(23,68,111,.55),rgba(58,120,181,.28));}
+  .hdr>*{position:relative;z-index:1;}
+  .hdr .logo{position:absolute;top:14px;left:22px;width:46px;height:46px;background:rgba(255,255,255,.08);
+       border-radius:8px;display:flex;align-items:center;justify-content:center;}
+  .hdr .logo img{width:40px;height:40px;object-fit:contain;}
+  .hdr .title{text-align:center;font-size:34px;font-weight:800;letter-spacing:1px;margin-top:4px;}
+  .hdr .title .code{font-size:20px;font-weight:600;opacity:.92;}
+  .hdr .slogan{text-align:center;color:#FFB877;font-weight:800;font-size:17px;margin-top:8px;}
+  .hdr .row{display:flex;justify-content:space-between;font-size:12px;margin-top:16px;opacity:.92;}
+
+  .body{display:flex;gap:18px;padding:22px 26px 14px;}
+  .col-left{width:38%;} .col-right{width:62%;padding-top:6px;}
+  .rating{font-size:46px;font-weight:800;color:var(--navy);line-height:1;margin:2px 0 14px;}
+  .rating small{font-size:18px;font-weight:700;}
+  .pricebox{margin-bottom:16px;}
+  .pricebox .pr{display:flex;justify-content:space-between;padding:5px 6px;border-bottom:1px solid var(--navy);font-size:13px;}
+  .pricebox .pr .k{font-weight:700;color:var(--navy);} .pricebox .pr .v{font-weight:600;}
+  .sec-label{background:var(--navy);color:#fff;font-size:12.5px;font-weight:700;padding:5px 10px;margin:14px 0 6px;}
+  .kv{width:100%;border-collapse:collapse;font-size:12px;}
+  .kv td{padding:4px;border-bottom:1px dotted var(--line);}
+  .kv td.k{font-weight:600;} .kv td.v{text-align:right;}
+  .chart-wrap{border:1px solid var(--line);padding:6px;}
+  .chart-wrap svg{display:block;width:100%;}
+  .yaxis{font-size:9px;fill:#9aa3b2;}
+  .cp-head{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--orange);padding-bottom:6px;margin-bottom:14px;}
+  .cp-tag{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:5px 14px;border-radius:3px;}
+  .cp-sub{font-size:13px;color:#333;}
+  .point{margin:0 0 26px;} .point .p-h{color:var(--navy);font-weight:800;font-size:14px;margin-bottom:6px;}
+  .point .p-b{font-size:12.5px;color:#333;line-height:1.7;}
+  .todo{color:#b06a00;background:#FFF4E0;border:1px dashed var(--orange);padding:2px 6px;border-radius:3px;font-size:11px;}
+  .fin{padding:6px 26px 30px;}
+  table.fin-t{width:100%;border-collapse:collapse;font-size:11.5px;text-align:center;}
+  table.fin-t th{border-top:2px solid var(--navy);border-bottom:1px solid var(--navy);padding:9px 4px;color:var(--navy);font-weight:800;line-height:1.3;}
+  table.fin-t td{border-bottom:1px solid var(--line);padding:9px 4px;}
+  table.fin-t th.hi,table.fin-t td.hi{background:var(--hi);}
+  table.fin-t td.yr{font-weight:700;color:var(--navy);}
+  table.fin-t tr:last-child td{border-bottom:2px solid var(--navy);}
+  .src{font-size:10.5px;color:var(--muted);padding:0 26px 18px;}
+
+  /* ============ 내지 공통 ============ */
+  .ipage{padding:0 0 44px;}
+  .ip-head{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 30px 10px;}
+  .ip-logo{display:flex;align-items:center;gap:8px;}
+  .ip-logo img{width:30px;height:30px;object-fit:contain;}
+  .ip-logo .wm{font-size:9px;font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:.5px;}
+  .ip-co{font-size:12px;color:#444;font-weight:600;padding-top:4px;}
+  .sec-bar{margin:6px 30px 22px;color:#fff;font-weight:800;font-size:16px;padding:9px 16px;
+       background:linear-gradient(90deg,var(--navy-deep) 0%,var(--navy2) 50%,#eaf1f8 100%);border-radius:2px;}
+  .blk{display:flex;gap:18px;padding:0 34px;margin-bottom:30px;}
+  .blk .lab{width:90px;flex:0 0 90px;color:var(--orange);font-weight:700;font-size:12.5px;padding-top:3px;}
+  .blk .bd{flex:1;}
+  .blk .bd h4{margin:0 0 8px;color:var(--navy);font-size:14.5px;}
+  .blk .bd p{margin:0;font-size:12.5px;line-height:1.75;color:#333;}
+  .cap{font-weight:700;font-size:12.5px;color:#222;padding:0 34px;margin:6px 0 8px;}
+  .figs{display:flex;gap:20px;padding:0 34px;align-items:flex-end;}
+  .figs .fig{flex:1;}
+  .figs svg{width:100%;border:1px solid var(--line);background:#fff;}
+  .figsrc{display:flex;gap:20px;padding:4px 34px 0;}
+  .figsrc div{flex:1;font-size:10px;color:var(--muted);border-top:1px solid var(--line);padding-top:4px;}
+  .footer-band{position:absolute;left:0;right:0;bottom:0;height:26px;
+       background:var(--navy-deep);color:#cfe0f2;font-size:10.5px;font-weight:700;
+       display:flex;align-items:center;padding-left:30px;letter-spacing:1px;}
+  .compliance{padding:18px 34px;margin-top:10px;}
+  .compliance h5{color:var(--navy);font-size:12px;margin:0 0 8px;}
+  .compliance ul{margin:0;padding-left:16px;}
+  .compliance li{font-size:10px;color:#555;line-height:1.7;}
+
+  @media print{body{background:#fff;}.sample-banner{display:none;}.page{box-shadow:none;margin:0;page-break-after:always;}}
+</style>
+</head>
+<body>
+
+<div class="sample-banner">⚠ 샘플 데이터(레이아웃 확인용) — 실제 수치 아님. v14 기업/산업 리서치 양식(세로) 전체 페이지 재현 시안.</div>
+
+<!-- ===== 1. 표지 ===== -->
+<div class="page">
+  <div class="hdr">
+    <div class="logo"><img src="gic_logo.png" alt="GIC"></div>
+    <div class="title">삼성전자 <span class="code">(005930)</span></div>
+    <div class="slogan">GIC여 긱스럽게 도전하라</div>
+    <div class="row"><span>2026.06.01</span><span>GIC 4기 OOO</span></div>
+  </div>
+  <div class="body">
+    <div class="col-left">
+      <div class="rating">BUY<small>(매수)</small></div>
+      <div class="pricebox">
+        <div class="pr"><span class="k">목표주가</span><span class="v">95,000</span></div>
+        <div class="pr"><span class="k">상승여력</span><span class="v">+28%</span></div>
+        <div class="pr"><span class="k">현재주가</span><span class="v">74,200</span></div>
+      </div>
+      <div class="sec-label">Revision</div>
+      <table class="kv">
+        <tr><td class="k">시가총액(억원)</td><td class="v">4,430,000</td></tr>
+        <tr><td class="k">발행주식수(백만주)</td><td class="v">5,969</td></tr>
+        <tr><td class="k">유동주식비율(%)</td><td class="v">74.8%</td></tr>
+        <tr><td class="k">52주 최고가(원)</td><td class="v">88,800</td></tr>
+        <tr><td class="k">52주 최저가(원)</td><td class="v">49,900</td></tr>
+        <tr><td class="k">일평균 거래액(60일)</td><td class="v">9,820 억원</td></tr>
+        <tr><td class="k">외국인 지분율(%)</td><td class="v">53.2%</td></tr>
+      </table>
+      <div class="sec-label">주요주주(%)</div>
+      <table class="kv">
+        <tr><td class="k">삼성생명 외 특수관계인</td><td class="v">20.8%</td></tr>
+        <tr><td class="k">국민연금공단</td><td class="v">7.6%</td></tr>
+      </table>
+      <div class="sec-label">주가</div>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 320 120" preserveAspectRatio="none" height="120">
+          <line x1="34" y1="10" x2="34" y2="104" stroke="#e3e7ee"/>
+          <line x1="34" y1="104" x2="316" y2="104" stroke="#e3e7ee"/>
+          <text class="yaxis" x="2" y="16">90,000</text><text class="yaxis" x="2" y="60">70,000</text><text class="yaxis" x="2" y="104">50,000</text>
+          <polyline fill="none" stroke="#205A93" stroke-width="2"
+            points="34,82 60,86 86,74 112,90 138,70 164,76 190,58 216,64 242,46 268,40 294,30 316,18"/>
+        </svg>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="cp-head"><span class="cp-tag">Check Point</span><span class="cp-sub">3줄 투자 요약 — 프롬프트 팩으로 작성</span></div>
+      <div class="point"><div class="p-h">Point 1.</div><div class="p-b"><span class="todo">[작성 필요]</span> HBM·DDR5 고부가 메모리 믹스 확대 → DRAM ASP 반등 → 영업이익률 회복. (자동주입: FY24 영업이익률 ▲)</div></div>
+      <div class="point"><div class="p-h">Point 2.</div><div class="p-b"><span class="todo">[작성 필요]</span> 파운드리 가동률·선단공정 수율 개선과 캐펙스 부담의 상쇄 구조.</div></div>
+      <div class="point"><div class="p-h">Point 3.</div><div class="p-b"><span class="todo">[작성 필요]</span> 주주환원(자사주·배당)+순현금 구조가 밸류에이션 하단 지지.</div></div>
+    </div>
+  </div>
+  <div class="fin">
+    <table class="fin-t">
+      <thead><tr><th>12월 결산</th><th>매출액<br>(십억원)</th><th class="hi">영업이익<br>(십억원)</th><th>지배순이익<br>(십억원)</th><th>PER<br>(배)</th><th>ROE<br>(%)</th><th>PBR<br>(배)</th><th>EV/EBITDA<br>(배)</th><th>DY<br>(%)</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">2023A</td><td>258,940</td><td class="hi">6,570</td><td>15,490</td><td>36.8</td><td>4.1</td><td>1.5</td><td>7.2</td><td>2.1</td></tr>
+        <tr><td class="yr">2024A</td><td>300,870</td><td class="hi">32,730</td><td>34,450</td><td>13.1</td><td>9.0</td><td>1.4</td><td>4.1</td><td>1.9</td></tr>
+        <tr><td class="yr">2025E</td><td>331,200</td><td class="hi">41,800</td><td>38,900</td><td>11.4</td><td>9.8</td><td>1.3</td><td>3.6</td><td>2.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="src">자료: OpenDART(재무) · KRX/pykrx(주가·멀티플) 자동 수집 예정. E=추정(사람 입력/프롬프트).</div>
+</div>
+
+<!-- ===== 2. 목차 ===== -->
+<div class="page"><div class="ipage">
+  <div class="ip-head"><div class="ip-logo"><img src="gic_logo.png" alt=""><div class="wm">GIC<br>RESEARCH<br>REPORT</div></div><div class="ip-co">삼성전자 (005930)</div></div>
+  <div style="text-align:center;font-size:40px;font-weight:800;color:var(--navy);margin:50px 0 10px;border-bottom:3px solid var(--navy);display:inline-block;margin-left:34px;padding:0 30px 6px;">CONTENTS</div>
+  <div style="padding:30px 60px;">
+    <div style="display:flex;justify-content:space-between;border-left:5px solid var(--navy);padding:6px 0 6px 14px;margin-bottom:6px;"><b style="font-size:17px;color:var(--navy);">산업분석</b><b style="color:var(--navy);">1</b></div>
+    <div style="padding-left:30px;color:#666;font-size:12.5px;margin-bottom:22px;">메모리 사이클 · 산업 수급 구조</div>
+    <div style="display:flex;justify-content:space-between;border-left:5px solid var(--navy);padding:6px 0 6px 14px;margin-bottom:6px;"><b style="font-size:17px;color:var(--navy);">기업분석</b><b style="color:var(--navy);">2</b></div>
+    <div style="padding-left:30px;color:#666;font-size:12.5px;margin-bottom:22px;">사업부 구조 · 경쟁력 · 지배구조</div>
+    <div style="display:flex;justify-content:space-between;border-left:5px solid var(--navy);padding:6px 0 6px 14px;margin-bottom:6px;"><b style="font-size:17px;color:var(--navy);">투자포인트</b><b style="color:var(--navy);">3</b></div>
+    <div style="padding-left:30px;color:#666;font-size:12.5px;margin-bottom:22px;">Point 1·2·3</div>
+    <div style="display:flex;justify-content:space-between;border-left:5px solid var(--navy);padding:6px 0 6px 14px;margin-bottom:6px;"><b style="font-size:17px;color:var(--navy);">투자리스크</b><b style="color:var(--navy);">4</b></div>
+    <div style="padding-left:30px;color:#666;font-size:12.5px;margin-bottom:22px;">하방 시나리오 · 민감도</div>
+    <div style="display:flex;justify-content:space-between;border-left:5px solid var(--navy);padding:6px 0 6px 14px;margin-bottom:6px;"><b style="font-size:17px;color:var(--navy);">밸류에이션</b><b style="color:var(--navy);">5</b></div>
+    <div style="padding-left:30px;color:#666;font-size:12.5px;">피어 비교 · 목표주가 산출</div>
+  </div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+<!-- ===== 3. 산업분석 ===== -->
+<div class="page"><div class="ipage">
+  <div class="ip-head"><div class="ip-logo"><img src="gic_logo.png" alt=""><div class="wm">GIC<br>RESEARCH<br>REPORT</div></div><div class="ip-co">삼성전자 (005930)</div></div>
+  <div class="sec-bar">산업분석</div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>제목 문장</h4><p><span class="todo">[작성 필요]</span> 메모리 산업의 사이클 위치와 수급 구조를 서술. (자동주입: 글로벌 DRAM 시장규모·성장률, 공급사 점유율 — prompt_pack 참조)</p></div></div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>제목 문장</h4><p><span class="todo">[작성 필요]</span> AI 수요(HBM)와 일반 메모리 수요의 분기, 가격 탄력성 논리.</p></div></div>
+  <div class="cap">표 또는 이미지는 이 표 안에 넣으세요. 기업 지배 구조 또는 BM 등</div>
+  <div class="figs">
+    <div class="fig"><svg viewBox="0 0 300 150" height="150">
+      <g stroke="#eee"><line x1="30" y1="20" x2="290" y2="20"/><line x1="30" y1="60" x2="290" y2="60"/><line x1="30" y1="100" x2="290" y2="100"/><line x1="30" y1="130" x2="290" y2="130"/></g>
+      <rect x="50" y="60" width="22" height="70" fill="#205A93"/><rect x="74" y="95" width="22" height="35" fill="#dbe6f5"/>
+      <rect x="130" y="40" width="22" height="90" fill="#205A93"/><rect x="154" y="100" width="22" height="30" fill="#dbe6f5"/>
+      <rect x="210" y="30" width="22" height="100" fill="#205A93"/><rect x="234" y="80" width="22" height="50" fill="#dbe6f5"/>
+      <text x="55" y="145" font-size="9" fill="#888">FY23</text><text x="135" y="145" font-size="9" fill="#888">FY24</text><text x="215" y="145" font-size="9" fill="#888">FY25E</text>
+    </svg></div>
+    <div class="fig"><svg viewBox="0 0 300 150" height="150">
+      <polyline fill="none" stroke="#205A93" stroke-width="2.5" points="20,120 80,90 140,100 200,55 280,30"/>
+      <polyline fill="none" stroke="#E97132" stroke-width="2.5" points="20,110 80,115 140,70 200,80 280,50"/>
+      <text x="20" y="145" font-size="9" fill="#888">DRAM ASP</text><text x="180" y="145" font-size="9" fill="#888">NAND ASP</text>
+    </svg></div>
+  </div>
+  <div class="figsrc"><div>자료 : 출처를 꼭 밝혀주세요</div><div>자료 : 출처를 꼭 밝혀주세요</div></div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+<!-- ===== 4. 기업분석 ===== -->
+<div class="page"><div class="ipage">
+  <div class="ip-head"><div class="ip-logo"><img src="gic_logo.png" alt=""><div class="wm">GIC<br>RESEARCH<br>REPORT</div></div><div class="ip-co">삼성전자 (005930)</div></div>
+  <div class="sec-bar">기업분석</div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>제목 문장</h4><p><span class="todo">[작성 필요]</span> 사업부(DS/DX/SDC/Harman) 매출·이익 비중과 핵심 경쟁력. (자동주입: 사업부문별 매출 — OpenDART 사업보고서)</p></div></div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>제목 문장</h4><p><span class="todo">[작성 필요]</span> 수직계열화·캐펙스·R&D 강도가 만드는 해자(moat) 논리.</p></div></div>
+  <div class="cap">표 또는 이미지는 이 표 안에 넣으세요. 기업 지배 구조 또는 BM 등</div>
+  <div class="figs">
+    <div class="fig"><svg viewBox="0 0 300 160" height="160">
+      <circle cx="150" cy="80" r="60" fill="#205A93"/><circle cx="150" cy="80" r="42" fill="#3A78B5"/><circle cx="150" cy="80" r="24" fill="#dbe6f5"/>
+    </svg></div>
+    <div class="fig"><svg viewBox="0 0 300 160" height="160">
+      <rect x="120" y="14" width="60" height="26" fill="#205A93"/>
+      <line x1="150" y1="40" x2="150" y2="62" stroke="#999"/><line x1="60" y1="62" x2="240" y2="62" stroke="#999"/>
+      <line x1="60" y1="62" x2="60" y2="78" stroke="#999"/><line x1="150" y1="62" x2="150" y2="78" stroke="#999"/><line x1="240" y1="62" x2="240" y2="78" stroke="#999"/>
+      <rect x="30" y="78" width="60" height="24" fill="#3A78B5"/><rect x="120" y="78" width="60" height="24" fill="#3A78B5"/><rect x="210" y="78" width="60" height="24" fill="#3A78B5"/>
+      <text x="135" y="31" font-size="9" fill="#fff">지주/오너</text>
+    </svg></div>
+  </div>
+  <div class="figsrc"><div>자료 : 출처를 꼭 밝혀주세요</div><div>자료 : 출처를 꼭 밝혀주세요</div></div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+<!-- ===== 5. 투자포인트 ===== -->
+<div class="page"><div class="ipage">
+  <div class="ip-head"><div class="ip-logo"><img src="gic_logo.png" alt=""><div class="wm">GIC<br>RESEARCH<br>REPORT</div></div><div class="ip-co">삼성전자 (005930)</div></div>
+  <div class="sec-bar">투자포인트</div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>Point 1. HBM 리더십</h4><p><span class="todo">[작성 필요]</span> HBM3E/4 양산 및 고객 다변화 → 메모리 믹스 고도화 논리. 근거 수치는 prompt_pack에 자동 주입.</p></div></div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>Point 2. 파운드리 턴어라운드</h4><p><span class="todo">[작성 필요]</span> 가동률·수율 개선과 수주잔고.</p></div></div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>Point 3. 주주환원</h4><p><span class="todo">[작성 필요]</span> 순현금·배당·자사주 정책.</p></div></div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+<!-- ===== 6. 투자리스크 ===== -->
+<div class="page"><div class="ipage">
+  <div class="ip-head"><div class="ip-logo"><img src="gic_logo.png" alt=""><div class="wm">GIC<br>RESEARCH<br>REPORT</div></div><div class="ip-co">삼성전자 (005930)</div></div>
+  <div class="sec-bar">투자리스크</div>
+  <div class="blk"><div class="lab">문단 설명 글</div><div class="bd"><h4>Risk 1. 메모리 가격 변동</h4><p><span class="todo">[작성 필요]</span> 다운사이클 진입 시 ASP·재고 부담. (Red Team 블록 적용)</p></div></div>
+  <div class="cap">표 또는 이미지는 이 표 안에 넣으세요.</div>
+  <div class="figs"><div class="fig"><svg viewBox="0 0 620 120" height="120"><text x="250" y="65" font-size="12" fill="#aaa">민감도/시나리오 차트 영역</text><rect x="10" y="10" width="600" height="100" fill="none" stroke="#e3e7ee"/></svg></div></div>
+  <div class="figsrc"><div>자료 : 출처를 꼭 밝혀주세요</div></div>
+  <div class="blk" style="margin-top:24px;"><div class="lab">문단 설명 글</div><div class="bd"><h4>Risk 2. 환율·지정학</h4><p><span class="todo">[작성 필요]</span> 수출 비중·미중 규제 민감도.</p></div></div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+<!-- ===== 7. 밸류에이션 ===== -->
+<div class="page"><div class="ipage">
+  <div class="ip-head"><div class="ip-logo"><img src="gic_logo.png" alt=""><div class="wm">GIC<br>RESEARCH<br>REPORT</div></div><div class="ip-co">삼성전자 (005930)</div></div>
+  <div class="sec-bar">밸류에이션</div>
+  <div class="cap">피어 비교 (벤치마킹) — 자동 수집</div>
+  <div style="padding:0 34px;">
+    <table class="fin-t">
+      <thead><tr><th>기업</th><th>매출(십억)</th><th class="hi">영업이익률(%)</th><th>PER(배)</th><th>ROE(%)</th><th>PBR(배)</th><th>EV/EBITDA(배)</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">삼성전자</td><td>300,870</td><td class="hi">10.9</td><td>13.1</td><td>9.0</td><td>1.4</td><td>4.1</td></tr>
+        <tr><td class="yr">SK하이닉스</td><td>66,190</td><td class="hi">21.0</td><td>9.2</td><td>18.4</td><td>1.9</td><td>3.5</td></tr>
+        <tr><td>피어 평균</td><td>—</td><td class="hi">16.0</td><td>11.2</td><td>13.7</td><td>1.7</td><td>3.8</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="figs" style="margin-top:22px;">
+    <div class="fig"><svg viewBox="0 0 300 150" height="150">
+      <rect x="60" y="40" width="40" height="90" fill="#205A93"/><rect x="180" y="70" width="40" height="60" fill="#dbe6f5"/>
+      <text x="62" y="145" font-size="9" fill="#888">삼성 PER</text><text x="178" y="145" font-size="9" fill="#888">피어 PER</text>
+    </svg></div>
+    <div class="fig"><svg viewBox="0 0 300 150" height="150">
+      <circle cx="150" cy="75" r="60" fill="#dbe6f5"/>
+      <path d="M150 75 L150 15 A60 60 0 0 1 202 105 Z" fill="#205A93"/>
+      <path d="M150 75 L202 105 A60 60 0 0 1 110 130 Z" fill="#E97132"/>
+      <text x="120" y="148" font-size="9" fill="#888">사업부 매출 비중</text>
+    </svg></div>
+  </div>
+  <div class="figsrc"><div>자료: OpenDART · pykrx 자동 수집</div><div>자료: OpenDART 사업보고서</div></div>
+
+  <div class="compliance">
+    <h5>Compliance Notice</h5>
+    <ul>
+      <li>본 문서는 가천대학교 금융투자 동아리 GIC의 학생들이 학습 및 연구 목적으로 작성한 리포트입니다.</li>
+      <li>본 문서는 증권, 금융 상품, 기타 투자 자산에 대한 매수·매도·보유를 권유하기 위한 목적으로 제작되지 않았습니다.</li>
+      <li>본 보고서에 포함된 모든 정보는 작성 시점의 공개 자료(OpenDART·KRX)를 바탕으로 하며 정확성·완전성을 보증하지 않습니다.</li>
+      <li>모든 투자 결정은 투자자 본인의 판단과 책임하에 이루어져야 합니다.</li>
+      <li>본 보고서에 대한 지적재산권은 가천대학교 금융투자동아리 GIC에 있습니다.</li>
+    </ul>
+  </div>
+  <div class="footer-band">GACHON INVESTMENT CLUB</div>
+</div></div>
+
+</body>
+</html>
